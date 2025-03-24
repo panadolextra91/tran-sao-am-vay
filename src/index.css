@@ -1,6 +1,8 @@
 :root {
     --custom-yellow: #ede3ca;
     --custom-red: #541717;
+    --custom-yellow-2: #cf9232;
+    --custom-red-2: #8b1f1f;
   }
 @import "tailwindcss";
 @import './assets/fonts/LostVietnam.css';
