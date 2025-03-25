@@ -4,6 +4,9 @@ import mapDetailedImage from './assets/images/map_chung.png';
 import namCheo from './assets/images/ong_nam_cheo.jpg'
 import ganhHatMaAudio from './assets/audio/lang am audio/làng âm - gánh hát ma.MP3'
 import cardNamCheo from './assets/images/the bai/THẺ BÀI ÔNG NĂM CHÈO.png'
+import infoNamCheo1 from './assets/images/info cho the bai/ong_nam_cheo_1.png'
+import infoNamCheo2 from './assets/images/info cho the bai/ong_nam_cheo_2.png'
+
 const MapPage = () => {
   const [showText1, setShowText1] = useState(false);
   const [showText2, setShowText2] = useState(false);
@@ -20,6 +23,8 @@ const MapPage = () => {
   const [showText13, setShowText13] = useState(false);
   const [showNamCheo, setShowNamCheo] = useState(false);
   const [showCardNamCheo, setShowCardNamCheo] = useState(false);
+  const [showInfoNamCheo1, setShowInfoNamCheo1] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef(null);
 
@@ -126,14 +131,42 @@ const MapPage = () => {
                   <img 
                     src={cardNamCheo} 
                     alt="Card Nam Cheo"
-                    className="absolute w-full left-[35%] h-full object-contain"
+                    className="absolute w-full left-[35%] h-full object-contain cursor-pointer"
+                    onClick={() => setShowInfoNamCheo1(true)}
                   />
                   <button 
-                    onClick={() => setShowCardNamCheo(false)}
+                    onClick={() => {
+                      setShowCardNamCheo(false);
+                      setShowInfoNamCheo1(false);
+                      setIsFlipped(false);
+                    }}
                     className="absolute top-[17%] right-[2%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
                   >
                     ✕
                   </button>
+                  {showInfoNamCheo1 && (
+                    <div 
+                      className="absolute left-[5%] top-[10%] w-[50%] h-[80%] flip-container cursor-pointer"
+                      onClick={() => setIsFlipped(!isFlipped)}
+                    >
+                      <div className={`flip-card ${isFlipped ? 'flipped' : ''}`}>
+                        <div className="flip-card-front">
+                          <img 
+                            src={infoNamCheo1} 
+                            alt="Info Nam Cheo 1"
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                        <div className="flip-card-back">
+                          <img 
+                            src={infoNamCheo2} 
+                            alt="Info Nam Cheo 2"
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </>
               )}
             </div>
