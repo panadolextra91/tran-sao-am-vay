@@ -100,12 +100,12 @@ const MapPage = () => {
               <img 
                 src={namCheo} 
                 alt="Nam Cheo" 
-                className="fixed inset-0 w-full h-[100%] object-fill"
+                className="fixed inset-0 w-full h-[100%] object-cover"
               />
               {/* Hotspot for card */}
               <div 
                 className="absolute top-[66%] left-[34%] w-250 h-70 hover:cursor-pointer"
-                onClick={(e) => {
+                onMouseEnter={(e) => {
                   e.stopPropagation();
                   setShowCardNamCheo(true);
                 }}
@@ -131,7 +131,7 @@ const MapPage = () => {
                   <img 
                     src={cardNamCheo} 
                     alt="Card Nam Cheo"
-                    className="absolute w-full left-[35%] h-full object-contain cursor-pointer"
+                    className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
                     onClick={() => setShowInfoNamCheo1(true)}
                   />
                   <button 
@@ -140,7 +140,7 @@ const MapPage = () => {
                       setShowInfoNamCheo1(false);
                       setIsFlipped(false);
                     }}
-                    className="absolute top-[17%] right-[2%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+                    className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
                   >
                     ✕
                   </button>
@@ -154,14 +154,14 @@ const MapPage = () => {
                           <img 
                             src={infoNamCheo1} 
                             alt="Info Nam Cheo 1"
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-contain opacity-90"
                           />
                         </div>
                         <div className="flip-card-back">
                           <img 
                             src={infoNamCheo2} 
                             alt="Info Nam Cheo 2"
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-contain opacity-90"
                           />
                         </div>
                       </div>

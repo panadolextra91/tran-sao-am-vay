@@ -12,11 +12,11 @@ const Intro = () => {
 
   // Original text (for Làng Dương)
   const originalText =
-    'Là nơi sinh sống của người dương, với một cuộc sống êm đềm và trù phú dưới sự cai quản và chở che của các vị thần linh. Người dân bản địa và khách thập phương còn được hướng dẫn những cách đối phó với ma quỷ - những thế lực tà ác.';
+    'Ở miệt Nam Kỳ lục tỉnh năm xưa,  có một ngôi làng trù phú, dân gian quen gọi là làng Dương. Người ta truyền miệng nhau rằng, sở dĩ có tên ấy cũng là vì nơi này quanh năm chan hòa nắng ấm, như thể ánh dương chưa bao giờ phai. Không ai biết ngôi làng đã có từ bao giờ, chỉ biết con cháu làng Dương đã đời đời thừa hưởng những thửa ruộng xanh mướt bạt ngàn, đến độ cò đậu rồi cũng chẳng buồn bay đi. Cuộc sống ngó chừng là no ấm lắm.\n\nMỗi năm, cứ đến tiết Hạ Chí, đại điền chủ lớn nhất trong làng sẽ đứng ra tổ chức lễ hội, vừa là để tạ lễ thần linh đã phù hộ cho mảnh đất này được sung túc, vừa là dịp ân xá cho những kẻ trót mang tội vạ trong làng. Ban đầu chỉ là hội hè của người làng Dương, lâu dần lại nổi tiếng khắp cả một vùng sông nước, khiến cho nam thanh nữ tú từ khắp nơi nô nức về đây trẩy hội.\n\nÍt người biết đằng sau vẻ ngoài yên bình đó, là một bí mật kinh hoàng…';
 
   // New text (for Làng Âm)
   const switchedText =
-    'Nơi trú ngụ của ma quỷ và yêu quái, được cai trị bởi Lệ Quỷ - vị dâu trưởng chết oan của gia đình địa chủ, khi chết vì oán khí quá lớn mà biến thành quỷ dữ, tạo ra cả một ngôi làng giống hệt làng Dương và sai khiến lũ ma quỷ dụ dỗ người dương cống mạng. Đủ loại ma quỷ thường xuyên trà trộn vào làng người Dương hoặc dụ dỗ người Dương bỏ mạng khi bước qua đất làng Âm.';
+    'Dưới ánh trăng lạnh lẽo, phía bên kia con rạch sương mù giăng kín bóng dáng của một ngôi làng kỳ dị dần dần lộ ra - làng Âm. Lệ Quỷ - oan hồn người con dâu trưởng nhà đại điền chủ, kẻ bị hành hạ đến quẫn bách phải treo cổ tự vẫn, lại bị vùi xác tức tưởi dưới đáy giếng năm nào , cùng với lũ quỷ quái lâu la của ả đã thành công dựng lại một ảo ảnh phản chiếu chính xác làng Dương, ngay khi trăng rằm tháng Bảy vừa tròn vành vạnh. \n\nRằm tháng Bảy - ngày làng Dương tưng bừng mở hội trong năm nay, vừa hay cũng là lúc Quỷ Môn quan mở cửa. Lệ Quỷ chẳng thể bỏ lỡ cơ hội trả thù ngàn năm có một, lập tức lệnh cho lũ yêu ma giả dạng người trần lẻn sang làng Dương từ sớm, trà trộn vào đám đông, lôi kéo người ta vào chốn ma quỷ ngự trị, đặng dễ dàng chiếm hồn đoạt phách.\n\nNhà đại điền chủ giết bao nhiêu người, ả sẽ bắt bọn chúng đền bấy nhiêu mạng…';
 
   return (
     <div className="relative">
@@ -77,7 +77,7 @@ const Intro = () => {
           }}
         >
           <p
-            className={`text-4xl text-center leading-relaxed ${
+            className={`text-2xl text-center leading-relaxed ${
               switched ? 'text-red-400' : 'text-[var(--custom-red)]'
             }`}
             style={{ fontFamily: 'Ale, serif' }}

@@ -5,6 +5,8 @@ import MainContent from './MainContent';
 import Map from './Map';
 import List from './List';
 import Contact from './Contact';
+import OpenLetter from './OpenLetter';
+import Survey from './Survey';
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +16,8 @@ function App() {
         <Route path='/map' element={<Map/>}/>
         <Route path="/list" element={<List />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/open-letter" element={<OpenLetter />} />
+        <Route path="/survey" element={<Survey />} />
       </Routes>
     </BrowserRouter>
   );
