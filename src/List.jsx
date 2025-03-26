@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopBarWhite from './components/TopBarWhite';
+import LazyImage from './components/LazyImage';
+import { resourceManager } from './utils/ResourceManager';
 //Smoke
 import yellow from './assets/images/yellow.png';
 // Cards
@@ -35,6 +37,7 @@ import cardThienLinhCai from './assets/images/the bai/card_thien_linh_cai.png'
 import cardVongNhi from './assets/images/the bai/card_vong_nhi.png'
 //Cloud
 import cloudImage from './assets/images/cloud.png'
+
 const cardImages = [
   cardNamCheo, cardAmBinh, cardBaGiaAoDo, cardCauCo, cardHoTinh,
   cardLeQuy, cardLinhMieu, cardMaCutDau, cardMaDa, cardMaDoi,
@@ -47,10 +50,11 @@ const cardImages = [
 const Card = ({ src, direction }) => {
   return (
     <div className={`w-[600px] h-[550px] ${direction === 'prev' ? 'animate-slideLeftToRight' : 'animate-slideRightToLeft'}`}>
-      <img 
+      <LazyImage 
         src={src} 
         alt="Card" 
-        className="w-full h-full object-cover" 
+        className="w-full h-full object-cover"
+        loading="eager"
       />
     </div>
   );
@@ -59,12 +63,40 @@ const Card = ({ src, direction }) => {
 const List = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [direction, setDirection] = useState('next');
+  const [isResourcesLoaded, setIsResourcesLoaded] = useState(false);
   const visibleCount = 3;
+
+  // Preload critical resources
+  useEffect(() => {
+    const preloadResources = async () => {
+      try {
+        // Preload smoke and cloud images
+        await Promise.all([
+          resourceManager.preloadImage(yellow),
+          resourceManager.preloadImage(cloudImage)
+        ]);
+
+        // Preload first set of visible cards
+        const initialCards = cardImages.slice(0, visibleCount);
+        await Promise.all(initialCards.map(card => resourceManager.preloadImage(card)));
+
+        setIsResourcesLoaded(true);
+      } catch (error) {
+        console.error('Error preloading resources:', error);
+      }
+    };
+
+    preloadResources();
+  }, []);
 
   const handleNext = () => {
     if (startIndex + visibleCount < cardImages.length) {
       setDirection('next');
       setStartIndex(startIndex + visibleCount);
+      
+      // Preload next set of cards
+      const nextCards = cardImages.slice(startIndex + visibleCount, startIndex + visibleCount * 2);
+      nextCards.forEach(card => resourceManager.preloadImage(card));
     }
   };
 
@@ -72,10 +104,22 @@ const List = () => {
     if (startIndex - visibleCount >= 0) {
       setDirection('prev');
       setStartIndex(startIndex - visibleCount);
+      
+      // Preload previous set of cards
+      const prevCards = cardImages.slice(startIndex - visibleCount, startIndex);
+      prevCards.forEach(card => resourceManager.preloadImage(card));
     }
   };
 
   const visibleImages = cardImages.slice(startIndex, startIndex + visibleCount);
+
+  if (!isResourcesLoaded) {
+    return (
+      <div className="fixed inset-0 bg-[var(--custom-red)] flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative">
@@ -87,12 +131,12 @@ const List = () => {
       {/* Background with custom-red color */}
       <div className="bg-[var(--custom-red)] fixed h-screen w-screen flex flex-col items-center pt-[100px]">
         {/* Yellow smoke effects */}
-        <img 
+        <LazyImage 
           src={yellow} 
           alt="Yellow" 
           className="absolute top-20 right-[-200px] w-[300px] h-auto" 
         />
-        <img 
+        <LazyImage 
           src={yellow} 
           alt="Yellow" 
           className="absolute bottom-2 left-0 w-[300px] h-auto" 
@@ -105,7 +149,7 @@ const List = () => {
             disabled={startIndex === 0}
             className="absolute left-[-100px] top-1/2 transform -translate-y-1/2 z-30 px-4 cursor-pointer disabled:opacity-50"
           >
-            <img 
+            <LazyImage 
               src={cloudImage} 
               alt="Previous" 
               className="w-20 h-20 transition-all duration-100 hover:drop-shadow-[-2px_-2px_0_var(--custom-yellow-2)] hover:drop-shadow-[2px_-2px_0_var(--custom-yellow-2)] hover:drop-shadow-[-2px_2px_0_var(--custom-yellow-2)] hover:drop-shadow-[2px_2px_0_var(--custom-yellow-2)] hover:scale-110"
@@ -132,7 +176,7 @@ const List = () => {
             disabled={startIndex + visibleCount >= cardImages.length}
             className="absolute right-[-100px] top-1/2 transform -translate-y-1/2 z-30 px-4 cursor-pointer disabled:opacity-50"
           >
-            <img 
+            <LazyImage 
               src={cloudImage} 
               alt="Next" 
               className="w-20 h-20 transition-all duration-100 hover:drop-shadow-[-2px_-2px_0_var(--custom-yellow-2)] hover:drop-shadow-[2px_-2px_0_var(--custom-yellow-2)] hover:drop-shadow-[-2px_2px_0_var(--custom-yellow-2)] hover:drop-shadow-[2px_2px_0_var(--custom-yellow-2)] hover:scale-110"
