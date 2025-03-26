@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import TopBarWhite from './components/TopBarWhite';
 import mapDetailedImage from './assets/images/map_chung.png';
-import yellow from './assets/images/yellow.png';
 //Tran vien
 import namCheo from './assets/images/ong_nam_cheo.jpg'
 //Audio lang am
@@ -177,21 +176,10 @@ const MapPage = () => {
       )}
       <div className="bg-[var(--custom-red)] fixed h-screen w-screen">
         <div className="relative flex items-center justify-center h-screen mt-2">
-          {/* Yellow smoke effects */}
-          <img 
-            src={yellow} 
-            alt="Yellow" 
-            className="absolute top-20 right-[-200px] w-[300px] h-auto z-0" 
-          />
-          <img 
-            src={yellow} 
-            alt="Yellow" 
-            className="absolute bottom-2 left-0 w-[300px] h-auto z-0" 
-          />
           <img 
             src={mapDetailedImage} 
             alt="Detailed Map" 
-            className="w-max-full h-[90%] object-contain animate-fade-in-no-delay relative z-10" 
+            className="w-max-full h-[90%] object-contain animate-fade-in-no-delay" 
           />
           {/* Hotspot 1 */}
           <div 
