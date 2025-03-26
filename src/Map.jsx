@@ -1,5 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import TopBarWhite from './components/TopBarWhite';
+import LazyImage from './components/LazyImage';
+import { resourceManager } from './utils/ResourceManager';
 import mapDetailedImage from './assets/images/map_chung.png';
 //Tran vien
 import namCheo from './assets/images/ong_nam_cheo.jpg'
@@ -113,6 +115,9 @@ import infoThienLinhCai2 from './assets/images/info_card/thien_linh_cai_2.png';
 import infoVongNhi1 from './assets/images/info_card/vong_nhi_1.png';
 import infoVongNhi2 from './assets/images/info_card/vong_nhi_2.png';
 
+// Lazy load the NamCheoOverlay component
+const NamCheoOverlay = React.lazy(() => import('./components/NamCheoOverlay'));
+
 const MapPage = () => {
   const [showText1, setShowText1] = useState(false);
   const [showText2, setShowText2] = useState(false);
@@ -133,152 +138,143 @@ const MapPage = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef(null);
+  const [isAudioLoaded, setIsAudioLoaded] = useState(false);
 
+  // Preload critical resources
   useEffect(() => {
-    if (showNamCheo && audioRef.current) {
-      audioRef.current.play();
+    const preloadResources = async () => {
+      try {
+        // Preload map image
+        await resourceManager.preloadImage(mapDetailedImage);
+        
+        // Preload audio
+        await resourceManager.preloadAudio(ganhHatMaAudio);
+        setIsAudioLoaded(true);
+      } catch (error) {
+        console.error('Error preloading resources:', error);
+      }
+    };
+
+    preloadResources();
+  }, []);
+
+  // Handle audio playback
+  useEffect(() => {
+    if (showNamCheo && audioRef.current && isAudioLoaded) {
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
     } else if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
     }
 
-    // Cleanup function
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
       }
     };
-  }, [showNamCheo]);
+  }, [showNamCheo, isAudioLoaded]);
 
   const toggleMute = () => {
     if (audioRef.current) {
       audioRef.current.muted = !isMuted;
       setIsMuted(!isMuted);
       if (!isMuted) {
-        // If unmuting, restart the audio
         audioRef.current.currentTime = 0;
-        audioRef.current.play();
+        audioRef.current.play().catch(error => {
+          console.error('Error playing audio:', error);
+        });
       }
     }
   };
 
+  // Handler to close NamCheo overlay and reset all states
+  const handleCloseNamCheo = () => {
+    setShowNamCheo(false);
+    setShowCardNamCheo(false);
+    setShowInfoNamCheo1(false);
+    setIsFlipped(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close only the card and info
+  const handleCloseCard = () => {
+    setShowCardNamCheo(false);
+    setShowInfoNamCheo1(false);
+    setIsFlipped(false);
+  };
+
   return (
     <div className="relative">
-      {/* Audio element */}
-      <audio ref={audioRef} src={ganhHatMaAudio} />
+      {/* Audio element with preload="none" */}
+      <audio 
+        ref={audioRef} 
+        src={ganhHatMaAudio} 
+        preload="none"
+      />
       
-      {/* Fixed TopBar - only show when namCheo is not showing */}
+      {/* Fixed TopBar */}
       {!showNamCheo && (
         <div className="fixed top-0 left-0 w-full z-25">
           <TopBarWhite />
         </div>
       )}
+
       <div className="bg-[var(--custom-red)] fixed h-screen w-screen">
         <div className="relative flex items-center justify-center h-screen mt-2">
-          <img 
+          {/* Main map image with lazy loading */}
+          <LazyImage 
             src={mapDetailedImage} 
             alt="Detailed Map" 
-            className="w-max-full h-[90%] object-contain animate-fade-in-no-delay" 
+            className="w-max-full h-[90%] object-contain animate-fade-in-no-delay"
+            loading="eager"
           />
-          {/* Hotspot 1 */}
+
+          {/* Hotspots with optimized event handlers */}
           <div 
             className="absolute top-[33%] left-[17%] w-15 h-10 hover:cursor-pointer"
             onMouseEnter={() => setShowText1(true)}
             onMouseLeave={() => setShowText1(false)}
-          ></div>
+          />
           {showText1 && (
-            <div className="absolute top-[23%] left-[14%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+            <div className="absolute top-[23%] left-[14%] w-50 text-center leading-[1] animate-fade-in-no-delay" 
+              style={{ 
+                fontFamily: 'LostType, sans-serif', 
+                color: 'var(--custom-red-2)', 
+                textShadow: 'var(--custom-yellow-2) 4px 4px 7px', 
+                fontSize: '30px' 
+              }}
+            >
               Gánh Hát Trên Sông
             </div>
           )}
 
-          {/* Nam Cheo Image Overlay */}
-          {showNamCheo && (
-            <div 
-              className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
-              onClick={(e) => {
-                if (e.target === e.currentTarget) {
-                  setShowNamCheo(false);
-                }
-              }}
-            >
-              <img 
-                src={namCheo} 
-                alt="Nam Cheo" 
-                className="fixed inset-0 w-full h-[100%] object-cover"
+          {/* Lazy loaded NamCheoOverlay */}
+          <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="text-white text-xl">Loading...</div>
+          </div>}>
+            {showNamCheo && (
+              <NamCheoOverlay 
+                onClose={handleCloseNamCheo}
+                onCloseCard={handleCloseCard}
+                isMuted={isMuted}
+                onToggleMute={toggleMute}
+                showCardNamCheo={showCardNamCheo}
+                setShowCardNamCheo={setShowCardNamCheo}
+                showInfoNamCheo1={showInfoNamCheo1}
+                setShowInfoNamCheo1={setShowInfoNamCheo1}
+                isFlipped={isFlipped}
+                setIsFlipped={setIsFlipped}
               />
-              {/* Hotspot for card */}
-              <div 
-                className="absolute top-[66%] left-[34%] w-250 h-70 hover:cursor-pointer"
-                onMouseEnter={(e) => {
-                  e.stopPropagation();
-                  setShowCardNamCheo(true);
-                }}
-              ></div>
-              <div className="absolute top-4 right-4 flex gap-2 z-[10000]">
-                <button 
-                  onClick={toggleMute}
-                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-gray-200 transition-colors cursor-pointer"
-                >
-                  {isMuted ? '🔇' : '🔊'}
-                </button>
-                <button 
-                  onClick={() => setShowNamCheo(false)}
-                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-gray-200 transition-colors cursor-pointer"
-                >
-                  ✕
-                </button>
-              </div>
+            )}
+          </Suspense>
 
-              {/* Card Nam Cheo Overlay */}
-              {showCardNamCheo && (
-                <>
-                  <img 
-                    src={cardNamCheo} 
-                    alt="Card Nam Cheo"
-                    className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
-                    onClick={() => setShowInfoNamCheo1(true)}
-                  />
-                  <button 
-                    onClick={() => {
-                      setShowCardNamCheo(false);
-                      setShowInfoNamCheo1(false);
-                      setIsFlipped(false);
-                    }}
-                    className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
-                  >
-                    ✕
-                  </button>
-                  {showInfoNamCheo1 && (
-                    <div 
-                      className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
-                      onClick={() => setIsFlipped(!isFlipped)}
-                    >
-                      <div className={`flip-card ${isFlipped ? 'flipped' : ''} w-full h-full`}>
-                        <div className="flip-card-front absolute inset-0">
-                          <img 
-                            src={infoNamCheo1} 
-                            alt="Info Nam Cheo 1"
-                            className="w-full h-full object-fit" 
-                          />
-                        </div>
-                        <div className="flip-card-back absolute inset-0">
-                          <img 
-                            src={infoNamCheo2} 
-                            alt="Info Nam Cheo 2"
-                            className="w-full h-full object-fit" 
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </>
-              )}
-            </div>
-          )}
-
-          {/* Hotspot 2 */}
+          {/* Other hotspots with optimized event handlers */}
           <div 
             className="absolute top-[40%] left-[20%] w-25 h-20 hover:cursor-pointer"
             onMouseEnter={() => setShowText2(true)}
@@ -290,7 +286,6 @@ const MapPage = () => {
             </div>
           )}
 
-          {/* Hotspot 3 */}
           <div 
             className="absolute top-[37%] left-[33%] w-30 h-20 hover:cursor-pointer"
             onMouseEnter={() => setShowText3(true)}
@@ -302,7 +297,6 @@ const MapPage = () => {
             </div>
           )}
 
-          {/* Hotspot 4 */}
           <div 
             className="absolute top-[31%] left-[45%] w-30 h-45 hover:cursor-pointer"
             onMouseEnter={() => setShowText4(true)}
@@ -314,7 +308,6 @@ const MapPage = () => {
             </div>
           )}
 
-          {/* Hotspot 5 */}
           <div 
             className="absolute top-[52%] left-[25%] w-38 h-20 hover:cursor-pointer"
             onMouseEnter={() => setShowText5(true)}
@@ -326,7 +319,6 @@ const MapPage = () => {
             </div>
           )}
 
-          {/* Hotspot 6 */}
           <div 
             className="absolute top-[62%] left-[53%] w-40 h-25 hover:cursor-pointer"
             onMouseEnter={() => setShowText6(true)}
@@ -338,7 +330,6 @@ const MapPage = () => {
             </div>
           )}
 
-          {/* Hotspot 7 */}
           <div 
             className="absolute top-[63%] left-[36%] w-38 h-20 hover:cursor-pointer"
             onMouseEnter={() => setShowText7(true)}
@@ -350,7 +341,6 @@ const MapPage = () => {
             </div>
           )}
 
-          {/* Hotspot 8 */}
           <div 
             className="absolute top-[30%] left-[79%] w-18 h-10 hover:cursor-pointer"
             onMouseEnter={() => setShowText8(true)}
@@ -363,7 +353,6 @@ const MapPage = () => {
             </div>
           )}
 
-          {/* Hotspot 9 */}
           <div 
             className="absolute top-[20%] left-[38%] w-33 h-27 hover:cursor-pointer"
             onMouseEnter={() => setShowText9(true)}
@@ -375,7 +364,6 @@ const MapPage = () => {
             </div>
           )}
 
-          {/* Hotspot 10 */}
           <div 
             className="absolute top-[21%] left-[52%] w-40 h-25 hover:cursor-pointer"
             onMouseEnter={() => setShowText10(true)}
@@ -387,7 +375,6 @@ const MapPage = () => {
             </div>
           )}
 
-          {/* Hotspot 11 */}
           <div 
             className="absolute top-[39%] left-[72%] w-38 h-20 hover:cursor-pointer"
             onMouseEnter={() => setShowText11(true)}
@@ -399,7 +386,6 @@ const MapPage = () => {
             </div>
           )}
 
-          {/* Hotspot 12 */}
           <div 
             className="absolute top-[36%] left-[59%] w-40 h-26 hover:cursor-pointer"
             onMouseEnter={() => setShowText12(true)}
@@ -411,7 +397,6 @@ const MapPage = () => {
             </div>
           )}
 
-          {/* Hotspot 13 */}
           <div 
             className="absolute top-[57%] left-[65%] w-43 h-22 hover:cursor-pointer"
             onMouseEnter={() => setShowText13(true)}
