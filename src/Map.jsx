@@ -3,8 +3,6 @@ import TopBarWhite from './components/TopBarWhite';
 import LazyImage from './components/LazyImage';
 import { resourceManager } from './utils/ResourceManager';
 import mapDetailedImage from './assets/images/map_chung.png';
-//Tran vien
-import namCheo from './assets/images/ong_nam_cheo.jpg'
 //Audio lang am
 import ganhHatMaAudio from './assets/audio/lang am audio/làng âm - gánh hát ma.MP3'
 import cauKhiAudio from './assets/audio/lang am audio/cau_khi.MP3'
@@ -24,99 +22,41 @@ import ganhHatTrenSongAudio from './assets/audio/lang duong audio/ganh_hat_tren_
 import giaDinhDiaChuBenNgoaiAudio from './assets/audio/lang duong audio/gia_dinh_dia_chu_ben_ngoai.MP3'
 import giaDinhDiaChuBenTrongAudio from './assets/audio/lang duong audio/gia_dinh_dia_chu_ben_trong.MP3'
 import sanChoiLangDuongAudio from './assets/audio/lang duong audio/san_choi.MP3'
-//Card
-import cardNamCheo from './assets/images/the bai/THẺ BÀI ÔNG NĂM CHÈO.png'
-import cardAmBinh from './assets/images/the bai/card_am_binh.png'
-import cardBaGiaAoDo from './assets/images/the bai/card_ba_gia_ao_do.png'
-import cardCauCo from './assets/images/the bai/card_cau_co.png'
-import cardHoTinh from './assets/images/the bai/card_ho_tinh.png'
-import cardLeQuy from './assets/images/the bai/card_le_quy.png'
-import cardLinhMieu from './assets/images/the bai/card_linh_mieu.png'
-import cardMaCutDau from './assets/images/the bai/card_ma_cut_dau.png'
-import cardMaDa from './assets/images/the bai/card_ma_da.png'
-import cardMaDoi from './assets/images/the bai/card_ma_doi.png'
-import cardMaGiau from './assets/images/the bai/card_ma_giau.png'
-import cardMaLai from './assets/images/the bai/card_ma_lai.png'
-import cardMaLe from './assets/images/the bai/card_ma_le.png'
-import cardMaLon from './assets/images/the bai/card_ma_lon.png'
-import cardMaMatMam from './assets/images/the bai/card_ma_mat_mam.png'
-import cardMaRapXac from './assets/images/the bai/card_ma_rap_xac.png'
-import cardMaThatCo from './assets/images/the bai/card_ma_that_co.png'
-import cardMaTocDai from './assets/images/the bai/card_ma_toc_dai.png'
-import cardMaTroi from './assets/images/the bai/card_ma_troi.png'
-import cardMaVuDai from './assets/images/the bai/card_ma_vu_dai.png'
-import cardNgai from './assets/images/the bai/card_ngai.png'
-import cardOngBaBi from './assets/images/the bai/card_ong_ba_bi.png'
-import cardOngHoMay from './assets/images/the bai/card_ong_ho_may.png'
-import cardOngTa from './assets/images/the bai/card_ong_ta.png'
-import cardQuyMotGio from './assets/images/the bai/card_quy_mot_gio.png'
-import cardQuyNhapTrang from './assets/images/the bai/card_quy_nhap_trang.png'
-import cardThanTrung from './assets/images/the bai/card_than_trung.png'
-import cardThanhHoangLang from './assets/images/the bai/card_thanh_hoang_lang.png'
-import cardThienLinhCai from './assets/images/the bai/card_thien_linh_cai.png'
-import cardVongNhi from './assets/images/the bai/card_vong_nhi.png'
-//Info
-import infoNamCheo1 from './assets/images/info_card/ong_nam_cheo_1_test.png'
-import infoNamCheo2 from './assets/images/info_card/ong_nam_cheo_2.png'
-import infoAmBinh from './assets/images/info_card/am_binh.png'
-import infoBaGiaAoDo from './assets/images/info_card/ba_gia_ao_do.png'
-import infoCauCo1 from './assets/images/info_card/cau_co_1.png'
-import infoCauCo2 from './assets/images/info_card/cau_co_2.png'
-import infoCoHon1 from './assets/images/info_card/co_hon_1.png'
-import infoCoHon2 from './assets/images/info_card/co_hon_2.png'
-import infoHoTinh1 from './assets/images/info_card/ho_tinh_1.png';
-import infoHoTinh2 from './assets/images/info_card/ho_tinh_2.png';
-import infoLeQuy1 from './assets/images/info_card/le_quy_1.png';
-import infoLeQuy2 from './assets/images/info_card/le_quy_2.png';
-import infoLinhMieu1 from './assets/images/info_card/linh_mieu_1.png';
-import infoLinhMieu2 from './assets/images/info_card/linh_mieu_2.png';
-import infoMaDa1 from './assets/images/info_card/ma_da_1.png';
-import infoMaDa2 from './assets/images/info_card/ma_da_2.png';
-import infoMaGiauXac1 from './assets/images/info_card/ma_giau_xac_1.png';
-import infoMaGiauXac2 from './assets/images/info_card/ma_giau_xac_2.png';
-import infoMaLai1 from './assets/images/info_card/ma_lai_1.png';
-import infoMaLai2 from './assets/images/info_card/ma_lai_2.png';
-import infoMaLe from './assets/images/info_card/ma_le.png';
-import infoMaLon1 from './assets/images/info_card/ma_lon_1.png';
-import infoMaLon2 from './assets/images/info_card/ma_lon_2.png';
-import infoMaMatMam1 from './assets/images/info_card/ma_mat_mam_1.png';
-import infoMaMatMam2 from './assets/images/info_card/ma_mat_mam_2.png';
-import infoMaRapXac1 from './assets/images/info_card/ma_rap_xac_1.png';
-import infoMaRapXac2 from './assets/images/info_card/ma_rap_xac_2.png';
-import infoMaThatCo1 from './assets/images/info_card/ma_that_co_1.png';
-import infoMaThatCo2 from './assets/images/info_card/ma_that_co_2.png';
-import infoMaTocDai1 from './assets/images/info_card/ma_toc_dai_1.png';
-import infoMaTocDai2 from './assets/images/info_card/ma_toc_dai_2.png';
-import infoMaTroi1 from './assets/images/info_card/ma_troi_1.png';
-import infoMaTroi2 from './assets/images/info_card/ma_troi_2.png';
-import infoMaVuDai1 from './assets/images/info_card/ma_vu_dai_1.png';
-import infoMaVuDai2 from './assets/images/info_card/ma_vu_dai_2.png';
-import infoMaVuDai3 from './assets/images/info_card/ma_vu_dai_3.png';
-import infoNgai1 from './assets/images/info_card/ngai_1.png';
-import infoNgai2 from './assets/images/info_card/ngai_2.png';
-import infoOngBaBi1 from './assets/images/info_card/ong_ba_bi_1.png';
-import infoOngBaBi2 from './assets/images/info_card/ong_ba_bi_2.png';
-import infoOngHoMay1 from './assets/images/info_card/ong_ho_may_1.png';
-import infoOngHoMay2 from './assets/images/info_card/ong_ho_may_2.png';
-import infoOngHoMay3 from './assets/images/info_card/ong_ho_may_3.png';
-import infoOngTa1 from './assets/images/info_card/ong_ta_1.png';
-import infoOngTa2 from './assets/images/info_card/ong_ta_2.png';
-import infoQuyMotGio1 from './assets/images/info_card/quy_mot_gio_1.png';
-import infoQuyMotGio2 from './assets/images/info_card/quy_mot_gio_2.png';
-import infoQuyNhapTrang1 from './assets/images/info_card/quy_nhap_trang_1.png';
-import infoQuyNhapTrang2 from './assets/images/info_card/quy_nhap_trang_2.png';
-import infoQuyNhapTrang3 from './assets/images/info_card/quy_nhap_trang_3.png';
-import infoThanTrung1 from './assets/images/info_card/than_trung_1.png';
-import infoThanTrung2 from './assets/images/info_card/than_trung_2.png';
-import infoThanhHoangLang1 from './assets/images/info_card/thanh_hoang_lang_1.png';
-import infoThanhHoangLang2 from './assets/images/info_card/thanh_hoang_lang_2.png';
-import infoThienLinhCai1 from './assets/images/info_card/thien_linh_cai_1.png';
-import infoThienLinhCai2 from './assets/images/info_card/thien_linh_cai_2.png';
-import infoVongNhi1 from './assets/images/info_card/vong_nhi_1.png';
-import infoVongNhi2 from './assets/images/info_card/vong_nhi_2.png';
 
-// Lazy load the NamCheoOverlay component
-const NamCheoOverlay = React.lazy(() => import('./components/NamCheoOverlay'));
+// Lazy load the GanhHatMaOverlay component
+const GanhHatMaOverlay = React.lazy(() => import('./components/GanhHatMaOverlay'));
+// Lazy load the SanChoiLangAmOverlay component
+const SanChoiLangAmOverlay = React.lazy(() => import('./components/SanChoiLangAmOverlay'));
+// Lazy load the GianGuaOverlay component
+const GianGuaOverlay = React.lazy(() => import('./components/GianGuaOverlay'));
+// Lazy load the ChoAmOverlay component
+const ChoAmOverlay = React.lazy(() => import('./components/ChoAmOverlay'));
+// Lazy load the CauKhiOverlay component
+const CauKhiOverlay = React.lazy(() => import('./components/CauKhiOverlay'));
+// Lazy load the SanChoiLangDuongOverlay component
+const SanChoiLangDuongOverlay = React.lazy(() => import('./components/SanChoiLangDuongOverlay'));
+// Lazy load the ChoDuongOverlay component
+const ChoDuongOverlay = React.lazy(() => import('./components/ChoDuongOverlay'));
+// Lazy load the CayDaThanOverlay component
+const CayDaThanOverlay = React.lazy(() => import('./components/CayDaThanOverlay'));
+// Lazy load the NgoaiDinhLangDuongOverlay component
+const NgoaiDinhLangDuongOverlay = React.lazy(() => import('./components/NgoaiDinhLangDuongOverlay'));
+// Lazy load the TrongDinhLangDuongOverlay component
+const TrongDinhLangDuongOverlay = React.lazy(() => import('./components/TrongDinhLangDuongOverlay'));
+// Lazy load the NgoaiDinhLangAmOverlay component
+const NgoaiDinhLangAmOverlay = React.lazy(() => import('./components/NgoaiDinhLangAmOverlay'));
+// Lazy load the TrongDinhLangAmOverlay component
+const TrongDinhLangAmOverlay = React.lazy(() => import('./components/TrongDinhLangAmOverlay'));
+// Lazy load the NgoaiNhaDiaChuLangDuongOverlay component
+const NgoaiNhaDiaChuLangDuongOverlay = React.lazy(() => import('./components/NgoaiNhaDiaChuLangDuongOverlay'));
+// Lazy load the TrongNhaDiaChuLangDuongOverlay component
+const TrongNhaDiaChuLangDuongOverlay = React.lazy(() => import('./components/TrongNhaDiaChuLangDuongOverlay'));
+// Lazy load the NgoaiNhaDiaChuLangAmOverlay component
+const NgoaiNhaDiaChuLangAmOverlay = React.lazy(() => import('./components/NgoaiNhaDiaChuLangAmOverlay'));
+// Lazy load the TrongNhaDiaChuLangAmOverlay component
+const TrongNhaDiaChuLangAmOverlay = React.lazy(() => import('./components/TrongNhaDiaChuLangAmOverlay'));
+// Lazy load the GanhHatTrenSongOverlay component
+const GanhHatTrenSongOverlay = React.lazy(() => import('./components/GanhHatTrenSongOverlay'));
 
 const MapPage = () => {
   const [showText1, setShowText1] = useState(false);
@@ -139,6 +79,25 @@ const MapPage = () => {
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef(null);
   const [isAudioLoaded, setIsAudioLoaded] = useState(false);
+  const [showSanChoiLangAm, setShowSanChoiLangAm] = useState(false);
+  const [showCardSanChoiLangAm, setShowCardSanChoiLangAm] = useState(false);
+  const [showInfoSanChoiLangAm1, setShowInfoSanChoiLangAm1] = useState(false);
+  const [isFlippedSanChoiLangAm, setIsFlippedSanChoiLangAm] = useState(false);
+  const [showGianGua, setShowGianGua] = useState(false);
+  const [showChoAm, setShowChoAm] = useState(false);
+  const [showCauKhi, setShowCauKhi] = useState(false);
+  const [showSanChoiLangDuong, setShowSanChoiLangDuong] = useState(false);
+  const [showChoDuong, setShowChoDuong] = useState(false);
+  const [showCayDaThan, setShowCayDaThan] = useState(false);
+  const [showNgoaiDinhLangDuong, setShowNgoaiDinhLangDuong] = useState(false);
+  const [showTrongDinhLangDuong, setShowTrongDinhLangDuong] = useState(false);
+  const [showNgoaiDinhLangAm, setShowNgoaiDinhLangAm] = useState(false);
+  const [showTrongDinhLangAm, setShowTrongDinhLangAm] = useState(false);
+  const [showNgoaiNhaDiaChuLangDuong, setShowNgoaiNhaDiaChuLangDuong] = useState(false);
+  const [showTrongNhaDiaChuLangDuong, setShowTrongNhaDiaChuLangDuong] = useState(false);
+  const [showNgoaiNhaDiaChuLangAm, setShowNgoaiNhaDiaChuLangAm] = useState(false);
+  const [showTrongNhaDiaChuLangAm, setShowTrongNhaDiaChuLangAm] = useState(false);
+  const [showGanhHatTrenSong, setShowGanhHatTrenSong] = useState(false);
 
   // Preload critical resources
   useEffect(() => {
@@ -149,6 +108,9 @@ const MapPage = () => {
         
         // Preload audio
         await resourceManager.preloadAudio(ganhHatMaAudio);
+        await resourceManager.preloadAudio(cauKhiAudio);
+        await resourceManager.preloadAudio(sanChoiLangDuongAudio);
+        await resourceManager.preloadAudio(cayDaThanAudio);
         setIsAudioLoaded(true);
       } catch (error) {
         console.error('Error preloading resources:', error);
@@ -161,6 +123,87 @@ const MapPage = () => {
   // Handle audio playback
   useEffect(() => {
     if (showNamCheo && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = ganhHatMaAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showSanChoiLangAm && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = sanChoiLangAmAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showGianGua && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = cayGuaAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showChoAm && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = choAmAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showCauKhi && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = cauKhiAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showSanChoiLangDuong && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = sanChoiLangDuongAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showChoDuong && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = choDuongAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showCayDaThan && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = cayDaThanAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showNgoaiDinhLangDuong && !showTrongDinhLangDuong && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = dinhLangBenNgoaiAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showTrongDinhLangDuong && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = dinhLangBenTrongAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showNgoaiDinhLangAm && !showTrongDinhLangAm && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = dinhThanThoQuyBenNgoaiAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showTrongDinhLangAm && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = dinhLangThoQuyBenTrongAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showNgoaiNhaDiaChuLangDuong && !showTrongNhaDiaChuLangDuong && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = giaDinhDiaChuBenNgoaiAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showTrongNhaDiaChuLangDuong && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = giaDinhDiaChuBenTrongAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showNgoaiNhaDiaChuLangAm && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = nhaDiaChuBenNgoaiAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showTrongNhaDiaChuLangAm && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = nhaDiaChuBenTrongAudio;
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    } else if (showGanhHatTrenSong && audioRef.current && isAudioLoaded) {
+      audioRef.current.src = ganhHatTrenSongAudio;
       audioRef.current.play().catch(error => {
         console.error('Error playing audio:', error);
       });
@@ -175,7 +218,7 @@ const MapPage = () => {
         audioRef.current.currentTime = 0;
       }
     };
-  }, [showNamCheo, isAudioLoaded]);
+  }, [showNamCheo, showSanChoiLangAm, showGianGua, showChoAm, showCauKhi, showSanChoiLangDuong, showChoDuong, showCayDaThan, showNgoaiDinhLangDuong, showTrongDinhLangDuong, showNgoaiDinhLangAm, showTrongDinhLangAm, showNgoaiNhaDiaChuLangDuong, showTrongNhaDiaChuLangDuong, showNgoaiNhaDiaChuLangAm, showTrongNhaDiaChuLangAm, showGanhHatTrenSong, isAudioLoaded]);
 
   const toggleMute = () => {
     if (audioRef.current) {
@@ -190,8 +233,8 @@ const MapPage = () => {
     }
   };
 
-  // Handler to close NamCheo overlay and reset all states
-  const handleCloseNamCheo = () => {
+  // Handler to close GanhHatMa overlay and reset all states
+  const handleCloseGanhHatMa = () => {
     setShowNamCheo(false);
     setShowCardNamCheo(false);
     setShowInfoNamCheo1(false);
@@ -207,6 +250,160 @@ const MapPage = () => {
     setShowCardNamCheo(false);
     setShowInfoNamCheo1(false);
     setIsFlipped(false);
+  };
+
+  // Handler to close SanChoiLangAm overlay and reset all states
+  const handleCloseSanChoiLangAm = () => {
+    setShowSanChoiLangAm(false);
+    setShowCardSanChoiLangAm(false);
+    setShowInfoSanChoiLangAm1(false);
+    setIsFlippedSanChoiLangAm(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close only the card and info for SanChoiLangAm
+  const handleCloseCardSanChoiLangAm = () => {
+    setShowCardSanChoiLangAm(false);
+    setShowInfoSanChoiLangAm1(false);
+    setIsFlippedSanChoiLangAm(false);
+  };
+
+  // Handler to close GianGua overlay and reset all states
+  const handleCloseGianGua = () => {
+    setShowGianGua(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close ChoAm overlay and reset all states
+  const handleCloseChoAm = () => {
+    setShowChoAm(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close CauKhi overlay and reset all states
+  const handleCloseCauKhi = () => {
+    setShowCauKhi(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close SanChoiLangDuong overlay and reset all states
+  const handleCloseSanChoiLangDuong = () => {
+    setShowSanChoiLangDuong(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close ChoDuong overlay and reset all states
+  const handleCloseChoDuong = () => {
+    setShowChoDuong(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close CayDaThan overlay and reset all states
+  const handleCloseCayDaThan = () => {
+    setShowCayDaThan(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close NgoaiDinhLangDuong overlay and reset all states
+  const handleCloseNgoaiDinhLangDuong = () => {
+    setShowNgoaiDinhLangDuong(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close TrongDinhLangDuong overlay and reset all states
+  const handleCloseTrongDinhLangDuong = () => {
+    setShowTrongDinhLangDuong(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close NgoaiDinhLangAm overlay and reset all states
+  const handleCloseNgoaiDinhLangAm = () => {
+    setShowNgoaiDinhLangAm(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close TrongDinhLangAm overlay and reset all states
+  const handleCloseTrongDinhLangAm = () => {
+    setShowTrongDinhLangAm(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close NgoaiNhaDiaChuLangDuong overlay and reset all states
+  const handleCloseNgoaiNhaDiaChuLangDuong = () => {
+    setShowNgoaiNhaDiaChuLangDuong(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close TrongNhaDiaChuLangDuong overlay and reset all states
+  const handleCloseTrongNhaDiaChuLangDuong = () => {
+    setShowTrongNhaDiaChuLangDuong(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close NgoaiNhaDiaChuLangAm overlay and reset all states
+  const handleCloseNgoaiNhaDiaChuLangAm = () => {
+    setShowNgoaiNhaDiaChuLangAm(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close TrongNhaDiaChuLangAm overlay and reset all states
+  const handleCloseTrongNhaDiaChuLangAm = () => {
+    setShowTrongNhaDiaChuLangAm(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  // Handler to close GanhHatTrenSong overlay and reset all states
+  const handleCloseGanhHatTrenSong = () => {
+    setShowGanhHatTrenSong(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
   };
 
   return (
@@ -240,6 +437,7 @@ const MapPage = () => {
             className="absolute top-[33%] left-[17%] w-15 h-10 hover:cursor-pointer"
             onMouseEnter={() => setShowText1(true)}
             onMouseLeave={() => setShowText1(false)}
+            onClick={() => setShowGanhHatTrenSong(true)}
           />
           {showText1 && (
             <div className="absolute top-[23%] left-[14%] w-50 text-center leading-[1] animate-fade-in-no-delay" 
@@ -254,13 +452,13 @@ const MapPage = () => {
             </div>
           )}
 
-          {/* Lazy loaded NamCheoOverlay */}
+          {/* Lazy loaded GanhHatMaOverlay */}
           <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="text-white text-xl">Loading...</div>
           </div>}>
             {showNamCheo && (
-              <NamCheoOverlay 
-                onClose={handleCloseNamCheo}
+              <GanhHatMaOverlay 
+                onClose={handleCloseGanhHatMa}
                 onCloseCard={handleCloseCard}
                 isMuted={isMuted}
                 onToggleMute={toggleMute}
@@ -279,6 +477,7 @@ const MapPage = () => {
             className="absolute top-[40%] left-[20%] w-25 h-20 hover:cursor-pointer"
             onMouseEnter={() => setShowText2(true)}
             onMouseLeave={() => setShowText2(false)}
+            onClick={() => setShowCayDaThan(true)}
           ></div>
           {showText2 && (
             <div className="absolute top-[52%] left-[13%] w-40 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
@@ -290,6 +489,7 @@ const MapPage = () => {
             className="absolute top-[37%] left-[33%] w-30 h-20 hover:cursor-pointer"
             onMouseEnter={() => setShowText3(true)}
             onMouseLeave={() => setShowText3(false)}
+            onClick={() => setShowChoDuong(true)}
           ></div>
           {showText3 && (
             <div className="absolute top-[48%] left-[30%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
@@ -301,6 +501,7 @@ const MapPage = () => {
             className="absolute top-[31%] left-[45%] w-30 h-45 hover:cursor-pointer"
             onMouseEnter={() => setShowText4(true)}
             onMouseLeave={() => setShowText4(false)}
+            onClick={() => setShowCauKhi(true)}
           ></div>
           {showText4 && (
             <div className="absolute top-[54%] left-[45%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
@@ -312,6 +513,7 @@ const MapPage = () => {
             className="absolute top-[52%] left-[25%] w-38 h-20 hover:cursor-pointer"
             onMouseEnter={() => setShowText5(true)}
             onMouseLeave={() => setShowText5(false)}
+            onClick={() => setShowNgoaiDinhLangDuong(true)}
           ></div>
           {showText5 && (
             <div className="absolute top-[62%] left-[24%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
@@ -323,10 +525,11 @@ const MapPage = () => {
             className="absolute top-[62%] left-[53%] w-40 h-25 hover:cursor-pointer"
             onMouseEnter={() => setShowText6(true)}
             onMouseLeave={() => setShowText6(false)}
+            onClick={() => setShowNgoaiNhaDiaChuLangAm(true)}
           ></div>
           {showText6 && (
-            <div className="absolute top-[75%] left-[53%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
-              nhà đại điền chủ
+            <div className="absolute top-[75%] left-[53%] w-40 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+              nhà đại điền chủ làng âm
             </div>
           )}
 
@@ -334,10 +537,11 @@ const MapPage = () => {
             className="absolute top-[63%] left-[36%] w-38 h-20 hover:cursor-pointer"
             onMouseEnter={() => setShowText7(true)}
             onMouseLeave={() => setShowText7(false)}
+            onClick={() => setShowNgoaiNhaDiaChuLangDuong(true)}
           ></div>
           {showText7 && (
             <div className="absolute top-[75%] left-[35%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
-              nhà đại điền chủ 
+              nhà đại điền chủ làng dương
             </div>
           )}
 
@@ -357,6 +561,7 @@ const MapPage = () => {
             className="absolute top-[20%] left-[38%] w-33 h-27 hover:cursor-pointer"
             onMouseEnter={() => setShowText9(true)}
             onMouseLeave={() => setShowText9(false)}
+            onClick={() => setShowSanChoiLangDuong(true)}
           ></div>
           {showText9 && (
             <div className="absolute top-[20%] left-[26%] w-40 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
@@ -368,6 +573,7 @@ const MapPage = () => {
             className="absolute top-[21%] left-[52%] w-40 h-25 hover:cursor-pointer"
             onMouseEnter={() => setShowText10(true)}
             onMouseLeave={() => setShowText10(false)}
+            onClick={() => setShowSanChoiLangAm(true)}
           ></div>
           {showText10 && (
             <div className="absolute top-[20%] left-[64%] w-30 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
@@ -379,6 +585,7 @@ const MapPage = () => {
             className="absolute top-[39%] left-[72%] w-38 h-20 hover:cursor-pointer"
             onMouseEnter={() => setShowText11(true)}
             onMouseLeave={() => setShowText11(false)}
+            onClick={() => setShowGianGua(true)}
           ></div>
           {showText11 && (
             <div className="absolute top-[49%] left-[72%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
@@ -390,6 +597,7 @@ const MapPage = () => {
             className="absolute top-[36%] left-[59%] w-40 h-26 hover:cursor-pointer"
             onMouseEnter={() => setShowText12(true)}
             onMouseLeave={() => setShowText12(false)}
+            onClick={() => setShowChoAm(true)}
           ></div>
           {showText12 && (
             <div className="absolute top-[50%] left-[59%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
@@ -401,6 +609,7 @@ const MapPage = () => {
             className="absolute top-[57%] left-[65%] w-43 h-22 hover:cursor-pointer"
             onMouseEnter={() => setShowText13(true)}
             onMouseLeave={() => setShowText13(false)}
+            onClick={() => setShowNgoaiDinhLangAm(true)}
           ></div>
           {showText13 && (
             <div className="absolute top-[69%] left-[65%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
@@ -409,6 +618,229 @@ const MapPage = () => {
           )}
         </div>
       </div>
+
+      {/* Add SanChoiLangAmOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showSanChoiLangAm && (
+          <SanChoiLangAmOverlay 
+            onClose={handleCloseSanChoiLangAm}
+            onCloseCard={handleCloseCardSanChoiLangAm}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+            showCardSanChoiLangAm={showCardSanChoiLangAm}
+            setShowCardSanChoiLangAm={setShowCardSanChoiLangAm}
+            showInfoSanChoiLangAm1={showInfoSanChoiLangAm1}
+            setShowInfoSanChoiLangAm1={setShowInfoSanChoiLangAm1}
+            isFlipped={isFlippedSanChoiLangAm}
+            setIsFlipped={setIsFlippedSanChoiLangAm}
+          />
+        )}
+      </Suspense>
+
+      {/* Add GianGuaOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showGianGua && (
+          <GianGuaOverlay 
+            onClose={handleCloseGianGua}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+          />
+        )}
+      </Suspense>
+
+      {/* Add ChoAmOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showChoAm && (
+          <ChoAmOverlay 
+            onClose={handleCloseChoAm}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+          />
+        )}
+      </Suspense>
+
+      {/* Add CauKhiOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showCauKhi && (
+          <CauKhiOverlay 
+            onClose={handleCloseCauKhi}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+          />
+        )}
+      </Suspense>
+
+      {/* Add SanChoiLangDuongOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showSanChoiLangDuong && (
+          <SanChoiLangDuongOverlay 
+            onClose={handleCloseSanChoiLangDuong}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+          />
+        )}
+      </Suspense>
+
+      {/* Add ChoDuongOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showChoDuong && (
+          <ChoDuongOverlay 
+            onClose={handleCloseChoDuong}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+          />
+        )}
+      </Suspense>
+
+      {/* Add CayDaThanOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showCayDaThan && (
+          <CayDaThanOverlay 
+            onClose={handleCloseCayDaThan}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+          />
+        )}
+      </Suspense>
+
+      {/* Add NgoaiDinhLangDuongOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showNgoaiDinhLangDuong && (
+          <NgoaiDinhLangDuongOverlay 
+            onClose={handleCloseNgoaiDinhLangDuong}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+            onShowInside={() => setShowTrongDinhLangDuong(true)}
+          />
+        )}
+      </Suspense>
+
+      {/* Add TrongDinhLangDuongOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showTrongDinhLangDuong && (
+          <TrongDinhLangDuongOverlay 
+            onClose={handleCloseTrongDinhLangDuong}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+            onGoBack={() => setShowNgoaiDinhLangDuong(true)}
+          />
+        )}
+      </Suspense>
+
+      {/* Add NgoaiDinhLangAmOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showNgoaiDinhLangAm && (
+          <NgoaiDinhLangAmOverlay 
+            onClose={handleCloseNgoaiDinhLangAm}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+            onShowInside={() => setShowTrongDinhLangAm(true)}
+          />
+        )}
+      </Suspense>
+
+      {/* Add TrongDinhLangAmOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showTrongDinhLangAm && (
+          <TrongDinhLangAmOverlay 
+            onClose={handleCloseTrongDinhLangAm}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+            onGoBack={() => setShowNgoaiDinhLangAm(true)}
+          />
+        )}
+      </Suspense>
+
+      {/* Add NgoaiNhaDiaChuLangDuongOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showNgoaiNhaDiaChuLangDuong && (
+          <NgoaiNhaDiaChuLangDuongOverlay 
+            onClose={handleCloseNgoaiNhaDiaChuLangDuong}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+            onShowInside={() => setShowTrongNhaDiaChuLangDuong(true)}
+          />
+        )}
+      </Suspense>
+
+      {/* Add TrongNhaDiaChuLangDuongOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showTrongNhaDiaChuLangDuong && (
+          <TrongNhaDiaChuLangDuongOverlay 
+            onClose={handleCloseTrongNhaDiaChuLangDuong}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+            onGoBack={() => setShowNgoaiNhaDiaChuLangDuong(true)}
+          />
+        )}
+      </Suspense>
+
+      {/* Add NgoaiNhaDiaChuLangAmOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showNgoaiNhaDiaChuLangAm && (
+          <NgoaiNhaDiaChuLangAmOverlay 
+            onClose={handleCloseNgoaiNhaDiaChuLangAm}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+            onShowInside={() => setShowTrongNhaDiaChuLangAm(true)}
+          />
+        )}
+      </Suspense>
+
+      {/* Add TrongNhaDiaChuLangAmOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showTrongNhaDiaChuLangAm && (
+          <TrongNhaDiaChuLangAmOverlay 
+            onClose={handleCloseTrongNhaDiaChuLangAm}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+            onGoBack={() => setShowNgoaiNhaDiaChuLangAm(true)}
+          />
+        )}
+      </Suspense>
+
+      {/* Add GanhHatTrenSongOverlay */}
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-white text-xl">Loading...</div>
+      </div>}>
+        {showGanhHatTrenSong && (
+          <GanhHatTrenSongOverlay 
+            onClose={handleCloseGanhHatTrenSong}
+            isMuted={isMuted}
+            onToggleMute={toggleMute}
+          />
+        )}
+      </Suspense>
     </div>
   );
 };
