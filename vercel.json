@@ -30,7 +30,7 @@
   ],
   "images": {
     "sizes": [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    "domains": ["https://transaoamvay.vercel.app/"]
+    "domains": ["transaoamvay.vercel.app/"]
   },
   "build": {
     "env": {
