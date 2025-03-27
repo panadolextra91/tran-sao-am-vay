@@ -1,10 +1,12 @@
 import React from 'react';
 import TopBar from './components/TopBar';
 import './index.css';
+import Preloader from './components/Preloader';
 
 function MainContent() {
   return (
     <div>
+      <Preloader />
       <TopBar />
       <div>
         <div className="bg-[var(--custom-yellow)] h-[50vh] flex items-center justify-center animate-slide-down">
