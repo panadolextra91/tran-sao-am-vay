@@ -11,7 +11,6 @@ import Preloader from './components/Preloader';
 function App() {
   return (
     <BrowserRouter>
-      <Preloader />
       <Routes>
         <Route path="/" element={<MainContent />} />
         <Route path="/intro" element={<Intro />} />
