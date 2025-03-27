@@ -7,9 +7,11 @@ import List from './List';
 import Contact from './Contact';
 import OpenLetter from './OpenLetter';
 import Survey from './Survey';
+import Preloader from './components/Preloader';
 function App() {
   return (
     <BrowserRouter>
+      <Preloader />
       <Routes>
         <Route path="/" element={<MainContent />} />
         <Route path="/intro" element={<Intro />} />
