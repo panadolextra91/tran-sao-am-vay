@@ -50,14 +50,13 @@ useEffect(() => {
 // New handler for the "Ra ngoài" button: explicitly exit fullscreen,
   // then call onClose and onGoBack so that NgoaiDinhLangAmOverlay re-opens (via parent) in fullscreen.
   const handleRaNgoaiButton = () => {
-    onGoBack();
-    setTimeout(() => {
-      onClose();
-    }, 100);
+    onGoBack();  
+  onClose();
   };
 
   return (
     <div 
+      ref={containerRef}
       className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
@@ -73,7 +72,7 @@ useEffect(() => {
       />
 
       {/* Ra ngoai Button */}
-     {/* <>
+     <>
  <ul className="ra-ngoai-button absolute top-[75%] left-[15%] z-[10000]">
     <li onClick={handleRaNgoaiButton}>&#x2799;</li>
   </ul>
@@ -93,7 +92,7 @@ useEffect(() => {
       transition: transform 0.3s ease-in-out;
     }
   `}</style>
-</> */}
+</>
  </div>
   );
 };

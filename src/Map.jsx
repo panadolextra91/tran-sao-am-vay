@@ -218,7 +218,7 @@ const MapPage = () => {
         audioRef.current.currentTime = 0;
       }
     };
-  }, [showNamCheo, showSanChoiLangAm, showGianGua, showChoAm, showCauKhi, showSanChoiLangDuong, showChoDuong, showCayDaThan, showNgoaiDinhLangDuong, showTrongDinhLangDuong, showNgoaiDinhLangAm, showTrongDinhLangAm, showTrongNhaDiaChuLangDuong, showNgoaiNhaDiaChuLangAm, showTrongNhaDiaChuLangAm, showGanhHatTrenSong, isAudioLoaded]);
+  }, [showNamCheo, showSanChoiLangAm, showGianGua, showChoAm, showCauKhi, showSanChoiLangDuong, showChoDuong, showCayDaThan, showNgoaiDinhLangDuong, showTrongDinhLangDuong, showNgoaiDinhLangAm, showTrongDinhLangAm, showNgoaiNhaDiaChuLangDuong, showTrongNhaDiaChuLangDuong, showNgoaiNhaDiaChuLangAm, showTrongNhaDiaChuLangAm, showGanhHatTrenSong, isAudioLoaded]);
 
   const toggleMute = () => {
     if (audioRef.current) {
@@ -406,7 +406,7 @@ const MapPage = () => {
     }
   };
 
-  const handleNhaDaiDienChuClick = (e) => {
+  const handleNhaDaiDienChuLangDuongClick = (e) => {
     e.stopPropagation(); // Prevent any bubbling
     const container = document.documentElement; // or use a ref to a dedicated container element
     const requestFullscreen =
@@ -417,18 +417,40 @@ const MapPage = () => {
       requestFullscreen
         .call(container)
         .then(() => {
-          setShowTrongNhaDiaChuLangDuong(true);
+          setShowNgoaiNhaDiaChuLangDuong(true);
         })
         .catch((err) => {
           console.error("Error enabling fullscreen:", err);
           // Even if fullscreen fails, still show the overlay
-          setShowTrongNhaDiaChuLangDuong(true);
+          setShowNgoaiNhaDiaChuLangDuong(true);
         });
     } else {
-      setShowTrongNhaDiaChuLangDuong(true);
+      setShowNgoaiNhaDiaChuLangDuong(true);
     }
   };
   
+  const handleNhaDaiDienChuLangAmClick = (e) => {
+    e.stopPropagation(); // Prevent any bubbling
+    const container = document.documentElement; // or use a ref to a dedicated container element
+    const requestFullscreen =
+      container.requestFullscreen ||
+      container.webkitRequestFullscreen ||
+      container.msRequestFullscreen;
+    if (requestFullscreen) {
+      requestFullscreen
+        .call(container)
+        .then(() => {
+          setShowNgoaiNhaDiaChuLangAm(true);
+        })
+        .catch((err) => {
+          console.error("Error enabling fullscreen:", err);
+          // Even if fullscreen fails, still show the overlay
+          setShowNgoaiNhaDiaChuLangAm(true);
+        });
+    } else {
+      setShowNgoaiNhaDiaChuLangAm(true);
+    }
+  };
 
   return (
     <div className="relative">
@@ -538,7 +560,7 @@ const MapPage = () => {
             className="absolute top-[63.5%] left-[54.5%] w-56 h-28 hover:cursor-pointer"
             onMouseEnter={() => setShowText6(true)}
             onMouseLeave={() => setShowText6(false)}
-            onClick={() => setShowNgoaiNhaDiaChuLangAm(true)}
+            onClick={handleNhaDaiDienChuLangAmClick}
           ></div>
           {showText6 && (
             <div className="absolute top-[77.5%] left-[54.25%] w-60 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
@@ -550,11 +572,11 @@ const MapPage = () => {
             className="absolute top-[65%] left-[30%] w-57 h-28 hover:cursor-pointer"
             onMouseEnter={() => setShowText7(true)}
             onMouseLeave={() => setShowText7(false)}
-            onClick={handleNhaDaiDienChuClick}          
+            onClick={handleNhaDaiDienChuLangDuongClick}          
               ></div>
           {showText7 && (
             <div className="absolute top-[78%] left-[29.75%] w-60 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
-              nhà đại điền chủ
+              nhà đại điền chủ dương  
             </div>
           )}
 
@@ -824,7 +846,7 @@ const MapPage = () => {
             onClose={handleCloseTrongNhaDiaChuLangDuong}
             isMuted={isMuted}
             onToggleMute={toggleMute}
-            onGoBack={() => setShowNgoaiNhaDiaChuLangDuong(false)}
+            onGoBack={() => setShowNgoaiNhaDiaChuLangDuong(true)}
           />
         )}
       </Suspense>
