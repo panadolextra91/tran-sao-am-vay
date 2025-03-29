@@ -55,7 +55,7 @@
 }
 
 .animate-fade-in-no-delay {
-  animation: fadeIn 2s ease-out forwards;
+  animation: fadeIn 1s ease-out forwards;
 }
 @keyframes slideLeftToRight {
   from {

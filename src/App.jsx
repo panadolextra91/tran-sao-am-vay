@@ -7,12 +7,14 @@ import List from './List';
 import Contact from './Contact';
 import OpenLetter from './OpenLetter';
 import Survey from './Survey';
+import Preloader from './components/Preloader';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
     <BrowserRouter>
+    <Preloader />
     <SpeedInsights />
     <Analytics />
       <Routes>

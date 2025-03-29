@@ -85,7 +85,7 @@ const NgoaiNhaDiaChuLangDuongOverlay = ({ onClose, isMuted, onToggleMute, onShow
       
       {/* Vào trong Button */}
       <>
-        <ul className="vao-trong-button absolute top-[70%] left-[48%] z-[10000]">
+        <ul className="vao-trong-button absolute top-[70%] left-[45%] z-[10000]">
           <li onClick={handleShowInside}>&#x2799;</li>
         </ul>
         <style jsx>{`

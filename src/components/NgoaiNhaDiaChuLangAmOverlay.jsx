@@ -91,23 +91,21 @@ const NgoaiNhaDiaChuLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowIns
         </ul>
         <style jsx>{`
           .vao-trong-button li:nth-child(odd) {
-            color: red;
+            color: var(--custom-red-2);
             text-align: center;
             font-size: 200px;
-            transform: perspective(500px) rotateX(45deg) rotateZ(-55deg);
+            transform: perspective(500px) rotateX(45deg) rotateZ(-90deg);
             text-shadow: 0 0 10px black;
           }
           .vao-trong-button li:nth-child(odd):hover {
-            transform: perspective(200px) rotateX(45deg) rotateY(10deg) rotateZ(-55deg);
+            transform: perspective(200px) rotateX(45deg) rotateZ(-90deg) rotateY(10deg);
             cursor: pointer;
             text-shadow: 0 0 10px black;
             font-weight: bold;
             transition: transform 0.3s ease-in-out;
           }
         `}</style>
-      </>
-
-    </div>
+      </>    </div>
   );
 };
 

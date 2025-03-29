@@ -168,7 +168,7 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
         </ul>
         <style jsx>{`
           .vao-trong-button li:nth-child(odd) {
-            color: red;
+            color: var(--custom-red-2);
             text-align: center;
             font-size: 200px;
             transform: perspective(500px) rotateX(45deg) rotateZ(-55deg);
