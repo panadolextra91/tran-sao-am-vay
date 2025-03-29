@@ -147,7 +147,7 @@ useEffect(() => {
     onGoBack();
     setTimeout(() => {
       onClose();
-    }, 50);
+    }, 100);
   };
 
   return (
@@ -174,7 +174,7 @@ useEffect(() => {
   </ul>
   <style jsx>{`
     .ra-ngoai-button li:nth-child(odd) {
-      color: red;
+      color: var(--custom-red-2);
       text-align: center;
       font-size: 200px;
       transform: perspective(500px) rotateZ(150deg) rotateY(45deg);

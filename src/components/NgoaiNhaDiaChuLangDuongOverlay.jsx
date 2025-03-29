@@ -64,7 +64,7 @@ const NgoaiNhaDiaChuLangDuongOverlay = ({ onClose, isMuted, onToggleMute, onShow
     onShowInside();
     setTimeout(() => {
       onClose();
-    }, 50);
+    }, 100);
   };
 
   return (

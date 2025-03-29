@@ -53,7 +53,7 @@ useEffect(() => {
     onGoBack();
     setTimeout(() => {
       onClose();
-    }, 50);
+    }, 100);
   };
 
   return (
@@ -73,8 +73,8 @@ useEffect(() => {
       />
 
       {/* Ra ngoai Button */}
-      <>
-  <ul className="ra-ngoai-button absolute top-[75%] left-[15%] z-[10000]">
+     {/* <>
+ <ul className="ra-ngoai-button absolute top-[75%] left-[15%] z-[10000]">
     <li onClick={handleRaNgoaiButton}>&#x2799;</li>
   </ul>
   <style jsx>{`
@@ -93,7 +93,7 @@ useEffect(() => {
       transition: transform 0.3s ease-in-out;
     }
   `}</style>
-</>
+</> */}
  </div>
   );
 };

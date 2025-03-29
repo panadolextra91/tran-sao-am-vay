@@ -218,7 +218,7 @@ const MapPage = () => {
         audioRef.current.currentTime = 0;
       }
     };
-  }, [showNamCheo, showSanChoiLangAm, showGianGua, showChoAm, showCauKhi, showSanChoiLangDuong, showChoDuong, showCayDaThan, showNgoaiDinhLangDuong, showTrongDinhLangDuong, showNgoaiDinhLangAm, showTrongDinhLangAm, showNgoaiNhaDiaChuLangDuong, showTrongNhaDiaChuLangDuong, showNgoaiNhaDiaChuLangAm, showTrongNhaDiaChuLangAm, showGanhHatTrenSong, isAudioLoaded]);
+  }, [showNamCheo, showSanChoiLangAm, showGianGua, showChoAm, showCauKhi, showSanChoiLangDuong, showChoDuong, showCayDaThan, showNgoaiDinhLangDuong, showTrongDinhLangDuong, showNgoaiDinhLangAm, showTrongDinhLangAm, showTrongNhaDiaChuLangDuong, showNgoaiNhaDiaChuLangAm, showTrongNhaDiaChuLangAm, showGanhHatTrenSong, isAudioLoaded]);
 
   const toggleMute = () => {
     if (audioRef.current) {
@@ -406,6 +406,30 @@ const MapPage = () => {
     }
   };
 
+  const handleNhaDaiDienChuClick = (e) => {
+    e.stopPropagation(); // Prevent any bubbling
+    const container = document.documentElement; // or use a ref to a dedicated container element
+    const requestFullscreen =
+      container.requestFullscreen ||
+      container.webkitRequestFullscreen ||
+      container.msRequestFullscreen;
+    if (requestFullscreen) {
+      requestFullscreen
+        .call(container)
+        .then(() => {
+          setShowTrongNhaDiaChuLangDuong(true);
+        })
+        .catch((err) => {
+          console.error("Error enabling fullscreen:", err);
+          // Even if fullscreen fails, still show the overlay
+          setShowTrongNhaDiaChuLangDuong(true);
+        });
+    } else {
+      setShowTrongNhaDiaChuLangDuong(true);
+    }
+  };
+  
+
   return (
     <div className="relative">
       {/* Audio element with preload="none" */}
@@ -453,24 +477,7 @@ const MapPage = () => {
           )}
 
           {/* Lazy loaded GanhHatMaOverlay */}
-          <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="text-white text-xl">Gánh Hát Ma...</div>
-          </div>}>
-            {showNamCheo && (
-              <GanhHatMaOverlay 
-                onClose={handleCloseGanhHatMa}
-                onCloseCard={handleCloseCard}
-                isMuted={isMuted}
-                onToggleMute={toggleMute}
-                showCardNamCheo={showCardNamCheo}
-                setShowCardNamCheo={setShowCardNamCheo}
-                showInfoNamCheo1={showInfoNamCheo1}
-                setShowInfoNamCheo1={setShowInfoNamCheo1}
-                isFlipped={isFlipped}
-                setIsFlipped={setIsFlipped}
-              />
-            )}
-          </Suspense>
+          
 
           {/* Other hotspots with optimized event handlers */}
           <div 
@@ -543,8 +550,8 @@ const MapPage = () => {
             className="absolute top-[65%] left-[30%] w-57 h-28 hover:cursor-pointer"
             onMouseEnter={() => setShowText7(true)}
             onMouseLeave={() => setShowText7(false)}
-            onClick={() => setShowNgoaiNhaDiaChuLangDuong(true)}
-          ></div>
+            onClick={handleNhaDaiDienChuClick}          
+              ></div>
           {showText7 && (
             <div className="absolute top-[78%] left-[29.75%] w-60 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
               nhà đại điền chủ
@@ -558,7 +565,7 @@ const MapPage = () => {
             onClick={() => setShowNamCheo(true)}
           ></div>
           {showText8 && (
-            <div className="absolute top-[21%] left-[89.5%] w-40 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+            <div className="absolute top-[21%] left-[88.5%] w-40 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
               gánh hát ma
             </div>
           )}
@@ -638,18 +645,27 @@ const MapPage = () => {
         {showSanChoiLangAm && (
           <SanChoiLangAmOverlay 
             onClose={handleCloseSanChoiLangAm}
-            onCloseCard={handleCloseCardSanChoiLangAm}
+            
             isMuted={isMuted}
             onToggleMute={toggleMute}
-            showCardSanChoiLangAm={showCardSanChoiLangAm}
-            setShowCardSanChoiLangAm={setShowCardSanChoiLangAm}
-            showInfoSanChoiLangAm1={showInfoSanChoiLangAm1}
-            setShowInfoSanChoiLangAm1={setShowInfoSanChoiLangAm1}
-            isFlipped={isFlippedSanChoiLangAm}
-            setIsFlipped={setIsFlippedSanChoiLangAm}
+            
           />
         )}
       </Suspense>
+
+      <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="text-white text-xl">Gánh Hát Ma...</div>
+          </div>}>
+            {showNamCheo && (
+              <GanhHatMaOverlay 
+                onClose={handleCloseGanhHatMa}
+                
+                isMuted={isMuted}
+                onToggleMute={toggleMute}
+                
+              />
+            )}
+          </Suspense>
 
       {/* Add GianGuaOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -808,7 +824,7 @@ const MapPage = () => {
             onClose={handleCloseTrongNhaDiaChuLangDuong}
             isMuted={isMuted}
             onToggleMute={toggleMute}
-            onGoBack={() => setShowNgoaiNhaDiaChuLangDuong(true)}
+            onGoBack={() => setShowNgoaiNhaDiaChuLangDuong(false)}
           />
         )}
       </Suspense>
