@@ -51,7 +51,9 @@ useEffect(() => {
   // then call onClose and onGoBack so that NgoaiDinhLangAmOverlay re-opens (via parent) in fullscreen.
   const handleRaNgoaiButton = () => {
     onGoBack();  
-  onClose();
+    setTimeout(() => {
+      onClose();
+    }, 100);
   };
 
   return (
