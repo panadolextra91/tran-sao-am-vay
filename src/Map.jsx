@@ -454,7 +454,7 @@ const MapPage = () => {
 
           {/* Lazy loaded GanhHatMaOverlay */}
           <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="text-white text-xl">Loading...</div>
+            <div className="text-white text-xl">Gánh Hát Ma...</div>
           </div>}>
             {showNamCheo && (
               <GanhHatMaOverlay 
@@ -621,7 +621,7 @@ const MapPage = () => {
 
       {/* Add SanChoiLangAmOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Sân Chơi Làng Âm...</div>
       </div>}>
         {showSanChoiLangAm && (
           <SanChoiLangAmOverlay 
@@ -641,7 +641,7 @@ const MapPage = () => {
 
       {/* Add GianGuaOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Giàn Gừa  ...</div>
       </div>}>
         {showGianGua && (
           <GianGuaOverlay 
@@ -654,7 +654,7 @@ const MapPage = () => {
 
       {/* Add ChoAmOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Chợ Âm  ...</div>
       </div>}>
         {showChoAm && (
           <ChoAmOverlay 
@@ -667,7 +667,7 @@ const MapPage = () => {
 
       {/* Add CauKhiOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Cầu Khỉ...</div>
       </div>}>
         {showCauKhi && (
           <CauKhiOverlay 
@@ -680,7 +680,7 @@ const MapPage = () => {
 
       {/* Add SanChoiLangDuongOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Sân Chơi Làng Dương...</div>
       </div>}>
         {showSanChoiLangDuong && (
           <SanChoiLangDuongOverlay 
@@ -693,7 +693,7 @@ const MapPage = () => {
 
       {/* Add ChoDuongOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Chợ Dương...</div>
       </div>}>
         {showChoDuong && (
           <ChoDuongOverlay 
@@ -706,7 +706,7 @@ const MapPage = () => {
 
       {/* Add CayDaThanOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Cây Da Thần...</div>
       </div>}>
         {showCayDaThan && (
           <CayDaThanOverlay 
@@ -719,7 +719,7 @@ const MapPage = () => {
 
       {/* Add NgoaiDinhLangDuongOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Ngoài Đình Làng Dương...</div>
       </div>}>
         {showNgoaiDinhLangDuong && (
           <NgoaiDinhLangDuongOverlay 
@@ -733,7 +733,7 @@ const MapPage = () => {
 
       {/* Add TrongDinhLangDuongOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Trong Đình Làng Dương...</div>
       </div>}>
         {showTrongDinhLangDuong && (
           <TrongDinhLangDuongOverlay 
@@ -747,7 +747,7 @@ const MapPage = () => {
 
       {/* Add NgoaiDinhLangAmOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Ngoài Đình Làng Âm...</div>
       </div>}>
         {showNgoaiDinhLangAm && (
           <NgoaiDinhLangAmOverlay 
@@ -761,7 +761,7 @@ const MapPage = () => {
 
       {/* Add TrongDinhLangAmOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Trong Đình Làng Âm...</div>
       </div>}>
         {showTrongDinhLangAm && (
           <TrongDinhLangAmOverlay 
@@ -775,7 +775,7 @@ const MapPage = () => {
 
       {/* Add NgoaiNhaDiaChuLangDuongOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Ngoài Nhà Đại Điền Chủ...</div>
       </div>}>
         {showNgoaiNhaDiaChuLangDuong && (
           <NgoaiNhaDiaChuLangDuongOverlay 
@@ -789,7 +789,7 @@ const MapPage = () => {
 
       {/* Add TrongNhaDiaChuLangDuongOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Trong Nhà Đại Điền Chủ...</div>
       </div>}>
         {showTrongNhaDiaChuLangDuong && (
           <TrongNhaDiaChuLangDuongOverlay 
@@ -803,7 +803,7 @@ const MapPage = () => {
 
       {/* Add NgoaiNhaDiaChuLangAmOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Ngoài Nhà Đại Điền Chủ...</div>
       </div>}>
         {showNgoaiNhaDiaChuLangAm && (
           <NgoaiNhaDiaChuLangAmOverlay 
@@ -817,7 +817,7 @@ const MapPage = () => {
 
       {/* Add TrongNhaDiaChuLangAmOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Trong Nhà Đại Điền Chủ...</div>
       </div>}>
         {showTrongNhaDiaChuLangAm && (
           <TrongNhaDiaChuLangAmOverlay 
@@ -831,7 +831,7 @@ const MapPage = () => {
 
       {/* Add GanhHatTrenSongOverlay */}
       <Suspense fallback={<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-xl">Gánh Hát Trên Sông...</div>
       </div>}>
         {showGanhHatTrenSong && (
           <GanhHatTrenSongOverlay 

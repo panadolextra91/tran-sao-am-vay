@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import LazyImage from './LazyImage';
 import sanChoiLangAmBg from '../assets/images/map lang am/11_SAN_CHOI_LANG_AM.png';
 import cardQuyMotGio from '../assets/images/the bai/card_quy_mot_gio.png';
@@ -7,6 +7,8 @@ import infoCauCo1 from '../assets/images/info_card/cau_co_1.png';
 import infoCauCo2 from '../assets/images/info_card/cau_co_2.png';
 import infoQuyMotGio1 from '../assets/images/info_card/quy_mot_gio_1.png';
 import infoQuyMotGio2 from '../assets/images/info_card/quy_mot_gio_2.png';
+//Button
+import closeButton from '../assets/images/dau_x.png';
 
 const SanChoiLangAmOverlay = ({
   onClose,
@@ -44,8 +46,52 @@ const SanChoiLangAmOverlay = ({
     setIsFlippedQuyMotGio(false);
   };
 
+  // Ref for the container to request fullscreen mode
+  const containerRef = useRef(null);
+
+  // Request fullscreen on mount
+  useEffect(() => {
+    if (containerRef.current) {
+      const requestFullscreen =
+        containerRef.current.requestFullscreen ||
+        containerRef.current.webkitRequestFullscreen ||
+        containerRef.current.msRequestFullscreen;
+      if (requestFullscreen) {
+        requestFullscreen.call(containerRef.current).catch((err) => {
+          console.error('Error attempting to enable fullscreen mode:', err);
+        });
+      }
+    }
+  }, []);
+
+  // Listen for fullscreen exit (e.g., when ESC is pressed) and close the overlay
+  useEffect(() => {
+    const handleFullscreenExit = () => {
+      if (
+        !document.fullscreenElement &&
+        !document.webkitFullscreenElement &&
+        !document.msFullscreenElement
+      ) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenExit);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenExit);
+    document.addEventListener('msfullscreenchange', handleFullscreenExit);
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenExit);
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenExit);
+      document.removeEventListener('msfullscreenchange', handleFullscreenExit);
+    };
+  }, [onClose]);
+
+
+
   return (
     <div 
+      ref={containerRef}
       className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
@@ -59,38 +105,44 @@ const SanChoiLangAmOverlay = ({
         className="fixed inset-0 w-full h-[100%] object-cover"
       />
       
-      {/* Hotspot for Cau Co card */}
+      {/* Hotspots for Cau Co card */}
       <div 
-        className="absolute top-[55%] left-[78%] w-80 h-50 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+        className="absolute top-[56%] [transform:perspective(500px)_rotateZ(10deg)] left-[82%] rounded-full w-80 h-50 hover:cursor-pointer"
+        onClick={(e) => {
+          e.stopPropagation();
+          setShowCardCauCo(true);
+        }}
+      />
+      <div 
+        className="absolute top-[37%] left-[89%] rounded-full h-80 w-50 hover:cursor-pointer"
+        onClick={(e) => {
           e.stopPropagation();
           setShowCardCauCo(true);
         }}
       />
 
-      {/* Hotspot for Quy Mot Gio card */}
+      {/* Hotspots for Quy Mot Gio card */}
       <div 
-        className="absolute top-[30%] left-[50%] w-42 h-100 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+        className="absolute rounded-full top-[30%] left-[50%] w-42 h-100 hover:cursor-pointer"
+        onClick={(e) => {
           e.stopPropagation();
           setShowCardQuyMotGio(true);
         }}
       />
-      
-      <div className="absolute top-4 right-4 flex gap-2 z-[10000]">
-        <button 
-          onClick={onToggleMute}
-          className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-gray-200 transition-colors cursor-pointer"
-        >
-          {isMuted ? '🔇' : '🔊'}
-        </button>
-        <button 
-          onClick={onClose}
-          className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-gray-200 transition-colors cursor-pointer"
-        >
-          ✕
-        </button>
-      </div>
+      <div 
+        className="absolute rounded-full top-[46%] left-[33%] w-27 h-80 hover:cursor-pointer"
+        onClick={(e) => {
+          e.stopPropagation();
+          setShowCardQuyMotGio(true);
+        }}
+      />
+      <div 
+        className="absolute rounded-full top-[65%] left-[61%] w-50 h-70 hover:cursor-pointer"
+        onClick={(e) => {
+          e.stopPropagation();
+          setShowCardQuyMotGio(true);
+        }}
+      />
 
       {/* Card Cau Co Overlay */}
       {showCardCauCo && (
@@ -98,18 +150,18 @@ const SanChoiLangAmOverlay = ({
           <LazyImage 
             src={cardCauCo} 
             alt="Card Cau Co"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoCauCo1(true)}
           />
           <button 
             onClick={handleCloseCardCauCo}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoCauCo1 && (
             <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedCauCo(!isFlippedCauCo)}
             >
               <div className={`flip-card ${isFlippedCauCo ? 'flipped' : ''} w-full h-full`}>
@@ -139,18 +191,18 @@ const SanChoiLangAmOverlay = ({
           <LazyImage 
             src={cardQuyMotGio} 
             alt="Card Quy Mot Gio"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoQuyMotGio1(true)}
           />
           <button 
             onClick={handleCloseCardQuyMotGio}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoQuyMotGio1 && (
             <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedQuyMotGio(!isFlippedQuyMotGio)}
             >
               <div className={`flip-card ${isFlippedQuyMotGio ? 'flipped' : ''} w-full h-full`}>

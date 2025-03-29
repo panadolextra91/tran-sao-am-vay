@@ -3,12 +3,22 @@ import { Link } from 'react-router-dom';
 
 const TopBarWhite = () => {
   return (
-    <div className="fixed top-0 left-0 w-full bg-transparent px-4 py-3 flex justify-center z-10">
-      <div className="inline-flex items-center space-x-[90px]">
+    <div className="fixed top-0 left-0 w-full bg-transparent items-center text-center flex justify-center z-10">
+      <div className="inline-flex items-center space-x-[60px]">
+        <Link
+          to="/"
+          className="text-2xl text-white hover:scale-110 transform transition cursor-pointer"
+          style={{ fontFamily: 'LostType, sans-serif' }}
+        >
+          TRANG CHỦ
+        </Link>
+
+        <span className="text-white">|</span>
+
         <Link
           to="/open-letter"
-          className="text-xl text-white hover:scale-110 transform transition cursor-pointer"
-          style={{ fontFamily: 'Ale, serif' }}
+          className="text-2xl text-white hover:scale-110 transform transition cursor-pointer"
+          style={{ fontFamily: 'LostType, sans-serif' }}
         >
           THƯ NGỎ
         </Link>
@@ -17,8 +27,8 @@ const TopBarWhite = () => {
 
         <Link
           to="/intro"
-          className="text-xl text-white hover:scale-110 transform transition cursor-pointer"
-          style={{ fontFamily: 'Ale, serif' }}
+          className="text-2xl text-white hover:scale-110 transform transition cursor-pointer"
+          style={{ fontFamily: 'LostType, sans-serif' }}
         >
           BỐI CẢNH
         </Link>
@@ -27,8 +37,8 @@ const TopBarWhite = () => {
 
         <Link
           to="/map"
-          className="text-xl text-white hover:scale-110 transform transition cursor-pointer"
-          style={{ fontFamily: 'Ale, serif' }}
+          className="text-2xl text-white hover:scale-110 transform transition cursor-pointer"
+          style={{ fontFamily: 'LostType, sans-serif' }}
         >
           BẢN ĐỒ
         </Link>
@@ -37,8 +47,8 @@ const TopBarWhite = () => {
 
         <Link
           to="/list"
-          className="text-xl text-white hover:scale-110 transform transition cursor-pointer"
-          style={{ fontFamily: 'Ale, serif' }}
+          className="text-2xl text-white hover:scale-110 transform transition cursor-pointer"
+          style={{ fontFamily: 'LostType, sans-serif' }}
         >
           DANH LỤC
         </Link>
@@ -47,8 +57,8 @@ const TopBarWhite = () => {
 
         <Link
           to="/survey"
-          className="text-xl text-white hover:scale-110 transform transition cursor-pointer"
-          style={{ fontFamily: 'Ale, serif' }}
+          className="text-2xl text-white hover:scale-110 transform transition cursor-pointer"
+          style={{ fontFamily: 'LostType, sans-serif' }}
         >
           KHẢO SÁT
         </Link>
@@ -57,8 +67,8 @@ const TopBarWhite = () => {
 
         <Link
           to="/contact"
-          className="text-xl text-white hover:scale-110 transform transition cursor-pointer"
-          style={{ fontFamily: 'Ale, serif' }}
+          className="text-2xl text-white hover:scale-110 transform transition cursor-pointer"
+          style={{ fontFamily: 'LostType, sans-serif' }}
         >
           LIÊN HỆ
         </Link>

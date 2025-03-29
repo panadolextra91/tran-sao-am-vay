@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TopBarWhite from './components/TopBarWhite';
-import backgroundImage from './assets/images/langduong.png';
-import backgroundImage2 from './assets/images/langam.png'; // Second background image
+import backgroundImage from './assets/images/duong.jpg';
+import backgroundImage2 from './assets/images/am.jpg'; // Second background image
 import whiteSmoke from './assets/images/white-smoke.png';
 import redSmoke from './assets/images/red-smoke.png';
 import duongImage from './assets/images/duong.png'; // Image for original state
@@ -46,7 +46,7 @@ const Intro = () => {
           <div className="flex flex-col items-center">
             {/* "Làng" */}
             <p 
-              className={`text-7xl font-bold ${switched ? 'animate-slideRightToLeft' : 'animate-slideLeftToRight'}`}
+              className={`text-8xl font-bold ${switched ? 'animate-slideRightToLeft' : 'animate-slideLeftToRight'}`}
               style={{ 
                 fontFamily: 'LostType, sans-serif', 
                 color: switched ? '#fff' : '#164a0a'
@@ -56,7 +56,7 @@ const Intro = () => {
             </p>
             {/* "Dương" or "Âm" */}
             <p 
-              className={`text-7xl font-bold ${switched ? 'animate-slideRightToLeft' : 'animate-slideLeftToRight'}`}
+              className={`text-8xl font-bold ${switched ? 'animate-slideRightToLeft' : 'animate-slideLeftToRight'}`}
               style={{ 
                 fontFamily: 'LostType, sans-serif', 
                 color: switched ? '#fff' : '#164a0a'
@@ -68,27 +68,34 @@ const Intro = () => {
         </div>
         
         {/* Long Paragraph Container (switches sides and animates) */}
-        <div
-          className={`absolute z-42 flex items-center justify-center w-[940px] p-[30px] ${
-            switched ? 'left-[50px] top-[200px] animate-slideLeftToRight' : 'right-[50px] top-[300px] animate-slideRightToLeft'
+<div
+  className={`absolute z-42 rounded-3xl flex flex-col items-left justify-left w-[950px] p-[30px] !pr-[20px] !pl-[20px] ${
+    switched ? 'left-[50px] top-[150px] animate-slideLeftToRight' : 'right-[50px] top-[200px] animate-slideRightToLeft'
+  }`}
+  style={{
+    backgroundColor: switched ? 'rgba(0,0,0,0.3)' : 'rgba(228, 238, 202, 0.6)',
+  }}
+>
+  { (switched ? switchedText : originalText)
+      .split('\n\n')
+      .map((paragraph, index) => (
+        <p
+          key={index}
+          className={`text-2xl text-left leading-relaxed mb-4 ${
+            switched ? 'text-red-400' : 'text-[var(--custom-red)]'
           }`}
-          style={{
-            backgroundColor: switched ? 'rgba(0,0,0,0.6)' : 'rgba(228,238,202,0.6)',
-          }}
+          style={{ fontFamily: 'Ale, serif' }}
         >
-          <p
-            className={`text-2xl text-center leading-relaxed ${
-              switched ? 'text-red-400' : 'text-[var(--custom-red)]'
-            }`}
-            style={{ fontFamily: 'Ale, serif' }}
-          >
-            {switched ? switchedText : originalText}
-          </p>
-        </div>
+          {paragraph}
+        </p>
+      ))
+  }
+</div>
+
 
         {/* Switch Button at Bottom Right */}
         <button 
-          className="fixed z-50 bottom-4 right-4"
+          className="fixed z-50 bottom-4 left-4"
           onClick={() => setSwitched(!switched)}
         >
           <img 

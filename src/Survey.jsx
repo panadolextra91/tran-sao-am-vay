@@ -1,18 +1,27 @@
 import React from 'react';
 import TopBarWhite from './components/TopBarWhite';
 import yellow from './assets/images/yellow.png';
+import khaoSat from './assets/images/khao_sat.png';
 
 const Survey = () => {
   return (
-    <div className="relative">
+    <div className="relative h-screen bg-[var(--custom-red)]">
       {/* Fixed TopBarWhite at the top */}
-      <div className="fixed top-0 left-0 w-full z-25">
+      <div className="fixed top-0 left-0 w-full z-50">
         <TopBarWhite />
       </div>
-      
-      {/* Background with custom-red color */}
-      <div className="bg-[var(--custom-red)] fixed h-screen w-screen flex flex-col items-center pt-[100px]">
-        {/* Yellow smoke effects */}
+
+      {/* Full-screen container with background image */}
+      <div 
+        className="fixed inset-0"
+        style={{ 
+          backgroundImage: `url(${khaoSat})`, 
+          backgroundSize: '81%',    // scales down the image
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center'
+        }}
+      >
+        {/* Optional: Yellow smoke effects */}
         <img 
           src={yellow} 
           alt="Yellow" 
@@ -23,15 +32,21 @@ const Survey = () => {
           alt="Yellow" 
           className="absolute bottom-2 left-0 w-[300px] h-auto" 
         />
-
-        {/* Rest of the content */}
-        <div className="container mx-auto px-4 pt-24 pb-8">
-          <div className="max-w-3xl mx-auto bg-[var(--custom-yellow)] p-8 rounded-lg shadow-lg">
-            <div className="text-center text-[var(--custom-red)]" style={{ fontFamily: 'Ale, serif' }}>
-              <h1 className="text-3xl font-bold mb-4">The survey will be available here</h1>
-            </div>
-          </div>
-        </div>
+        {/* Hotspot that navigates to the survey link in a new tab */}
+        <a 
+          href="https://forms.gle/DTxfcyFRm4zKizJ96" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="absolute rounded-4xl"
+          style={{
+            left: '33.1%',        // Adjust this value to position the hotspot horizontally
+            top: '43.5%',         // Adjust this value to position the hotspot vertically
+            width: '490px',     // Adjust the hotspot width as needed
+            height: '102px',    // Adjust the hotspot height as needed
+            cursor: 'pointer'
+          }}
+        >
+        </a>
       </div>
     </div>
   );

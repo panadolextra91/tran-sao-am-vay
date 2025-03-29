@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import LazyImage from './LazyImage';
 import ganhHatMaBg from '../assets/images/map lang am/13_GANH_HAT_MA.png';
 import cardNamCheo from '../assets/images/the bai/THẺ BÀI ÔNG NĂM CHÈO.png';
@@ -7,8 +7,7 @@ import infoNamCheo2 from '../assets/images/info_card/ong_nam_cheo_2.png';
 import cardMaDa from '../assets/images/the bai/card_ma_da.png';
 import infoMaDa1 from '../assets/images/info_card/ma_da_1.png';
 import infoMaDa2 from '../assets/images/info_card/ma_da_2.png';
-import NamCheoSvg from './NamCheoSvg';
-
+import closeButton from '../assets/images/dau_x.png';
 const GanhHatMaOverlay = ({
   onClose,
   onCloseCard,
@@ -26,6 +25,48 @@ const GanhHatMaOverlay = ({
   const [showInfoMaDa1, setShowInfoMaDa1] = useState(false);
   const [isFlippedMaDa, setIsFlippedMaDa] = useState(false);
 
+  // Ref for the container to request fullscreen mode
+  const containerRef = useRef(null);
+
+  // Request fullscreen on mount
+  useEffect(() => {
+    if (containerRef.current) {
+      const requestFullscreen = 
+        containerRef.current.requestFullscreen ||
+        containerRef.current.webkitRequestFullscreen ||
+        containerRef.current.msRequestFullscreen;
+      
+      if (requestFullscreen) {
+        requestFullscreen.call(containerRef.current).catch((err) => {
+          console.error('Error attempting to enable fullscreen mode:', err);
+        });
+      }
+    }
+  }, []);
+
+  // Listen for fullscreen exit (e.g., when ESC is pressed) and close the overlay
+  useEffect(() => {
+    const handleFullscreenExit = () => {
+      if (
+        !document.fullscreenElement &&
+        !document.webkitFullscreenElement &&
+        !document.msFullscreenElement
+      ) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenExit);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenExit);
+    document.addEventListener('msfullscreenchange', handleFullscreenExit);
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenExit);
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenExit);
+      document.removeEventListener('msfullscreenchange', handleFullscreenExit);
+    };
+  }, [onClose]);
+
   // Handler to close Ma Da card and info
   const handleCloseCardMaDa = () => {
     setShowCardMaDa1(false);
@@ -35,6 +76,7 @@ const GanhHatMaOverlay = ({
 
   return (
     <div 
+      ref={containerRef}
       className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
@@ -42,16 +84,17 @@ const GanhHatMaOverlay = ({
         }
       }}
     >
+      {/* Background image covering full screen */}
       <LazyImage 
         src={ganhHatMaBg} 
         alt="Ganh Hat Ma" 
-        className="fixed inset-0 w-full h-[100%] object-cover"
+        className="fixed inset-0 w-full h-full object-fit"
       />
       
       {/* Hotspot for Nam Cheo card */}
-     <div 
-        className="absolute top-[66%] left-[34%] w-250 h-70 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      <div 
+        className="absolute top-[67%] left-[34%] w-290 h-150 hover:cursor-pointer [transform:perspective(500px)_rotateZ(-15deg)]"
+        onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaDa1) {
             setShowCardNamCheo(true);
@@ -59,32 +102,10 @@ const GanhHatMaOverlay = ({
         }}
       />
 
-      {/* New SVG Hotspot */}
-      {/*<div
-        className="absolute top-[60%] left-[50%] w-250 h-70"
-      >
-        <div 
-          className="w-full h-full hover:cursor-pointer"
-          onMouseEnter={(e) => {
-            e.stopPropagation();
-            if (!showCardMaDa1) {
-              // setShowCardNamCheo(true);
-            }
-          }}
-        >
-          <NamCheoSvg 
-            className="w-full h-full"
-            style={{
-              opacity: 1
-            }}
-          />
-        </div>
-      </div>*/}
-
       {/* Hotspot for Ma Da card 1 */}
       <div 
-        className="absolute top-[40%] left-[0.2%] w-20 h-20 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+        className="absolute top-[40%] left-[0%] w-15 h-20 hover:cursor-pointer"
+        onClick={(e) => {
           e.stopPropagation();
           if (!showCardNamCheo) {
             setShowCardMaDa1(true);
@@ -94,29 +115,14 @@ const GanhHatMaOverlay = ({
 
       {/* Hotspot for Ma Da card 2 */}
       <div 
-        className="absolute top-[20%] left-[90%] w-25 h-40 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+        className="absolute top-[22%] left-[90%] w-25 h-38 hover:cursor-pointer"
+        onClick={(e) => {
           e.stopPropagation();
           if (!showCardNamCheo) {
             setShowCardMaDa1(true);
           }
         }}
       />
-      
-      <div className="absolute top-4 right-4 flex gap-2 z-[10000]">
-        <button 
-          onClick={onToggleMute}
-          className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-gray-200 transition-colors cursor-pointer"
-        >
-          {isMuted ? '🔇' : '🔊'}
-        </button>
-        <button 
-          onClick={onClose}
-          className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-gray-200 transition-colors cursor-pointer"
-        >
-          ✕
-        </button>
-      </div>
 
       {/* Card Nam Cheo Overlay */}
       {showCardNamCheo && (
@@ -124,18 +130,18 @@ const GanhHatMaOverlay = ({
           <LazyImage 
             src={cardNamCheo} 
             alt="Card Nam Cheo"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain !cursor-pointer !opacity-90"
             onClick={() => setShowInfoNamCheo1(true)}
           />
           <button 
             onClick={onCloseCard}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20.5%] right-[10.5%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoNamCheo1 && (
             <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlipped(!isFlipped)}
             >
               <div className={`flip-card ${isFlipped ? 'flipped' : ''} w-full h-full`}>
@@ -165,18 +171,18 @@ const GanhHatMaOverlay = ({
           <LazyImage 
             src={cardMaDa} 
             alt="Card Ma Da"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain !cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaDa1(true)}
           />
           <button 
             onClick={handleCloseCardMaDa}
-            className="absolute top-[19.5%] right-[13.5%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20.5%] right-[9%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaDa1 && (
             <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaDa(!isFlippedMaDa)}
             >
               <div className={`flip-card ${isFlippedMaDa ? 'flipped' : ''} w-full h-full`}>
@@ -203,4 +209,4 @@ const GanhHatMaOverlay = ({
   );
 };
 
-export default GanhHatMaOverlay; 
+export default GanhHatMaOverlay;

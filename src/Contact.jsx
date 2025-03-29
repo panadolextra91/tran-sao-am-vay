@@ -1,34 +1,27 @@
 import React from 'react';
 import TopBarWhite from './components/TopBarWhite';
+import lienHe from './assets/images/lien_he.jpg';
 import yellow from './assets/images/yellow.png';
-import orangeSmoke from './assets/images/orage-smoke.png';
 
 const Contact = () => {
   return (
-    <div className="relative">
-      {/* Fixed TopBarWhite at the top */}
-      <div className="fixed top-0 left-0 w-full z-25">
+    <div className="relative h-screen bg-[var(--custom-red)]">
+      {/* Fixed TopBar at the top */}
+      <div className="fixed top-0 left-0 w-full z-50">
         <TopBarWhite />
       </div>
 
-      {/* Full-screen background with custom-red color */}
-      <div className="bg-[var(--custom-red)] fixed h-screen w-screen">
-      <div className="absolute bottom-60 left-15 transform -translate-x-10">
-          <div 
-            className="relative w-[380px] h-[380px] bg-transparent"
-            style={{ 
-              backgroundImage: `url(${orangeSmoke})`,
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center'
-            }}
-          >
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <p className="text-[var(--custom-yellow)] text-7xl font-bold" style={{fontFamily: "LostType, sans-serif"}}>Liên</p>
-              <p className="text-[var(--custom-yellow)] text-7xl font-bold" style={{fontFamily: "LostType, sans-serif"}}>Hệ</p>
-            </div>
-          </div>
-        </div>
+      {/* Full-screen container with background image */}
+      <div 
+        className="fixed inset-0"
+        style={{ 
+          backgroundImage: `url(${lienHe})`, 
+          backgroundSize: '81%',    // scales down the image
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center'
+        }}
+      >
+        {/* Optional: Yellow smoke effects */}
         <img 
           src={yellow} 
           alt="Yellow" 

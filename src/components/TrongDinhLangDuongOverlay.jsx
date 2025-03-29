@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import LazyImage from './LazyImage';
 //Bg
 import trongDinhLangDuongBg from '../assets/images/map lang duong/3B_DINH_LANG_DUONG_BEN_TRONG.png';
@@ -7,6 +7,8 @@ import cardThanhHoangLang from '../assets/images/the bai/card_thanh_hoang_lang.p
 //Info
 import infoThanhHoangLang1 from '../assets/images/info_card/thanh_hoang_lang_1.png';
 import infoThanhHoangLang2 from '../assets/images/info_card/thanh_hoang_lang_2.png';
+//Button
+import closeButton from '../assets/images/dau_x.png';
 
 const TrongDinhLangDuongOverlay = ({ onClose, isMuted, onToggleMute, onGoBack }) => {
   // State for Thanh Hoang Lang card
@@ -27,8 +29,60 @@ const TrongDinhLangDuongOverlay = ({ onClose, isMuted, onToggleMute, onGoBack })
     onGoBack(); // Show outside view
   };
 
+  // Ref for the container to request fullscreen mode
+const containerRef = useRef(null);
+
+// Also request fullscreen on mount (this may be redundant if isActive is always true when mounting)
+useEffect(() => {
+  if (containerRef.current) {
+    const requestFullscreen =
+      containerRef.current.requestFullscreen ||
+      containerRef.current.webkitRequestFullscreen ||
+      containerRef.current.msRequestFullscreen;
+    if (requestFullscreen) {
+      requestFullscreen.call(containerRef.current).catch((err) => {
+        console.error('Error attempting to enable fullscreen mode:', err);
+      });
+    }
+  }
+}, []);
+
+// Listen for fullscreen exit (e.g. when ESC is pressed) and close the overlay
+useEffect(() => {
+  const handleFullscreenExit = () => {
+    if (
+      !document.fullscreenElement &&
+      !document.webkitFullscreenElement &&
+      !document.msFullscreenElement
+    ) {
+      onClose();
+    }
+  };
+
+  document.addEventListener('fullscreenchange', handleFullscreenExit);
+  document.addEventListener('webkitfullscreenchange', handleFullscreenExit);
+  document.addEventListener('msfullscreenchange', handleFullscreenExit);
+
+  return () => {
+    document.removeEventListener('fullscreenchange', handleFullscreenExit);
+    document.removeEventListener('webkitfullscreenchange', handleFullscreenExit);
+    document.removeEventListener('msfullscreenchange', handleFullscreenExit);
+  };
+}, [onClose]);
+
+
+// New handler for the "Ra ngoài" button: explicitly exit fullscreen,
+  // then call onClose and onGoBack so that NgoaiDinhLangAmOverlay re-opens (via parent) in fullscreen.
+  const handleRaNgoaiButton = () => {
+    onGoBack();
+    setTimeout(() => {
+      onClose();
+    }, 50);
+  };
+
   return (
     <div 
+      ref={containerRef}
       className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
@@ -41,30 +95,38 @@ const TrongDinhLangDuongOverlay = ({ onClose, isMuted, onToggleMute, onGoBack })
         alt="Trong Dinh Lang Duong Background"
         className="fixed inset-0 w-full h-[100%] object-cover"
       />
+
+      {/* Ra ngoai Button */}
+      <>
+  <ul className="ra-ngoai-button absolute top-[70%] left-[30%] z-[10000]">
+    <li onClick={handleRaNgoaiButton}>&#x2799;</li>
+  </ul>
+  <style jsx>{`
+    .ra-ngoai-button li:nth-child(odd) {
+      color: white;
+      text-align: center;
+      font-size: 200px;
+      transform: perspective(500px) rotateZ(150deg) rotateY(45deg);
+      text-shadow: 0 0 10px black;
+    }
+    .ra-ngoai-button li:nth-child(odd):hover {
+      transform: perspective(200px) rotateZ(150deg) rotateY(45deg) rotateX(10deg);
+      cursor: pointer;
+      text-shadow: 0 0 10px black;
+      font-weight: bold;
+      transition: transform 0.3s ease-in-out;
+    }
+  `}</style>
+</>
       
       {/* Hotspot for Thanh Hoang Lang Card */}
       <div 
-        className="absolute top-[19%] left-[68%] w-36 h-23 hover:cursor-pointer [transform:perspective(500px)_rotateY(-45deg)_rotateX(-5deg)_rotateZ(20deg)]"
-        onMouseEnter={(e) => {
+        className="absolute top-[19%] left-[71%] w-36 h-23 hover:cursor-pointer z-[10000] [transform:perspective(500px)_rotateY(-45deg)_rotateX(-5deg)_rotateZ(20deg)]"
+        onClick={(e) => {
           e.stopPropagation();
           setShowCardThanhHoangLang(true);
         }}
       />
-      
-      <div className="absolute top-4 right-4 flex gap-2 z-[10000]">
-        <button 
-          onClick={onToggleMute}
-          className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-gray-200 transition-colors cursor-pointer"
-        >
-          {isMuted ? '🔇' : '🔊'}
-        </button>
-        <button 
-          onClick={handleGoBack}
-          className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-gray-200 transition-colors cursor-pointer"
-        >
-          ✕
-        </button>
-      </div>
 
       {/* Thanh Hoang Lang Card Overlay */}
       {showCardThanhHoangLang && (
@@ -72,18 +134,18 @@ const TrongDinhLangDuongOverlay = ({ onClose, isMuted, onToggleMute, onGoBack })
           <LazyImage 
             src={cardThanhHoangLang} 
             alt="Card Thanh Hoang Lang"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90 z-[11000]"
             onClick={() => setShowInfoThanhHoangLang1(true)}
           />
           <button 
             onClick={handleCloseCardThanhHoangLang}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110 z-[11100]"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoThanhHoangLang1 && (
             <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer z-[11000]"
               onClick={() => setIsFlippedThanhHoangLang(!isFlippedThanhHoangLang)}
             >
               <div className={`flip-card ${isFlippedThanhHoangLang ? 'flipped' : ''} w-full h-full`}>

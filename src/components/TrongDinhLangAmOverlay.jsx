@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import LazyImage from './LazyImage';
 //Bg
 import trongDinhLangAmBg from '../assets/images/map lang am/9B_DINH_LANG_AM.png';
@@ -20,6 +20,8 @@ import infoMaDoi1 from '../assets/images/info_card/co_hon_1.png';
 import infoMaDoi2 from '../assets/images/info_card/co_hon_2.png';
 import infoLeQuy1 from '../assets/images/info_card/le_quy_1.png';
 import infoLeQuy2 from '../assets/images/info_card/le_quy_2.png';
+//Button
+import closeButton from '../assets/images/dau_x.png';
 
 const TrongDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onGoBack }) => {
   // State for Ho Tinh card
@@ -82,13 +84,69 @@ const TrongDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onGoBack }) =>
     setIsFlippedLeQuy(false);
   };
 
+  const handleGoBack = () => {
+    onClose(); // Close current view
+    onGoBack(); // Show outside view
+  };
+
+// Ref for the container to request fullscreen mode
+const containerRef = useRef(null);
+
+// Also request fullscreen on mount (this may be redundant if isActive is always true when mounting)
+useEffect(() => {
+  if (containerRef.current) {
+    const requestFullscreen =
+      containerRef.current.requestFullscreen ||
+      containerRef.current.webkitRequestFullscreen ||
+      containerRef.current.msRequestFullscreen;
+    if (requestFullscreen) {
+      requestFullscreen.call(containerRef.current).catch((err) => {
+        console.error('Error attempting to enable fullscreen mode:', err);
+      });
+    }
+  }
+}, []);
+
+// Listen for fullscreen exit (e.g. when ESC is pressed) and close the overlay
+useEffect(() => {
+  const handleFullscreenExit = () => {
+    if (
+      !document.fullscreenElement &&
+      !document.webkitFullscreenElement &&
+      !document.msFullscreenElement
+    ) {
+      onClose();
+    }
+  };
+
+  document.addEventListener('fullscreenchange', handleFullscreenExit);
+  document.addEventListener('webkitfullscreenchange', handleFullscreenExit);
+  document.addEventListener('msfullscreenchange', handleFullscreenExit);
+
+  return () => {
+    document.removeEventListener('fullscreenchange', handleFullscreenExit);
+    document.removeEventListener('webkitfullscreenchange', handleFullscreenExit);
+    document.removeEventListener('msfullscreenchange', handleFullscreenExit);
+  };
+}, [onClose]);
+
+
+// New handler for the "Ra ngoài" button: explicitly exit fullscreen,
+  // then call onClose and onGoBack so that NgoaiDinhLangAmOverlay re-opens (via parent) in fullscreen.
+  const handleRaNgoaiButton = () => {
+    onGoBack();
+    setTimeout(() => {
+      onClose();
+    }, 50);
+  };
+
   return (
     <div 
+      ref={containerRef}
       className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
-          onGoBack();
         }
       }}
     >
@@ -97,12 +155,35 @@ const TrongDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onGoBack }) =>
         alt="Trong Dinh Lang Am Background"
         className="fixed inset-0 w-full h-[100%] object-cover"
       />
+
+      {/* Ra ngoai Button */}
+      <>
+  <ul className="ra-ngoai-button absolute top-[70%] left-[30%] z-[10000]">
+    <li onClick={handleRaNgoaiButton}>&#x2799;</li>
+  </ul>
+  <style jsx>{`
+    .ra-ngoai-button li:nth-child(odd) {
+      color: red;
+      text-align: center;
+      font-size: 200px;
+      transform: perspective(500px) rotateZ(150deg) rotateY(45deg);
+      text-shadow: 0 0 10px black;
+    }
+    .ra-ngoai-button li:nth-child(odd):hover {
+      transform: perspective(200px) rotateZ(150deg) rotateY(45deg) rotateX(10deg);
+      cursor: pointer;
+      text-shadow: 0 0 10px black;
+      font-weight: bold;
+      transition: transform 0.3s ease-in-out;
+    }
+  `}</style>
+</>
       
       {/* Hotspots for cards */}
       {/* Ho Tinh hotspot */}
       <div 
-        className="absolute top-[29%] left-[49%] w-17 h-36 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+        className="absolute z-[10000] top-[29%] left-[49%] w-20 h-42 rounded-full hover:cursor-pointer"
+        onClick={(e) => {
           e.stopPropagation();
           if (!showCardThienLinhCai && !showCardOngHoMay && !showCardMaDoi) {
             setShowCardHoTinh(true);
@@ -112,8 +193,8 @@ const TrongDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onGoBack }) =>
 
       {/* Thien Linh Cai hotspot */}
       <div 
-        className="absolute top-[43%] left-[68%] w-8 h-9 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+        className="absolute z-[10000] top-[43.5%] left-[70%] rounded-full w-9 h-9 hover:cursor-pointer"
+        onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardOngHoMay && !showCardMaDoi) {
             setShowCardThienLinhCai(true);
@@ -123,8 +204,8 @@ const TrongDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onGoBack }) =>
 
       {/* Ong Ho May hotspot */}
       <div 
-        className="absolute top-[40%] left-[75%] w-20 h-45 hover:cursor-pointer [transform:perspective(500px)_rotateZ(13deg)]"
-        onMouseEnter={(e) => {
+        className="absolute z-[10000] top-[38%] left-[78%] w-20 h-60 hover:cursor-pointer [transform:perspective(500px)_rotateZ(13deg)]"
+        onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardThienLinhCai && !showCardMaDoi) {
             setShowCardOngHoMay(true);
@@ -134,8 +215,8 @@ const TrongDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onGoBack }) =>
 
       {/* Ma Doi hotspot */}
       <div 
-        className="absolute top-[48%] left-[53%] w-62 h-40 hover:cursor-pointer [transform:perspective(500px)_rotateZ(31deg)]"
-        onMouseEnter={(e) => {
+        className="absolute z-[10000] top-[48%] left-[53%] w-70 h-45 hover:cursor-pointer [transform:perspective(500px)_rotateZ(31deg)]"
+        onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardThienLinhCai && !showCardOngHoMay) {
             setShowCardMaDoi(true);
@@ -145,32 +226,14 @@ const TrongDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onGoBack }) =>
 
       {/* Le Quy hotspot */}
       <div 
-        className="absolute top-[24%] left-[71%] w-20 h-20 hover:cursor-pointer [transform:perspective(500px)_rotateZ(28deg)]"
-        onMouseEnter={(e) => {
+        className="absolute z-[10000] top-[25%] left-[74%] w-20 h-20 hover:cursor-pointer [transform:perspective(500px)_rotateZ(23deg)]"
+        onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardThienLinhCai && !showCardOngHoMay && !showCardMaDoi) {
             setShowCardLeQuy(true);
           }
         }}
       />
-      
-      <div className="absolute top-4 right-4 flex gap-2 z-[10000]">
-        <button 
-          onClick={onToggleMute}
-          className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-gray-200 transition-colors cursor-pointer"
-        >
-          {isMuted ? '🔇' : '🔊'}
-        </button>
-        <button 
-          onClick={() => {
-            onClose();
-            onGoBack();
-          }}
-          className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-gray-200 transition-colors cursor-pointer"
-        >
-          ✕
-        </button>
-      </div>
 
       {/* Card Overlays */}
       {/* Ho Tinh Card */}
@@ -179,18 +242,18 @@ const TrongDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onGoBack }) =>
           <LazyImage 
             src={cardHoTinh} 
             alt="Card Ho Tinh"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoHoTinh1(true)}
           />
           <button 
             onClick={handleCloseCardHoTinh}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute z-[11100] top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoHoTinh1 && (
             <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedHoTinh(!isFlippedHoTinh)}
             >
               <div className={`flip-card ${isFlippedHoTinh ? 'flipped' : ''} w-full h-full`}>
@@ -220,18 +283,18 @@ const TrongDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onGoBack }) =>
           <LazyImage 
             src={cardThienLinhCai} 
             alt="Card Thien Linh Cai"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoThienLinhCai1(true)}
           />
           <button 
             onClick={handleCloseCardThienLinhCai}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute z-[11100] top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoThienLinhCai1 && (
             <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedThienLinhCai(!isFlippedThienLinhCai)}
             >
               <div className={`flip-card ${isFlippedThienLinhCai ? 'flipped' : ''} w-full h-full`}>
@@ -261,18 +324,18 @@ const TrongDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onGoBack }) =>
     <LazyImage 
       src={cardOngHoMay} 
       alt="Card Ong Ho May"
-      className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+      className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
       onClick={() => setShowInfoOngHoMay1(true)}
     />
     <button 
       onClick={handleCloseCardOngHoMay}
-      className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+      className="absolute z-[11100] top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
     >
-      ✕
+      <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
     </button>
     {showInfoOngHoMay1 && (
       <div 
-        className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+        className="absolute z-[11000] right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
         onClick={() => setFlipStateOngHoMay((prev) => (prev + 1) % 3)}
       >
         <div className="flip-card" data-state={flipStateOngHoMay}>
@@ -310,18 +373,18 @@ const TrongDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onGoBack }) =>
           <LazyImage 
             src={cardMaDoi} 
             alt="Card Ma Doi"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaDoi1(true)}
           />
           <button 
             onClick={handleCloseCardMaDoi}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute z-[11100] top-[20%] right-[9.5%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaDoi1 && (
             <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaDoi(!isFlippedMaDoi)}
             >
               <div className={`flip-card ${isFlippedMaDoi ? 'flipped' : ''} w-full h-full`}>
@@ -351,18 +414,18 @@ const TrongDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onGoBack }) =>
           <LazyImage 
             src={cardLeQuy} 
             alt="Card Le Quy"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoLeQuy1(true)}
           />
           <button 
             onClick={handleCloseCardLeQuy}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute z-[11100] top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoLeQuy1 && (
             <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedLeQuy(!isFlippedLeQuy)}
             >
               <div className={`flip-card ${isFlippedLeQuy ? 'flipped' : ''} w-full h-full`}>

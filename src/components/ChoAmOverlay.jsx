@@ -1,94 +1,86 @@
-import React, { useState } from 'react';
-import LazyImage from './LazyImage';
-//Bg
-import choAmBg from '../assets/images/map lang am/10_CHO_AM.png';
-//Card
-import cardMaTocDai from '../assets/images/the bai/card_ma_toc_dai.png';
-import cardNgai from '../assets/images/the bai/card_ngai.png';
-import cardMaDoi from '../assets/images/the bai/card_ma_doi.png';
-import cardMaVuDai from '../assets/images/the bai/card_ma_vu_dai.png';
-import cardMaCutDau from '../assets/images/the bai/card_ma_cut_dau.png';
-import cardMaLai from '../assets/images/the bai/card_ma_lai.png';
-import cardMaMatMam from '../assets/images/the bai/card_ma_mat_mam.png';
-import cardMaLe from '../assets/images/the bai/card_ma_le.png';
-import cardQuyMotGio from '../assets/images/the bai/card_quy_mot_gio.png';
-import cardMaLon from '../assets/images/the bai/card_ma_lon.png';
-import cardOngBaBi from '../assets/images/the bai/card_ong_ba_bi.png';
-//Info
-import infoMaTocDai1 from '../assets/images/info_card/ma_toc_dai_1.png';
-import infoMaTocDai2 from '../assets/images/info_card/ma_toc_dai_2.png';
-import infoNgai1 from '../assets/images/info_card/ngai_1.png';
-import infoNgai2 from '../assets/images/info_card/ngai_2.png';
-import infoMaDoi1 from '../assets/images/info_card/co_hon_1.png';
-import infoMaDoi2 from '../assets/images/info_card/co_hon_2.png';
-import infoMaVuDai1 from '../assets/images/info_card/ma_vu_dai_1.png';
-import infoMaVuDai2 from '../assets/images/info_card/ma_vu_dai_2.png';
-import infoMaVuDai3 from '../assets/images/info_card/ma_vu_dai_3.png';
-import infoMaCutDau1 from '../assets/images/info_card/ma_cut_dau_1.png';
-import infoMaCutDau2 from '../assets/images/info_card/ma_cut_dau_2.png';
-import infoMaLai1 from '../assets/images/info_card/ma_lai_1.png';
-import infoMaLai2 from '../assets/images/info_card/ma_lai_2.png';
-import infoMaMatMam1 from '../assets/images/info_card/ma_mat_mam_1.png';
-import infoMaMatMam2 from '../assets/images/info_card/ma_mat_mam_2.png';
-import infoMaLe from '../assets/images/info_card/ma_le.png';
-import infoQuyMotGio1 from '../assets/images/info_card/quy_mot_gio_1.png';
-import infoQuyMotGio2 from '../assets/images/info_card/quy_mot_gio_2.png';
-import infoMaLon1 from '../assets/images/info_card/ma_lon_1.png';
-import infoMaLon2 from '../assets/images/info_card/ma_lon_2.png';
-import infoOngBaBi1 from '../assets/images/info_card/ong_ba_bi_1.png';
-import infoOngBaBi2 from '../assets/images/info_card/ong_ba_bi_2.png';
+import React, { useState, useRef, useEffect } from "react";
+import LazyImage from "./LazyImage";
+// Bg
+import choAmBg from "../assets/images/map lang am/10_CHO_AM.png";
+// Cards
+import cardMaTocDai from "../assets/images/the bai/card_ma_toc_dai.png";
+import cardNgai from "../assets/images/the bai/card_ngai.png";
+import cardMaDoi from "../assets/images/the bai/card_ma_doi.png";
+import cardMaVuDai from "../assets/images/the bai/card_ma_vu_dai.png";
+import cardMaCutDau from "../assets/images/the bai/card_ma_cut_dau.png";
+import cardMaLai from "../assets/images/the bai/card_ma_lai.png";
+import cardMaMatMam from "../assets/images/the bai/card_ma_mat_mam.png";
+import cardMaLe from "../assets/images/the bai/card_ma_le.png";
+import cardQuyMotGio from "../assets/images/the bai/card_quy_mot_gio.png";
+import cardMaLon from "../assets/images/the bai/card_ma_lon.png";
+import cardOngBaBi from "../assets/images/the bai/card_ong_ba_bi.png";
+// Info
+import infoMaTocDai1 from "../assets/images/info_card/ma_toc_dai_1.png";
+import infoMaTocDai2 from "../assets/images/info_card/ma_toc_dai_2.png";
+import infoNgai1 from "../assets/images/info_card/ngai_1.png";
+import infoNgai2 from "../assets/images/info_card/ngai_2.png";
+import infoMaDoi1 from "../assets/images/info_card/co_hon_1.png";
+import infoMaDoi2 from "../assets/images/info_card/co_hon_2.png";
+import infoMaVuDai1 from "../assets/images/info_card/ma_vu_dai_1.png";
+import infoMaVuDai2 from "../assets/images/info_card/ma_vu_dai_2.png";
+import infoMaVuDai3 from "../assets/images/info_card/ma_vu_dai_3.png";
+import infoMaCutDau1 from "../assets/images/info_card/ma_cut_dau_1.png";
+import infoMaCutDau2 from "../assets/images/info_card/ma_cut_dau_2.png";
+import infoMaLai1 from "../assets/images/info_card/ma_lai_1.png";
+import infoMaLai2 from "../assets/images/info_card/ma_lai_2.png";
+import infoMaMatMam1 from "../assets/images/info_card/ma_mat_mam_1.png";
+import infoMaMatMam2 from "../assets/images/info_card/ma_mat_mam_2.png";
+import infoMaLe from "../assets/images/info_card/ma_le.png";
+import infoQuyMotGio1 from "../assets/images/info_card/quy_mot_gio_1.png";
+import infoQuyMotGio2 from "../assets/images/info_card/quy_mot_gio_2.png";
+import infoMaLon1 from "../assets/images/info_card/ma_lon_1.png";
+import infoMaLon2 from "../assets/images/info_card/ma_lon_2.png";
+import infoOngBaBi1 from "../assets/images/info_card/ong_ba_bi_1.png";
+import infoOngBaBi2 from "../assets/images/info_card/ong_ba_bi_2.png";
+// Button
+import closeButton from '../assets/images/dau_x.png';
 
 const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
-  // State for Ma Toc Dai card
+  // States for various cards and info panels
   const [showCardMaTocDai, setShowCardMaTocDai] = useState(false);
   const [showInfoMaTocDai1, setShowInfoMaTocDai1] = useState(false);
   const [isFlippedMaTocDai, setIsFlippedMaTocDai] = useState(false);
 
-  // State for Ngai card
   const [showCardNgai, setShowCardNgai] = useState(false);
   const [showInfoNgai1, setShowInfoNgai1] = useState(false);
   const [isFlippedNgai, setIsFlippedNgai] = useState(false);
 
-  // State for Ma Doi card
   const [showCardMaDoi, setShowCardMaDoi] = useState(false);
   const [showInfoMaDoi1, setShowInfoMaDoi1] = useState(false);
   const [isFlippedMaDoi, setIsFlippedMaDoi] = useState(false);
 
-  // State for Ma Vu Dai card
   const [showCardMaVuDai, setShowCardMaVuDai] = useState(false);
   const [showInfoMaVuDai1, setShowInfoMaVuDai1] = useState(false);
   const [flipState, setFlipState] = useState(0); // 0: first image, 1: second image, 2: third image
 
-  // State for Ma Cut Dau card
   const [showCardMaCutDau, setShowCardMaCutDau] = useState(false);
   const [showInfoMaCutDau1, setShowInfoMaCutDau1] = useState(false);
   const [isFlippedMaCutDau, setIsFlippedMaCutDau] = useState(false);
 
-  // State for Ma Lai card
   const [showCardMaLai, setShowCardMaLai] = useState(false);
   const [showInfoMaLai1, setShowInfoMaLai1] = useState(false);
   const [isFlippedMaLai, setIsFlippedMaLai] = useState(false);
 
-  // State for Ma Mat Mam card
   const [showCardMaMatMam, setShowCardMaMatMam] = useState(false);
   const [showInfoMaMatMam1, setShowInfoMaMatMam1] = useState(false);
   const [isFlippedMaMatMam, setIsFlippedMaMatMam] = useState(false);
 
-  // State for Ma Le card
   const [showCardMaLe, setShowCardMaLe] = useState(false);
   const [showInfoMaLe1, setShowInfoMaLe1] = useState(false);
 
-  // State for Quy Mot Gio card
   const [showCardQuyMotGio, setShowCardQuyMotGio] = useState(false);
   const [showInfoQuyMotGio1, setShowInfoQuyMotGio1] = useState(false);
   const [isFlippedQuyMotGio, setIsFlippedQuyMotGio] = useState(false);
 
-  // State for Ma Lon card
   const [showCardMaLon, setShowCardMaLon] = useState(false);
   const [showInfoMaLon1, setShowInfoMaLon1] = useState(false);
   const [isFlippedMaLon, setIsFlippedMaLon] = useState(false);
 
-  // State for Ong Ba Bi card
   const [showCardOngBaBi, setShowCardOngBaBi] = useState(false);
   const [showInfoOngBaBi1, setShowInfoOngBaBi1] = useState(false);
   const [isFlippedOngBaBi, setIsFlippedOngBaBi] = useState(false);
@@ -159,8 +151,51 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
     setIsFlippedOngBaBi(false);
   };
 
+  // --- Fullscreen Logic ---
+  const containerRef = useRef(null);
+
+  // Request fullscreen on mount
+  useEffect(() => {
+    if (containerRef.current) {
+      const requestFullscreen =
+        containerRef.current.requestFullscreen ||
+        containerRef.current.webkitRequestFullscreen ||
+        containerRef.current.msRequestFullscreen;
+      
+      if (requestFullscreen) {
+        requestFullscreen.call(containerRef.current).catch((err) => {
+          console.error("Error attempting to enable fullscreen mode:", err);
+        });
+      }
+    }
+  }, []);
+
+  // Listen for fullscreen exit (e.g. ESC) and close overlay
+  useEffect(() => {
+    const handleFullscreenExit = () => {
+      if (
+        !document.fullscreenElement &&
+        !document.webkitFullscreenElement &&
+        !document.msFullscreenElement
+      ) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("fullscreenchange", handleFullscreenExit);
+    document.addEventListener("webkitfullscreenchange", handleFullscreenExit);
+    document.addEventListener("msfullscreenchange", handleFullscreenExit);
+
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullscreenExit);
+      document.removeEventListener("webkitfullscreenchange", handleFullscreenExit);
+      document.removeEventListener("msfullscreenchange", handleFullscreenExit);
+    };
+  }, [onClose]);
+
   return (
-    <div 
+    <div
+      ref={containerRef}
       className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
@@ -168,201 +203,352 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
         }
       }}
     >
-      <LazyImage 
-        src={choAmBg} 
-        alt="Cho Am Background" 
+      <LazyImage
+        src={choAmBg}
+        alt="Cho Am Background"
         className="fixed inset-0 w-full h-[100%] object-fit"
       />
-      
-      {/* Hotspots */}
+
+      {/* --- Hotspots with distinct background colors (opacity-50) --- */}
+
       {/* Ma Toc Dai Hotspot */}
-      <div 
-        className="absolute top-[30%] left-[5.5%] w-20 h-25 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      <div
+        className="absolute top-[32%] left-[0%] w-40 h-25 [transform:perspective(500px)_rotateZ(-20deg)] hover:cursor-pointer"
+        onClick={(e) => {
           e.stopPropagation();
-          if (!showCardNgai && !showCardMaDoi && !showCardMaVuDai && !showCardMaCutDau && !showCardMaLai && !showCardMaMatMam && !showCardMaLe && !showCardQuyMotGio && !showCardMaLon && !showCardOngBaBi) {
+          if (
+            !showCardNgai &&
+            !showCardMaDoi &&
+            !showCardMaVuDai &&
+            !showCardMaCutDau &&
+            !showCardMaLai &&
+            !showCardMaMatMam &&
+            !showCardMaLe &&
+            !showCardQuyMotGio &&
+            !showCardMaLon &&
+            !showCardOngBaBi
+          ) {
             setShowCardMaTocDai(true);
           }
         }}
       />
 
       {/* Ngai Hotspot */}
-      <div 
-        className="absolute top-[48%] left-[11.75%] w-15 h-20 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      <div
+        className="absolute top-[49%] left-[11.75%] w-15 h-20 hover:cursor-pointer"
+        onClick={(e) => {
           e.stopPropagation();
-          if (!showCardMaTocDai && !showCardMaDoi && !showCardMaVuDai && !showCardMaCutDau && !showCardMaLai && !showCardMaMatMam && !showCardMaLe && !showCardQuyMotGio && !showCardMaLon && !showCardOngBaBi) {
+          if (
+            !showCardMaTocDai &&
+            !showCardMaDoi &&
+            !showCardMaVuDai &&
+            !showCardMaCutDau &&
+            !showCardMaLai &&
+            !showCardMaMatMam &&
+            !showCardMaLe &&
+            !showCardQuyMotGio &&
+            !showCardMaLon &&
+            !showCardOngBaBi
+          ) {
             setShowCardNgai(true);
           }
         }}
       />
 
       {/* Ma Doi Hotspots */}
-      <div 
-        className="absolute top-[55%] left-[5%] w-20 h-34 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      <div
+        className="absolute top-[55%] left-[5%] w-20 h-40 hover:cursor-pointer [transform:perspective(500px)_rotateZ(20deg)]"
+        onClick={(e) => {
           e.stopPropagation();
-          if (!showCardMaTocDai && !showCardNgai && !showCardMaVuDai && !showCardMaCutDau && !showCardMaLai && !showCardMaMatMam && !showCardMaLe && !showCardQuyMotGio && !showCardMaLon && !showCardOngBaBi) {
+          if (
+            !showCardMaTocDai &&
+            !showCardNgai &&
+            !showCardMaVuDai &&
+            !showCardMaCutDau &&
+            !showCardMaLai &&
+            !showCardMaMatMam &&
+            !showCardMaLe &&
+            !showCardQuyMotGio &&
+            !showCardMaLon &&
+            !showCardOngBaBi
+          ) {
             setShowCardMaDoi(true);
           }
         }}
       />
-      <div 
-        className="absolute top-[27%] left-[24%] w-22 h-50 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      <div
+        className="absolute top-[27%] left-[24%] w-22 h-58 hover:cursor-pointer"
+        onClick={(e) => {
           e.stopPropagation();
-          if (!showCardMaTocDai && !showCardNgai && !showCardMaVuDai && !showCardMaCutDau && !showCardMaLai && !showCardMaMatMam && !showCardMaLe && !showCardQuyMotGio && !showCardMaLon && !showCardOngBaBi) {
+          if (
+            !showCardMaTocDai &&
+            !showCardNgai &&
+            !showCardMaVuDai &&
+            !showCardMaCutDau &&
+            !showCardMaLai &&
+            !showCardMaMatMam &&
+            !showCardMaLe &&
+            !showCardQuyMotGio &&
+            !showCardMaLon &&
+            !showCardOngBaBi
+          ) {
             setShowCardMaDoi(true);
           }
         }}
       />
-      <div 
-        className="absolute top-[11%] left-[70%] w-24 h-34 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      <div
+        className="absolute top-[11%] left-[70%] w-20 h-40 hover:cursor-pointer [transform:perspective(500px)_rotateZ(20deg)]"
+        onClick={(e) => {
           e.stopPropagation();
-          if (!showCardMaTocDai && !showCardNgai && !showCardMaVuDai && !showCardMaCutDau && !showCardMaLai && !showCardMaMatMam && !showCardMaLe && !showCardQuyMotGio && !showCardMaLon && !showCardOngBaBi) {
+          if (
+            !showCardMaTocDai &&
+            !showCardNgai &&
+            !showCardMaVuDai &&
+            !showCardMaCutDau &&
+            !showCardMaLai &&
+            !showCardMaMatMam &&
+            !showCardMaLe &&
+            !showCardQuyMotGio &&
+            !showCardMaLon &&
+            !showCardOngBaBi
+          ) {
             setShowCardMaDoi(true);
           }
         }}
       />
 
       {/* Ma Vu Dai Hotspot */}
-      <div 
-        className="absolute top-[57%] left-[20%] w-30 h-65 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      <div
+        className="absolute top-[57%] left-[18.5%] w-35 h-70 hover:cursor-pointer"
+        onClick={(e) => {
           e.stopPropagation();
-          if (!showCardMaTocDai && !showCardNgai && !showCardMaDoi && !showCardMaCutDau && !showCardMaLai && !showCardMaMatMam && !showCardMaLe && !showCardQuyMotGio && !showCardMaLon && !showCardOngBaBi) {
+          if (
+            !showCardMaTocDai &&
+            !showCardNgai &&
+            !showCardMaDoi &&
+            !showCardMaCutDau &&
+            !showCardMaLai &&
+            !showCardMaMatMam &&
+            !showCardMaLe &&
+            !showCardQuyMotGio &&
+            !showCardMaLon &&
+            !showCardOngBaBi
+          ) {
             setShowCardMaVuDai(true);
           }
         }}
       />
 
-      {/* Ma Cut Dau Hotspot */}
-      <div 
-        className="absolute top-[59%] left-[45%] w-40 h-55 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      {/* Ma Cut Dau Hotspots */}
+      <div
+        className="absolute top-[59%] left-[44.5%] w-40 h-65 hover:cursor-pointer"
+        onClick={(e) => {
           e.stopPropagation();
-          if (!showCardMaTocDai && !showCardNgai && !showCardMaDoi && !showCardMaVuDai && !showCardMaLai && !showCardMaMatMam && !showCardMaLe && !showCardQuyMotGio && !showCardMaLon && !showCardOngBaBi) {
+          if (
+            !showCardMaTocDai &&
+            !showCardNgai &&
+            !showCardMaDoi &&
+            !showCardMaVuDai &&
+            !showCardMaLai &&
+            !showCardMaMatMam &&
+            !showCardMaLe &&
+            !showCardQuyMotGio &&
+            !showCardMaLon &&
+            !showCardOngBaBi
+          ) {
+            setShowCardMaCutDau(true);
+          }
+        }}
+      />
+      <div
+        className="absolute top-[73%] left-[35%] rounded-full w-28 h-28 hover:cursor-pointer"
+        onClick={(e) => {
+          e.stopPropagation();
+          if (
+            !showCardMaTocDai &&
+            !showCardNgai &&
+            !showCardMaDoi &&
+            !showCardMaVuDai &&
+            !showCardMaLai &&
+            !showCardMaMatMam &&
+            !showCardMaLe &&
+            !showCardQuyMotGio &&
+            !showCardMaLon &&
+            !showCardOngBaBi
+          ) {
             setShowCardMaCutDau(true);
           }
         }}
       />
 
       {/* Ma Lai Hotspot */}
-      <div 
-        className="absolute top-[42%] left-[32.5%] w-33 h-50 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      <div
+        className="absolute top-[42%] left-[33%] w-33 h-50 hover:cursor-pointer rounded-full [transform:perspective(500px)_rotateZ(-20deg)]"
+        onClick={(e) => {
           e.stopPropagation();
-          if (!showCardMaTocDai && !showCardNgai && !showCardMaDoi && !showCardMaVuDai && !showCardMaCutDau && !showCardMaMatMam && !showCardMaLe && !showCardQuyMotGio && !showCardMaLon && !showCardOngBaBi) {
+          if (
+            !showCardMaTocDai &&
+            !showCardNgai &&
+            !showCardMaDoi &&
+            !showCardMaVuDai &&
+            !showCardMaCutDau &&
+            !showCardMaMatMam &&
+            !showCardMaLe &&
+            !showCardQuyMotGio &&
+            !showCardMaLon &&
+            !showCardOngBaBi
+          ) {
             setShowCardMaLai(true);
           }
         }}
       />
 
       {/* Ma Mat Mam Hotspot */}
-      <div 
-        className="absolute top-[38%] left-[42%] w-35 h-23 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      <div
+        className="absolute top-[38%] rounded-full left-[42%] w-35 h-26 hover:cursor-pointer [transform:perspective(500px)_rotateZ(20deg)]"
+        onClick={(e) => {
           e.stopPropagation();
-          if (!showCardMaTocDai && !showCardNgai && !showCardMaDoi && !showCardMaVuDai && !showCardMaCutDau && !showCardMaLai && !showCardMaLe && !showCardQuyMotGio && !showCardMaLon && !showCardOngBaBi) {
+          if (
+            !showCardMaTocDai &&
+            !showCardNgai &&
+            !showCardMaDoi &&
+            !showCardMaVuDai &&
+            !showCardMaCutDau &&
+            !showCardMaLai &&
+            !showCardMaMatMam &&
+            !showCardMaLe &&
+            !showCardQuyMotGio &&
+            !showCardMaLon &&
+            !showCardOngBaBi
+          ) {
             setShowCardMaMatMam(true);
           }
         }}
       />
 
       {/* Ma Le Hotspot */}
-      <div 
-        className="absolute top-[10%] left-[44%] w-20 h-30 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      <div
+        className="absolute top-[10%] left-[44%] w-20 h-30 hover:cursor-pointer rounded-full [transform:perspective(500px)_rotateZ(20deg)]"
+        onClick={(e) => {
           e.stopPropagation();
-          if (!showCardMaTocDai && !showCardNgai && !showCardMaDoi && !showCardMaVuDai && !showCardMaCutDau && !showCardMaLai && !showCardMaMatMam && !showCardQuyMotGio && !showCardMaLon && !showCardOngBaBi) {
+          if (
+            !showCardMaTocDai &&
+            !showCardNgai &&
+            !showCardMaDoi &&
+            !showCardMaVuDai &&
+            !showCardMaCutDau &&
+            !showCardMaLai &&
+            !showCardMaMatMam &&
+            !showCardQuyMotGio &&
+            !showCardMaLon &&
+            !showCardOngBaBi
+          ) {
             setShowCardMaLe(true);
           }
         }}
       />
 
       {/* Quy Mot Gio Hotspot */}
-      <div 
-        className="absolute top-[10%] left-[53%] w-23 h-50 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      <div
+        className="absolute top-[10%] left-[53%] w-23 h-50 rounded-full hover:cursor-pointer"
+        onClick={(e) => {
           e.stopPropagation();
-          if (!showCardMaTocDai && !showCardNgai && !showCardMaDoi && !showCardMaVuDai && !showCardMaCutDau && !showCardMaLai && !showCardMaMatMam && !showCardMaLe && !showCardMaLon && !showCardOngBaBi) {
+          if (
+            !showCardMaTocDai &&
+            !showCardNgai &&
+            !showCardMaDoi &&
+            !showCardMaVuDai &&
+            !showCardMaCutDau &&
+            !showCardMaLai &&
+            !showCardMaMatMam &&
+            !showCardMaLe &&
+            !showCardMaLon &&
+            !showCardOngBaBi
+          ) {
             setShowCardQuyMotGio(true);
           }
         }}
       />
 
       {/* Ma Lon Hotspot */}
-      <div 
-        className="absolute top-[34%] left-[70%] w-15 h-15 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      <div
+        className="absolute top-[33%] left-[70%] w-15 h-20 rounded-full hover:cursor-pointer [transform:perspective(500px)_rotateZ(7deg)]"
+        onClick={(e) => {
           e.stopPropagation();
-          if (!showCardMaTocDai && !showCardNgai && !showCardMaDoi && !showCardMaVuDai && !showCardMaCutDau && !showCardMaLai && !showCardMaMatMam && !showCardMaLe && !showCardQuyMotGio && !showCardOngBaBi) {
+          if (
+            !showCardMaTocDai &&
+            !showCardNgai &&
+            !showCardMaDoi &&
+            !showCardMaVuDai &&
+            !showCardMaCutDau &&
+            !showCardMaLai &&
+            !showCardMaMatMam &&
+            !showCardMaLe &&
+            !showCardQuyMotGio &&
+            !showCardOngBaBi
+          ) {
             setShowCardMaLon(true);
           }
         }}
       />
 
       {/* Ong Ba Bi Hotspot */}
-      <div 
-        className="absolute top-[45%] left-[66%] w-65 h-35 hover:cursor-pointer"
-        onMouseEnter={(e) => {
+      <div
+        className="absolute top-[42%] left-[66%] w-65 h-50 rounded-full hover:cursor-pointer"
+        onClick={(e) => {
           e.stopPropagation();
-          if (!showCardMaTocDai && !showCardNgai && !showCardMaDoi && !showCardMaVuDai && !showCardMaCutDau && !showCardMaLai && !showCardMaMatMam && !showCardMaLe && !showCardQuyMotGio && !showCardMaLon) {
+          if (
+            !showCardMaTocDai &&
+            !showCardNgai &&
+            !showCardMaDoi &&
+            !showCardMaVuDai &&
+            !showCardMaCutDau &&
+            !showCardMaLai &&
+            !showCardMaMatMam &&
+            !showCardMaLe &&
+            !showCardQuyMotGio &&
+            !showCardMaLon
+          ) {
             setShowCardOngBaBi(true);
           }
         }}
       />
-      
-      <div className="absolute top-4 right-4 flex gap-2 z-[10000]">
-        <button 
-          onClick={onToggleMute}
-          className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-gray-200 transition-colors cursor-pointer"
-        >
-          {isMuted ? '🔇' : '🔊'}
-        </button>
-        <button 
-          onClick={onClose}
-          className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-gray-200 transition-colors cursor-pointer"
-        >
-          ✕
-        </button>
-      </div>
 
-      {/* Card Overlays */}
+      {/* --- Card Overlays --- */}
+
       {/* Ma Toc Dai Card Overlay */}
       {showCardMaTocDai && (
         <>
-          <LazyImage 
-            src={cardMaTocDai} 
+          <LazyImage
+            src={cardMaTocDai}
             alt="Card Ma Toc Dai"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaTocDai1(true)}
           />
-          <button 
+          <button
             onClick={handleCloseCardMaTocDai}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaTocDai1 && (
-            <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+            <div
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaTocDai(!isFlippedMaTocDai)}
             >
-              <div className={`flip-card ${isFlippedMaTocDai ? 'flipped' : ''} w-full h-full`}>
+              <div className={`flip-card ${isFlippedMaTocDai ? "flipped" : ""} w-full h-full`}>
                 <div className="flip-card-front absolute inset-0">
-                  <LazyImage 
-                    src={infoMaTocDai1} 
+                  <LazyImage
+                    src={infoMaTocDai1}
                     alt="Info Ma Toc Dai 1"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
                 <div className="flip-card-back absolute inset-0">
-                  <LazyImage 
-                    src={infoMaTocDai2} 
+                  <LazyImage
+                    src={infoMaTocDai2}
                     alt="Info Ma Toc Dai 2"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
               </div>
@@ -374,36 +560,36 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
       {/* Ngai Card Overlay */}
       {showCardNgai && (
         <>
-          <LazyImage 
-            src={cardNgai} 
+          <LazyImage
+            src={cardNgai}
             alt="Card Ngai"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoNgai1(true)}
           />
-          <button 
+          <button
             onClick={handleCloseCardNgai}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[21%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoNgai1 && (
-            <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+            <div
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedNgai(!isFlippedNgai)}
             >
-              <div className={`flip-card ${isFlippedNgai ? 'flipped' : ''} w-full h-full`}>
+              <div className={`flip-card ${isFlippedNgai ? "flipped" : ""} w-full h-full`}>
                 <div className="flip-card-front absolute inset-0">
-                  <LazyImage 
-                    src={infoNgai1} 
+                  <LazyImage
+                    src={infoNgai1}
                     alt="Info Ngai 1"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
                 <div className="flip-card-back absolute inset-0">
-                  <LazyImage 
-                    src={infoNgai2} 
+                  <LazyImage
+                    src={infoNgai2}
                     alt="Info Ngai 2"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
               </div>
@@ -415,36 +601,36 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
       {/* Ma Doi Card Overlay */}
       {showCardMaDoi && (
         <>
-          <LazyImage 
-            src={cardMaDoi} 
+          <LazyImage
+            src={cardMaDoi}
             alt="Card Ma Doi"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaDoi1(true)}
           />
-          <button 
+          <button
             onClick={handleCloseCardMaDoi}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20%] right-[9%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaDoi1 && (
-            <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+            <div
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaDoi(!isFlippedMaDoi)}
             >
-              <div className={`flip-card ${isFlippedMaDoi ? 'flipped' : ''} w-full h-full`}>
+              <div className={`flip-card ${isFlippedMaDoi ? "flipped" : ""} w-full h-full`}>
                 <div className="flip-card-front absolute inset-0">
-                  <LazyImage 
-                    src={infoMaDoi1} 
+                  <LazyImage
+                    src={infoMaDoi1}
                     alt="Info Ma Doi 1"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
                 <div className="flip-card-back absolute inset-0">
-                  <LazyImage 
-                    src={infoMaDoi2} 
+                  <LazyImage
+                    src={infoMaDoi2}
                     alt="Info Ma Doi 2"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
               </div>
@@ -456,45 +642,45 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
       {/* Ma Vu Dai Card Overlay */}
       {showCardMaVuDai && (
         <>
-          <LazyImage 
-            src={cardMaVuDai} 
+          <LazyImage
+            src={cardMaVuDai}
             alt="Card Ma Vu Dai"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaVuDai1(true)}
           />
-          <button 
+          <button
             onClick={handleCloseCardMaVuDai}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaVuDai1 && (
-            <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+            <div
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => {
                 setFlipState((prevState) => (prevState + 1) % 3);
               }}
             >
               <div className="flip-card" data-state={flipState}>
                 <div className="flip-card-face flip-card-face-1">
-                  <LazyImage 
-                    src={infoMaVuDai1} 
+                  <LazyImage
+                    src={infoMaVuDai1}
                     alt="Info Ma Vu Dai 1"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
                 <div className="flip-card-face flip-card-face-2">
-                  <LazyImage 
-                    src={infoMaVuDai2} 
+                  <LazyImage
+                    src={infoMaVuDai2}
                     alt="Info Ma Vu Dai 2"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
                 <div className="flip-card-face flip-card-face-3">
-                  <LazyImage 
-                    src={infoMaVuDai3} 
+                  <LazyImage
+                    src={infoMaVuDai3}
                     alt="Info Ma Vu Dai 3"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
               </div>
@@ -506,36 +692,36 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
       {/* Ma Cut Dau Card Overlay */}
       {showCardMaCutDau && (
         <>
-          <LazyImage 
-            src={cardMaCutDau} 
+          <LazyImage
+            src={cardMaCutDau}
             alt="Card Ma Cut Dau"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaCutDau1(true)}
           />
-          <button 
+          <button
             onClick={handleCloseCardMaCutDau}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaCutDau1 && (
-            <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+            <div
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaCutDau(!isFlippedMaCutDau)}
             >
-              <div className={`flip-card ${isFlippedMaCutDau ? 'flipped' : ''} w-full h-full`}>
+              <div className={`flip-card ${isFlippedMaCutDau ? "flipped" : ""} w-full h-full`}>
                 <div className="flip-card-front absolute inset-0">
-                  <LazyImage 
-                    src={infoMaCutDau1} 
+                  <LazyImage
+                    src={infoMaCutDau1}
                     alt="Info Ma Cut Dau 1"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
                 <div className="flip-card-back absolute inset-0">
-                  <LazyImage 
-                    src={infoMaCutDau2} 
+                  <LazyImage
+                    src={infoMaCutDau2}
                     alt="Info Ma Cut Dau 2"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
               </div>
@@ -547,36 +733,36 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
       {/* Ma Lai Card Overlay */}
       {showCardMaLai && (
         <>
-          <LazyImage 
-            src={cardMaLai} 
+          <LazyImage
+            src={cardMaLai}
             alt="Card Ma Lai"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaLai1(true)}
           />
-          <button 
+          <button
             onClick={handleCloseCardMaLai}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaLai1 && (
-            <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+            <div
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaLai(!isFlippedMaLai)}
             >
-              <div className={`flip-card ${isFlippedMaLai ? 'flipped' : ''} w-full h-full`}>
+              <div className={`flip-card ${isFlippedMaLai ? "flipped" : ""} w-full h-full`}>
                 <div className="flip-card-front absolute inset-0">
-                  <LazyImage 
-                    src={infoMaLai1} 
+                  <LazyImage
+                    src={infoMaLai1}
                     alt="Info Ma Lai 1"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
                 <div className="flip-card-back absolute inset-0">
-                  <LazyImage 
-                    src={infoMaLai2} 
+                  <LazyImage
+                    src={infoMaLai2}
                     alt="Info Ma Lai 2"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
               </div>
@@ -588,36 +774,36 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
       {/* Ma Mat Mam Card Overlay */}
       {showCardMaMatMam && (
         <>
-          <LazyImage 
-            src={cardMaMatMam} 
+          <LazyImage
+            src={cardMaMatMam}
             alt="Card Ma Mat Mam"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaMatMam1(true)}
           />
-          <button 
+          <button
             onClick={handleCloseCardMaMatMam}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaMatMam1 && (
-            <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+            <div
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaMatMam(!isFlippedMaMatMam)}
             >
-              <div className={`flip-card ${isFlippedMaMatMam ? 'flipped' : ''} w-full h-full`}>
+              <div className={`flip-card ${isFlippedMaMatMam ? "flipped" : ""} w-full h-full`}>
                 <div className="flip-card-front absolute inset-0">
-                  <LazyImage 
-                    src={infoMaMatMam1} 
+                  <LazyImage
+                    src={infoMaMatMam1}
                     alt="Info Ma Mat Mam 1"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
                 <div className="flip-card-back absolute inset-0">
-                  <LazyImage 
-                    src={infoMaMatMam2} 
+                  <LazyImage
+                    src={infoMaMatMam2}
                     alt="Info Ma Mat Mam 2"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
               </div>
@@ -629,24 +815,24 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
       {/* Ma Le Card Overlay */}
       {showCardMaLe && (
         <>
-          <LazyImage 
-            src={cardMaLe} 
+          <LazyImage
+            src={cardMaLe}
             alt="Card Ma Le"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaLe1(true)}
           />
-          <button 
+          <button
             onClick={handleCloseCardMaLe}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaLe1 && (
-            <div className="absolute right-[20%] top-[4%] w-[90%] h-[100%]">
-              <LazyImage 
-                src={infoMaLe} 
+            <div className="absolute right-[17%] top-[4%] w-[100%] h-[100%] cursor-pointer">
+              <LazyImage
+                src={infoMaLe}
                 alt="Info Ma Le"
-                className="w-full h-full object-fit" 
+                className="w-full h-full object-fit"
               />
             </div>
           )}
@@ -656,36 +842,36 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
       {/* Quy Mot Gio Card Overlay */}
       {showCardQuyMotGio && (
         <>
-          <LazyImage 
-            src={cardQuyMotGio} 
+          <LazyImage
+            src={cardQuyMotGio}
             alt="Card Quy Mot Gio"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoQuyMotGio1(true)}
           />
-          <button 
+          <button
             onClick={handleCloseCardQuyMotGio}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoQuyMotGio1 && (
-            <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+            <div
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedQuyMotGio(!isFlippedQuyMotGio)}
             >
-              <div className={`flip-card ${isFlippedQuyMotGio ? 'flipped' : ''} w-full h-full`}>
+              <div className={`flip-card ${isFlippedQuyMotGio ? "flipped" : ""} w-full h-full`}>
                 <div className="flip-card-front absolute inset-0">
-                  <LazyImage 
-                    src={infoQuyMotGio1} 
+                  <LazyImage
+                    src={infoQuyMotGio1}
                     alt="Info Quy Mot Gio 1"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
                 <div className="flip-card-back absolute inset-0">
-                  <LazyImage 
-                    src={infoQuyMotGio2} 
+                  <LazyImage
+                    src={infoQuyMotGio2}
                     alt="Info Quy Mot Gio 2"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
               </div>
@@ -697,36 +883,36 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
       {/* Ma Lon Card Overlay */}
       {showCardMaLon && (
         <>
-          <LazyImage 
-            src={cardMaLon} 
+          <LazyImage
+            src={cardMaLon}
             alt="Card Ma Lon"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaLon1(true)}
           />
-          <button 
+          <button
             onClick={handleCloseCardMaLon}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaLon1 && (
-            <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+            <div
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaLon(!isFlippedMaLon)}
             >
-              <div className={`flip-card ${isFlippedMaLon ? 'flipped' : ''} w-full h-full`}>
+              <div className={`flip-card ${isFlippedMaLon ? "flipped" : ""} w-full h-full`}>
                 <div className="flip-card-front absolute inset-0">
-                  <LazyImage 
-                    src={infoMaLon1} 
+                  <LazyImage
+                    src={infoMaLon1}
                     alt="Info Ma Lon 1"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
                 <div className="flip-card-back absolute inset-0">
-                  <LazyImage 
-                    src={infoMaLon2} 
+                  <LazyImage
+                    src={infoMaLon2}
                     alt="Info Ma Lon 2"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
               </div>
@@ -738,36 +924,36 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
       {/* Ong Ba Bi Card Overlay */}
       {showCardOngBaBi && (
         <>
-          <LazyImage 
-            src={cardOngBaBi} 
+          <LazyImage
+            src={cardOngBaBi}
             alt="Card Ong Ba Bi"
-            className="absolute w-[90%] left-[28%] h-full object-contain cursor-pointer opacity-90"
+            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
             onClick={() => setShowInfoOngBaBi1(true)}
           />
-          <button 
+          <button
             onClick={handleCloseCardOngBaBi}
-            className="absolute top-[19%] right-[15%] w-8 h-8 bg-white opacity-70 rounded-full flex items-center justify-center text-black cursor-pointer hover:opacity-100"
+            className="absolute top-[19%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            ✕
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoOngBaBi1 && (
-            <div 
-              className="absolute right-[20%] top-[4%] w-[90%] h-[100%] flip-container cursor-pointer"
+            <div
+              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
               onClick={() => setIsFlippedOngBaBi(!isFlippedOngBaBi)}
             >
-              <div className={`flip-card ${isFlippedOngBaBi ? 'flipped' : ''} w-full h-full`}>
+              <div className={`flip-card ${isFlippedOngBaBi ? "flipped" : ""} w-full h-full`}>
                 <div className="flip-card-front absolute inset-0">
-                  <LazyImage 
-                    src={infoOngBaBi1} 
+                  <LazyImage
+                    src={infoOngBaBi1}
                     alt="Info Ong Ba Bi 1"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
                 <div className="flip-card-back absolute inset-0">
-                  <LazyImage 
-                    src={infoOngBaBi2} 
+                  <LazyImage
+                    src={infoOngBaBi2}
                     alt="Info Ong Ba Bi 2"
-                    className="w-full h-full object-fit" 
+                    className="w-full h-full object-fit"
                   />
                 </div>
               </div>
