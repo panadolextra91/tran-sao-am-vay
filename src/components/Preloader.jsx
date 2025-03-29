@@ -4,7 +4,6 @@ import am from '../assets/images/am.png';
 import cloud from '../assets/images/cloud.png';
 import duong from '../assets/images/duong.png';
 import map_chung from '../assets/images/map_chung.png';
-import ong_nam_cheo from '../assets/images/ong_nam_cheo.jpg';
 import orange_smoke from '../assets/images/orage-smoke.png';
 import red_smoke from '../assets/images/red-smoke.png';
 import thu_ngo from '../assets/images/thu_ngo.png';
@@ -52,7 +51,6 @@ const imageUrls = [
   cloud,
   duong,
   map_chung,
-  ong_nam_cheo,
   orange_smoke,
   red_smoke,
   thu_ngo,
