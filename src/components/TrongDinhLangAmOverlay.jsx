@@ -226,7 +226,7 @@ useEffect(() => {
 
       {/* Le Quy hotspot */}
       <div 
-        className="absolute z-[10000] top-[25%] left-[74%] w-20 h-20 hover:cursor-pointer [transform:perspective(500px)_rotateZ(23deg)] opacity-50 bg-[#B76E79]"
+        className="absolute z-[10000] top-[25vh] left-[70vw] w-[7vw] h-[10vh] hover:cursor-pointer [transform:perspective(500px)_rotateZ(23deg)] opacity-50 bg-[#B76E79]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardThienLinhCai && !showCardOngHoMay && !showCardMaDoi) {
@@ -242,18 +242,18 @@ useEffect(() => {
           <LazyImage 
             src={cardHoTinh} 
             alt="Card Ho Tinh"
-            className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoHoTinh1(true)}
           />
           <button 
             onClick={handleCloseCardHoTinh}
-            className="absolute z-[11100] top-[20vh] right-[10vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            <img src={closeButton} alt="Close" className="w-full h-full object-fit" />
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoHoTinh1 && (
             <div 
-              className="absolute z-[11000] right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedHoTinh(!isFlippedHoTinh)}
             >
               <div className={`flip-card ${isFlippedHoTinh ? 'flipped' : ''} w-full h-full`}>
