@@ -480,7 +480,7 @@ const MapPage = () => {
 
           {/* Hotspots with optimized event handlers */}
           <div 
-            className="absolute top-[30vh] left-[3vw] w-[7vw] h-[7.5vh] hover:cursor-pointer bg-[#FF6B6B] opacity-50"
+            className="absolute top-[30vh] left-[3vw] w-[7vw] h-[7.5vh] hover:cursor-pointer"
             onMouseEnter={() => setShowText1(true)}
             onMouseLeave={() => setShowText1(false)}
             onClick={() => setShowGanhHatTrenSong(true)}
@@ -503,7 +503,7 @@ const MapPage = () => {
 
           {/* Other hotspots with optimized event handlers */}
           <div 
-            className="absolute top-[39vh] left-[5vw] rounded-full w-[15vw] h-[12.5vh] hover:cursor-pointer bg-[#4ECDC4] opacity-50"
+            className="absolute top-[39vh] left-[5vw] rounded-full w-[15vw] h-[12.5vh] hover:cursor-pointer"
             onMouseEnter={() => setShowText2(true)}
             onMouseLeave={() => setShowText2(false)}
             onClick={() => setShowCayDaThan(true)}
@@ -515,7 +515,7 @@ const MapPage = () => {
           )}
 
           <div 
-            className="absolute top-[33.5vh] left-[25vw] w-[14vw] h-[15vh] hover:cursor-pointer bg-[#45B7D1] opacity-50"
+            className="absolute top-[33.5vh] left-[25vw] w-[14vw] h-[15vh] hover:cursor-pointer"
             onMouseEnter={() => setShowText3(true)}
             onMouseLeave={() => setShowText3(false)}
             onClick={() => setShowChoDuong(true)}
@@ -527,13 +527,13 @@ const MapPage = () => {
           )}
 
           <div 
-            className="absolute top-[28vh] left-[43vw] w-[6vw] h-[27.5vh] rounded-full hover:cursor-pointer bg-[#96CEB4] opacity-50"
+            className="absolute top-[28vh] left-[43vw] w-[6vw] h-[27.5vh] rounded-full hover:cursor-pointer"
             onMouseEnter={() => setShowText4(true)}
             onMouseLeave={() => setShowText4(false)}
             onClick={() => setShowCauKhi(true)}
           ></div>
           <div 
-            className="absolute top-[43vh] left-[43vw] w-[15vw] h-[7.5vh] rounded-full hover:cursor-pointer bg-[#96CEB4] opacity-50"
+            className="absolute top-[43vh] left-[43vw] w-[15vw] h-[7.5vh] rounded-full hover:cursor-pointer"
             onMouseEnter={() => setShowText4(true)}
             onMouseLeave={() => setShowText4(false)}
             onClick={() => setShowCauKhi(true)}
@@ -545,7 +545,7 @@ const MapPage = () => {
           )}
 
           <div 
-            className="absolute top-[52.5vh] left-[15vw] w-[15vw] h-[10vh] hover:cursor-pointer bg-[#D4A5A5] opacity-50"
+            className="absolute top-[52.5vh] left-[15vw] w-[15vw] h-[10vh] hover:cursor-pointer"
             onMouseEnter={() => setShowText5(true)}
             onMouseLeave={() => setShowText5(false)}
             onClick={() => setShowNgoaiDinhLangDuong(true)}
@@ -557,7 +557,7 @@ const MapPage = () => {
           )}
 
           <div 
-            className="absolute top-[63.5vh] left-[54.5vw] w-[15vw] h-[14vh] hover:cursor-pointer bg-[#9B59B6] opacity-50"
+            className="absolute top-[63.5vh] left-[54.5vw] w-[15vw] h-[14vh] hover:cursor-pointer"
             onMouseEnter={() => setShowText6(true)}
             onMouseLeave={() => setShowText6(false)}
             onClick={handleNhaDaiDienChuLangAmClick}
@@ -570,7 +570,7 @@ const MapPage = () => {
 
           {/* NhaDaiDienChuLangDuong */}
           <div 
-            className="absolute top-[65vh] left-[30vw] w-[15vw] h-[14vh] hover:cursor-pointer bg-[#E67E22] opacity-50"
+            className="absolute top-[65vh] left-[30vw] w-[15vw] h-[14vh] hover:cursor-pointer"
             onMouseEnter={() => setShowText7(true)}
             onMouseLeave={() => setShowText7(false)}
             onClick={handleNhaDaiDienChuLangDuongClick}          
@@ -582,7 +582,7 @@ const MapPage = () => {
           )}
 
           <div 
-            className="absolute top-[29vh] left-[90.5vw] w-[8vw] h-[5vh] rounded-full hover:cursor-pointer bg-[#F1C40F] opacity-50"
+            className="absolute top-[29vh] left-[90.5vw] w-[8vw] h-[5vh] rounded-full hover:cursor-pointer"
             onMouseEnter={() => setShowText8(true)}
             onMouseLeave={() => setShowText8(false)}
             onClick={() => setShowNamCheo(true)}
@@ -594,13 +594,13 @@ const MapPage = () => {
           )}
 
           <div 
-            className="absolute top-[18vh] left-[32vw] w-[11vw] h-[13.5vh] hover:cursor-pointer bg-[#1ABC9C] opacity-50"
+            className="absolute top-[18vh] left-[32vw] w-[11vw] h-[13.5vh] hover:cursor-pointer"
             onMouseEnter={() => setShowText9(true)}
             onMouseLeave={() => setShowText9(false)}
             onClick={() => setShowSanChoiLangDuong(true)}
           ></div>
           <div 
-            className="absolute top-[17vh] left-[36vw] w-[11vw] h-[6vh] hover:cursor-pointer bg-[#1ABC9C] opacity-50"
+            className="absolute top-[17vh] left-[36vw] w-[11vw] h-[6vh] hover:cursor-pointer"
             onMouseEnter={() => setShowText9(true)}
             onMouseLeave={() => setShowText9(false)}
             onClick={() => setShowSanChoiLangDuong(true)}
@@ -612,7 +612,7 @@ const MapPage = () => {
           )}
 
           <div 
-            className="absolute top-[18vh] left-[55vw] w-[12vw] h-[13.5vh] hover:cursor-pointer bg-[#3498DB] opacity-50"
+            className="absolute top-[18vh] left-[55vw] w-[12vw] h-[13.5vh] hover:cursor-pointer"
             onMouseEnter={() => setShowText10(true)}
             onMouseLeave={() => setShowText10(false)}
             onClick={() => setShowSanChoiLangAm(true)}
@@ -624,7 +624,7 @@ const MapPage = () => {
           )}
 
           <div 
-            className="absolute rounded-full top-[37vh] left-[81vw] w-[15vw] h-[12.5vh] hover:cursor-pointer bg-[#2ECC71] opacity-50"
+            className="absolute rounded-full top-[37vh] left-[81vw] w-[15vw] h-[12.5vh] hover:cursor-pointer"
             onMouseEnter={() => setShowText11(true)}
             onMouseLeave={() => setShowText11(false)}
             onClick={() => setShowGianGua(true)}
@@ -636,7 +636,7 @@ const MapPage = () => {
           )}
 
           <div 
-            className="absolute top-[34vh] left-[62vw] w-[15.5vw] h-[16.5vh] rounded-full hover:cursor-pointer bg-[#E74C3C] opacity-50"
+            className="absolute top-[34vh] left-[62vw] w-[15.5vw] h-[16.5vh] rounded-full hover:cursor-pointer"
             onMouseEnter={() => setShowText12(true)}
             onMouseLeave={() => setShowText12(false)}
             onClick={() => setShowChoAm(true)}
@@ -648,7 +648,7 @@ const MapPage = () => {
           )}
 
           <div 
-            className="absolute top-[57vh] left-[71vw] w-[17vw] h-[12.5vh] rounded-full hover:cursor-pointer bg-[#8E44AD] opacity-50"
+            className="absolute top-[57vh] left-[71vw] w-[17vw] h-[12.5vh] rounded-full hover:cursor-pointer"
             onMouseEnter={() => setShowText13(true)}
             onMouseLeave={() => setShowText13(false)}
             onClick={() => setShowNgoaiDinhLangAm(true)}

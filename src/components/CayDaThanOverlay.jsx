@@ -82,7 +82,7 @@ const CayDaThanOverlay = ({ onClose, isMuted, onToggleMute }) => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
+      className="fixed inset-0 z-[9999] h-screen w-screen bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -92,13 +92,13 @@ const CayDaThanOverlay = ({ onClose, isMuted, onToggleMute }) => {
       <LazyImage
         src={cayDaThanBg}
         alt="Cay Da Than Background"
-        className="fixed inset-0 w-full h-[100%] object-fit"
+        className="fixed inset-0 w-full h-full object-fit"
       />
       
       {/* Hotspots */}
       {/* Ong Ta Hotspot */}
       <div
-        className="absolute top-[61%] left-[24%] w-46 h-60 hover:cursor-pointer "
+        className="absolute z-[10000] top-[61vh] left-[24vw] w-[13vw] h-[30vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaGiau) {
@@ -109,7 +109,7 @@ const CayDaThanOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ma Giau Hotspots */}
       <div
-        className="absolute top-[42%] left-[53%] w-24 h-10 hover:cursor-pointer "
+        className="absolute z-[10000] top-[42vh] left-[53vw] w-[8vw] h-[4vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardOngTa) {
@@ -118,7 +118,7 @@ const CayDaThanOverlay = ({ onClose, isMuted, onToggleMute }) => {
         }}
       />
       <div
-        className="absolute top-[42%] left-[59%] w-5 h-25 hover:cursor-pointer [transform:perspective(500px)_rotateZ(-5deg)]"
+        className="absolute z-[10000] top-[42vh] left-[59vw] w-[2vw] h-[12vh] rounded-full hover:cursor-pointer [transform:perspective(500px)_rotateZ(-5deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardOngTa) {
@@ -133,18 +133,18 @@ const CayDaThanOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage
             src={cardOngTa}
             alt="Card Ong Ta"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoOngTa1(true)}
           />
           <button
             onClick={handleCloseCardOngTa}
-            className="absolute top-[20.5%] right-[10.5%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110 "
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoOngTa1 && (
             <div
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedOngTa(!isFlippedOngTa)}
             >
               <div className={`flip-card ${isFlippedOngTa ? "flipped" : ""} w-full h-full`}>
@@ -174,18 +174,18 @@ const CayDaThanOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage
             src={cardMaGiau}
             alt="Card Ma Giau"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaGiau1(true)}
           />
           <button
             onClick={handleCloseCardMaGiau}
-            className="absolute top-[20.5%] right-[10.5%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110 "
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaGiau1 && (
             <div
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaGiau(!isFlippedMaGiau)}
             >
               <div className={`flip-card ${isFlippedMaGiau ? "flipped" : ""} w-full h-full`}>

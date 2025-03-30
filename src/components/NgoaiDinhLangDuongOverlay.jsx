@@ -98,7 +98,7 @@ const NgoaiDinhLangDuongOverlay = ({ onClose, isMuted, onToggleMute, onShowInsid
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
+      className="fixed inset-0 z-[9999] bg-black h-screen w-screen bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -108,7 +108,7 @@ const NgoaiDinhLangDuongOverlay = ({ onClose, isMuted, onToggleMute, onShowInsid
       <LazyImage 
         src={ngoaiDinhLangDuongBg} 
         alt="Ngoai Dinh Lang Duong Background"
-        className="fixed inset-0 w-full h-[100%] object-cover"
+        className="fixed inset-0 w-full h-full object-fit"
       />
 
       {/* Vào trong Button */}
@@ -136,7 +136,7 @@ const NgoaiDinhLangDuongOverlay = ({ onClose, isMuted, onToggleMute, onShowInsid
       
       {/* Hotspot for Thanh Hoang Lang Card */}
       <div 
-        className="absolute top-[41%] left-[56%] w-36 h-24 hover:cursor-pointer z-[10000]" 
+        className="absolute z-[10000] top-[41vh] left-[55vw] w-[9.5vw] h-[11vh] hover:cursor-pointer" 
         onClick={(e) => {
           e.stopPropagation();
           setShowCardThanhHoangLang(true);
@@ -149,18 +149,18 @@ const NgoaiDinhLangDuongOverlay = ({ onClose, isMuted, onToggleMute, onShowInsid
           <LazyImage 
             src={cardThanhHoangLang} 
             alt="Card Thanh Hoang Lang"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90 z-[11000]"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoThanhHoangLang1(true)}
           />
           <button 
             onClick={handleCloseCardThanhHoangLang}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110 z-[11100]"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoThanhHoangLang1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer z-[11000] "
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedThanhHoangLang(!isFlippedThanhHoangLang)}
             >
               <div className={`flip-card ${isFlippedThanhHoangLang ? 'flipped' : ''} w-full h-full`}>

@@ -92,7 +92,7 @@ const SanChoiLangAmOverlay = ({
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
+      className="fixed inset-0 z-[9999] bg-black bg-opacity-50 h-screen w-screen"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -102,19 +102,19 @@ const SanChoiLangAmOverlay = ({
       <LazyImage 
         src={sanChoiLangAmBg} 
         alt="San Choi Lang Am" 
-        className="fixed inset-0 w-full h-[100%] object-cover"
+        className="fixed inset-0 w-full h-full object-fit"
       />
       
       {/* Hotspots for Cau Co card */}
       <div 
-        className="absolute top-[56%] [transform:perspective(500px)_rotateZ(10deg)] left-[82%] rounded-full w-80 h-50 hover:cursor-pointer"
+        className="absolute z-[10000] top-[56vh] left-[79vw] w-[20vw] h-[22vh] hover:cursor-pointer rounded-full [transform:perspective(500px)_rotateZ(10deg)]"
         onClick={(e) => {
           e.stopPropagation();
           setShowCardCauCo(true);
         }}
       />
       <div 
-        className="absolute top-[37%] left-[89%] rounded-full h-80 w-50 hover:cursor-pointer"
+        className="absolute z-[10000] top-[37vh] left-[86vw] w-[12vw] h-[25vh] hover:cursor-pointer rounded-full"
         onClick={(e) => {
           e.stopPropagation();
           setShowCardCauCo(true);
@@ -123,21 +123,21 @@ const SanChoiLangAmOverlay = ({
 
       {/* Hotspots for Quy Mot Gio card */}
       <div 
-        className="absolute rounded-full top-[30%] left-[50%] w-42 h-100 hover:cursor-pointer"
+        className="absolute z-[10000] top-[30vh] left-[50vw] w-[10.5vw] h-[40vh] hover:cursor-pointer rounded-full"
         onClick={(e) => {
           e.stopPropagation();
           setShowCardQuyMotGio(true);
         }}
       />
       <div 
-        className="absolute rounded-full top-[46%] left-[33%] w-27 h-80 hover:cursor-pointer"
+        className="absolute z-[10000] top-[46vh] left-[34.5vw] w-[6.75vw] h-[25vh] hover:cursor-pointer rounded-full"
         onClick={(e) => {
           e.stopPropagation();
           setShowCardQuyMotGio(true);
         }}
       />
       <div 
-        className="absolute rounded-full top-[65%] left-[61%] w-50 h-70 hover:cursor-pointer"
+        className="absolute z-[10000] top-[65vh] left-[60vw] w-[11vw] h-[28vh] hover:cursor-pointer rounded-full"
         onClick={(e) => {
           e.stopPropagation();
           setShowCardQuyMotGio(true);
@@ -150,18 +150,18 @@ const SanChoiLangAmOverlay = ({
           <LazyImage 
             src={cardCauCo} 
             alt="Card Cau Co"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoCauCo1(true)}
           />
           <button 
             onClick={handleCloseCardCauCo}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoCauCo1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedCauCo(!isFlippedCauCo)}
             >
               <div className={`flip-card ${isFlippedCauCo ? 'flipped' : ''} w-full h-full`}>
@@ -191,18 +191,18 @@ const SanChoiLangAmOverlay = ({
           <LazyImage 
             src={cardQuyMotGio} 
             alt="Card Quy Mot Gio"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoQuyMotGio1(true)}
           />
           <button 
             onClick={handleCloseCardQuyMotGio}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoQuyMotGio1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedQuyMotGio(!isFlippedQuyMotGio)}
             >
               <div className={`flip-card ${isFlippedQuyMotGio ? 'flipped' : ''} w-full h-full`}>

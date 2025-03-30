@@ -196,7 +196,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
+      className="fixed inset-0 z-[9999] h-screen w-screen bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -206,14 +206,14 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
       <LazyImage
         src={choAmBg}
         alt="Cho Am Background"
-        className="fixed inset-0 w-full h-[100%] object-fit"
+        className="fixed inset-0 w-full h-full object-fit"
       />
 
       {/* --- Hotspots with distinct background colors (opacity-50) --- */}
 
       {/* Ma Toc Dai Hotspot */}
       <div
-        className="absolute top-[32%] left-[0%] w-40 h-25 [transform:perspective(500px)_rotateZ(-20deg)] hover:cursor-pointer"
+        className="absolute z-[10000] top-[32vh] left-[0vw] w-[11vw] h-[12vh] rounded-full hover:cursor-pointer [transform:perspective(500px)_rotateZ(-20deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -235,7 +235,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ngai Hotspot */}
       <div
-        className="absolute top-[49%] left-[11.75%] w-15 h-20 hover:cursor-pointer"
+        className="absolute z-[10000] top-[49vh] left-[11.75vw] w-[4vw] h-[8vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -257,7 +257,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ma Doi Hotspots */}
       <div
-        className="absolute top-[55%] left-[5%] w-20 h-40 hover:cursor-pointer [transform:perspective(500px)_rotateZ(20deg)]"
+        className="absolute z-[10000] top-[55vh] left-[5vw] w-[6vw] h-[20vh] rounded-full hover:cursor-pointer [transform:perspective(500px)_rotateZ(20deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -277,7 +277,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
         }}
       />
       <div
-        className="absolute top-[27%] left-[24%] w-22 h-58 hover:cursor-pointer"
+        className="absolute z-[10000] top-[27vh] left-[24vw] w-[7vw] h-[26vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -297,7 +297,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
         }}
       />
       <div
-        className="absolute top-[11%] left-[70%] w-20 h-40 hover:cursor-pointer [transform:perspective(500px)_rotateZ(20deg)]"
+        className="absolute z-[10000] top-[11vh] left-[70vw] w-[5vw] h-[20vh] rounded-full hover:cursor-pointer [transform:perspective(500px)_rotateZ(20deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -319,7 +319,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ma Vu Dai Hotspot */}
       <div
-        className="absolute top-[57%] left-[18.5%] w-35 h-70 hover:cursor-pointer"
+        className="absolute z-[10000] top-[57vh] left-[18.5vw] w-[10vw] h-[35vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -341,7 +341,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ma Cut Dau Hotspots */}
       <div
-        className="absolute top-[59%] left-[44.5%] w-40 h-65 hover:cursor-pointer"
+        className="absolute z-[10000] top-[59vh] left-[44.5vw] w-[11vw] h-[28vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -361,7 +361,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
         }}
       />
       <div
-        className="absolute top-[73%] left-[35%] rounded-full w-28 h-28 hover:cursor-pointer"
+        className="absolute z-[10000] top-[73vh] left-[35vw] w-[7vw] h-[11vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -383,7 +383,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ma Lai Hotspot */}
       <div
-        className="absolute top-[42%] left-[33%] w-33 h-50 hover:cursor-pointer rounded-full [transform:perspective(500px)_rotateZ(-20deg)]"
+        className="absolute z-[10000] top-[40vh] left-[34vw] w-[8vw] h-[25vh] rounded-full hover:cursor-pointer [transform:perspective(500px)_rotateZ(-20deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -405,7 +405,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ma Mat Mam Hotspot */}
       <div
-        className="absolute top-[38%] rounded-full left-[42%] w-35 h-26 hover:cursor-pointer [transform:perspective(500px)_rotateZ(20deg)]"
+        className="absolute z-[10000] top-[39vh] left-[42vw] w-[10vw] h-[10vh] rounded-full hover:cursor-pointer [transform:perspective(500px)_rotateZ(20deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -428,7 +428,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ma Le Hotspot */}
       <div
-        className="absolute top-[10%] left-[44%] w-20 h-30 hover:cursor-pointer rounded-full [transform:perspective(500px)_rotateZ(20deg)]"
+        className="absolute z-[10000] top-[10vh] left-[44vw] w-[5vw] h-[15vh] rounded-full hover:cursor-pointer [transform:perspective(500px)_rotateZ(20deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -450,7 +450,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Quy Mot Gio Hotspot */}
       <div
-        className="absolute top-[10%] left-[53%] w-23 h-50 rounded-full hover:cursor-pointer"
+        className="absolute z-[10000] top-[10vh] left-[53vw] w-[6vw] h-[25vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -472,7 +472,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ma Lon Hotspot */}
       <div
-        className="absolute top-[33%] left-[70%] w-15 h-20 rounded-full hover:cursor-pointer [transform:perspective(500px)_rotateZ(7deg)]"
+        className="absolute z-[10000] top-[33vh] left-[70vw] w-[4vw] h-[8vh] rounded-full hover:cursor-pointer [transform:perspective(500px)_rotateZ(7deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -494,7 +494,7 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ong Ba Bi Hotspot */}
       <div
-        className="absolute top-[42%] left-[66%] w-65 h-50 rounded-full hover:cursor-pointer"
+        className="absolute z-[10000] top-[42vh] left-[66vw] w-[17vw] h-[25vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (
@@ -522,18 +522,18 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage
             src={cardMaTocDai}
             alt="Card Ma Toc Dai"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaTocDai1(true)}
           />
           <button
             onClick={handleCloseCardMaTocDai}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaTocDai1 && (
             <div
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaTocDai(!isFlippedMaTocDai)}
             >
               <div className={`flip-card ${isFlippedMaTocDai ? "flipped" : ""} w-full h-full`}>
@@ -563,18 +563,18 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage
             src={cardNgai}
             alt="Card Ngai"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoNgai1(true)}
           />
           <button
             onClick={handleCloseCardNgai}
-            className="absolute top-[21%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[22vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoNgai1 && (
             <div
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedNgai(!isFlippedNgai)}
             >
               <div className={`flip-card ${isFlippedNgai ? "flipped" : ""} w-full h-full`}>
@@ -604,18 +604,18 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage
             src={cardMaDoi}
             alt="Card Ma Doi"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaDoi1(true)}
           />
           <button
             onClick={handleCloseCardMaDoi}
-            className="absolute top-[20%] right-[9%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[10.25vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaDoi1 && (
             <div
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaDoi(!isFlippedMaDoi)}
             >
               <div className={`flip-card ${isFlippedMaDoi ? "flipped" : ""} w-full h-full`}>
@@ -645,18 +645,18 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage
             src={cardMaVuDai}
             alt="Card Ma Vu Dai"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaVuDai1(true)}
           />
           <button
             onClick={handleCloseCardMaVuDai}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaVuDai1 && (
             <div
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => {
                 setFlipState((prevState) => (prevState + 1) % 3);
               }}
@@ -695,18 +695,18 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage
             src={cardMaCutDau}
             alt="Card Ma Cut Dau"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaCutDau1(true)}
           />
           <button
             onClick={handleCloseCardMaCutDau}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaCutDau1 && (
             <div
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaCutDau(!isFlippedMaCutDau)}
             >
               <div className={`flip-card ${isFlippedMaCutDau ? "flipped" : ""} w-full h-full`}>
@@ -736,18 +736,18 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage
             src={cardMaLai}
             alt="Card Ma Lai"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaLai1(true)}
           />
           <button
             onClick={handleCloseCardMaLai}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaLai1 && (
             <div
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaLai(!isFlippedMaLai)}
             >
               <div className={`flip-card ${isFlippedMaLai ? "flipped" : ""} w-full h-full`}>
@@ -777,18 +777,18 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage
             src={cardMaMatMam}
             alt="Card Ma Mat Mam"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaMatMam1(true)}
           />
           <button
             onClick={handleCloseCardMaMatMam}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaMatMam1 && (
             <div
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaMatMam(!isFlippedMaMatMam)}
             >
               <div className={`flip-card ${isFlippedMaMatMam ? "flipped" : ""} w-full h-full`}>
@@ -818,17 +818,17 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage
             src={cardMaLe}
             alt="Card Ma Le"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaLe1(true)}
           />
           <button
             onClick={handleCloseCardMaLe}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaLe1 && (
-            <div className="absolute right-[17%] top-[4%] w-[100%] h-[100%] cursor-pointer">
+            <div className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer">
               <LazyImage
                 src={infoMaLe}
                 alt="Info Ma Le"
@@ -845,18 +845,18 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage
             src={cardQuyMotGio}
             alt="Card Quy Mot Gio"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoQuyMotGio1(true)}
           />
           <button
             onClick={handleCloseCardQuyMotGio}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoQuyMotGio1 && (
             <div
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedQuyMotGio(!isFlippedQuyMotGio)}
             >
               <div className={`flip-card ${isFlippedQuyMotGio ? "flipped" : ""} w-full h-full`}>
@@ -886,18 +886,18 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage
             src={cardMaLon}
             alt="Card Ma Lon"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaLon1(true)}
           />
           <button
             onClick={handleCloseCardMaLon}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaLon1 && (
             <div
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaLon(!isFlippedMaLon)}
             >
               <div className={`flip-card ${isFlippedMaLon ? "flipped" : ""} w-full h-full`}>
@@ -927,18 +927,18 @@ const ChoAmOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage
             src={cardOngBaBi}
             alt="Card Ong Ba Bi"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoOngBaBi1(true)}
           />
           <button
             onClick={handleCloseCardOngBaBi}
-            className="absolute top-[19%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoOngBaBi1 && (
             <div
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedOngBaBi(!isFlippedOngBaBi)}
             >
               <div className={`flip-card ${isFlippedOngBaBi ? "flipped" : ""} w-full h-full`}>

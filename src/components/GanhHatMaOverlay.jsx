@@ -77,7 +77,7 @@ const GanhHatMaOverlay = ({
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
+      className="fixed inset-0 z-[9999] h-screen w-screen bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -93,7 +93,7 @@ const GanhHatMaOverlay = ({
       
       {/* Hotspot for Nam Cheo card */}
       <div 
-        className="absolute top-[67%] left-[34%] w-290 h-150 hover:cursor-pointer [transform:perspective(500px)_rotateZ(-15deg)]"
+        className="absolute z-[10000] top-[67vh] left-[34vw] w-[72.5vw] h-[37.5vh] hover:cursor-pointer [transform:perspective(500px)_rotateZ(-15deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaDa1) {
@@ -104,7 +104,7 @@ const GanhHatMaOverlay = ({
 
       {/* Hotspot for Ma Da card 1 */}
       <div 
-        className="absolute top-[40%] left-[0%] w-15 h-20 hover:cursor-pointer"
+        className="absolute z-[10000] top-[40vh] left-[0vw] w-[3.75vw] h-[10vh] hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardNamCheo) {
@@ -115,7 +115,7 @@ const GanhHatMaOverlay = ({
 
       {/* Hotspot for Ma Da card 2 */}
       <div 
-        className="absolute top-[22%] left-[90%] w-25 h-38 hover:cursor-pointer"
+        className="absolute z-[10000] top-[22vh] left-[90vw] w-[6.25vw] h-[15vh] hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardNamCheo) {
@@ -130,18 +130,18 @@ const GanhHatMaOverlay = ({
           <LazyImage 
             src={cardNamCheo} 
             alt="Card Nam Cheo"
-            className="absolute w-[90%] left-[31%] h-full object-contain !cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoNamCheo1(true)}
           />
           <button 
             onClick={onCloseCard}
-            className="absolute top-[20.5%] right-[10.5%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[22vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoNamCheo1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlipped(!isFlipped)}
             >
               <div className={`flip-card ${isFlipped ? 'flipped' : ''} w-full h-full`}>
@@ -171,18 +171,18 @@ const GanhHatMaOverlay = ({
           <LazyImage 
             src={cardMaDa} 
             alt="Card Ma Da"
-            className="absolute w-[90%] left-[31%] h-full object-contain !cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaDa1(true)}
           />
           <button 
             onClick={handleCloseCardMaDa}
-            className="absolute top-[20.5%] right-[9%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.75vh] right-[10vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaDa1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaDa(!isFlippedMaDa)}
             >
               <div className={`flip-card ${isFlippedMaDa ? 'flipped' : ''} w-full h-full`}>

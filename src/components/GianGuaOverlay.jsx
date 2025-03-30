@@ -134,7 +134,7 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
+      className="fixed inset-0 z-[9999] h-screen w-screen bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -144,13 +144,13 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
       <LazyImage 
         src={gianGuaBg} 
         alt="Gian Gua Background" 
-        className="fixed inset-0 w-full h-[100%] object-fit"
+        className="fixed inset-0 w-full h-full object-fit"
       />
       
       {/* Hotspots */}
       {/* Ma Troi Hotspots */}
       <div 
-        className="absolute top-[27%] left-[95%] rounded-full w-25 h-40 hover:cursor-pointer [transform:perspective(500px)_rotateZ(-35deg)]"
+        className="absolute z-[10000] top-[26.5vh] left-[95vw] rounded-full w-[6.25vw] h-[15vh] hover:cursor-pointer [transform:perspective(500px)_rotateZ(-30deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaThatCo && !showCardMaTocDai && !showCardVongNhi && !showCardMaDoi && !showCardMaLe) {
@@ -159,7 +159,7 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
         }}
       />
       <div 
-        className="absolute top-[27%] left-[67%] w-20 h-20 rounded-full hover:cursor-pointer"
+        className="absolute z-[10000] top-[27vh] left-[67vw] w-[5vw] h-[8vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaThatCo && !showCardMaTocDai && !showCardVongNhi && !showCardMaDoi && !showCardMaLe) {
@@ -168,7 +168,7 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
         }}
       />
       <div 
-        className="absolute top-[13.5%] left-[10%] rounded-full w-40 h-40 hover:cursor-pointer"
+        className="absolute z-[10000] top-[13.5vh] left-[10vw] rounded-full w-[10vw] h-[17vh] hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaThatCo && !showCardMaTocDai && !showCardVongNhi && !showCardMaDoi && !showCardMaLe) {
@@ -179,7 +179,7 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ma That Co Hotspots */}
       <div 
-        className="absolute top-[13%] left-[45%] w-50 h-30 rounded-full hover:cursor-pointer"
+        className="absolute z-[10000] top-[13vh] left-[45vw] w-[12.5vw] h-[15vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaTroi && !showCardMaTocDai && !showCardVongNhi && !showCardMaDoi && !showCardMaLe) {
@@ -188,7 +188,7 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
         }}
       />
       <div 
-        className="absolute top-[9%] left-[35%] w-60 h-20 rounded-full hover:cursor-pointer [transform:perspective(500px)_rotateZ(35deg)]"
+        className="absolute z-[10000] top-[9vh] left-[35vw] w-[15vw] h-[5vh] rounded-full hover:cursor-pointer [transform:perspective(500px)_rotateZ(35deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaTroi && !showCardMaTocDai && !showCardVongNhi && !showCardMaDoi && !showCardMaLe) {
@@ -199,7 +199,7 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ma Toc Dai Hotspots */}
       <div 
-        className="absolute top-[0%] left-[77%] w-70 h-20 hover:cursor-pointer"
+        className="absolute z-[10000] top-[0vh] left-[77vw] w-[17.5vw] h-[12vh] hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaTroi && !showCardMaThatCo && !showCardVongNhi && !showCardMaDoi && !showCardMaLe) {
@@ -208,7 +208,7 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
         }}
       />
       <div 
-        className="absolute top-[0%] left-[90%] [transform:perspective(500px)_rotateZ(-20deg)] w-30 h-40 hover:cursor-pointer"
+        className="absolute z-[10000] top-[0vh] left-[89vw] w-[7.5vw] h-[15vh] hover:cursor-pointer [transform:perspective(500px)_rotateZ(-20deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaTroi && !showCardMaThatCo && !showCardVongNhi && !showCardMaDoi && !showCardMaLe) {
@@ -219,7 +219,7 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Vong Nhi Hotspot */}
       <div 
-        className="absolute top-[14%] left-[84%] w-27 h-10 hover:cursor-pointer rounded-full [transform:perspective(500px)_rotateZ(20deg)]"
+        className="absolute z-[10000] top-[14vh] left-[84vw] w-[6.75vw] h-[5vh] hover:cursor-pointer rounded-full [transform:perspective(500px)_rotateZ(20deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaTroi && !showCardMaThatCo && !showCardMaTocDai && !showCardMaDoi && !showCardMaLe) {
@@ -230,7 +230,7 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ma Doi Hotspot */}
       <div 
-        className="absolute top-[65%] left-[41%] rounded-full w-35 h-69 hover:cursor-pointer [transform:perspective(500px)_rotateZ(20deg)]"
+        className="absolute z-[10000] top-[65vh] left-[41vw] rounded-full w-[8.75vw] h-[27vh] hover:cursor-pointer [transform:perspective(500px)_rotateZ(20deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaTroi && !showCardMaThatCo && !showCardMaTocDai && !showCardVongNhi && !showCardMaLe) {
@@ -241,7 +241,7 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
 
       {/* Ma Le Hotspot */}
       <div 
-        className="absolute top-[44%] left-[70%] rounded-full w-30 h-90 hover:cursor-pointer"
+        className="absolute z-[10000] top-[44vh] left-[70.5vw] rounded-full w-[7.5vw] h-[38vh] hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaTroi && !showCardMaThatCo && !showCardMaTocDai && !showCardVongNhi && !showCardMaDoi) {
@@ -256,18 +256,18 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage 
             src={cardMaTroi} 
             alt="Card Ma Troi"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaTroi1(true)}
           />
           <button 
             onClick={handleCloseCardMaTroi}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaTroi1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaTroi(!isFlippedMaTroi)}
             >
               <div className={`flip-card ${isFlippedMaTroi ? 'flipped' : ''} w-full h-full`}>
@@ -297,18 +297,18 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage 
             src={cardMaThatCo} 
             alt="Card Ma That Co"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaThatCo1(true)}
           />
           <button 
             onClick={handleCloseCardMaThatCo}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaThatCo1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaThatCo(!isFlippedMaThatCo)}
             >
               <div className={`flip-card ${isFlippedMaThatCo ? 'flipped' : ''} w-full h-full`}>
@@ -338,18 +338,18 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage 
             src={cardMaTocDai} 
             alt="Card Ma Toc Dai"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaTocDai1(true)}
           />
           <button 
             onClick={handleCloseCardMaTocDai}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaTocDai1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaTocDai(!isFlippedMaTocDai)}
             >
               <div className={`flip-card ${isFlippedMaTocDai ? 'flipped' : ''} w-full h-full`}>
@@ -379,18 +379,18 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage 
             src={cardVongNhi} 
             alt="Card Vong Nhi"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoVongNhi1(true)}
           />
           <button 
             onClick={handleCloseCardVongNhi}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoVongNhi1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedVongNhi(!isFlippedVongNhi)}
             >
               <div className={`flip-card ${isFlippedVongNhi ? 'flipped' : ''} w-full h-full`}>
@@ -420,18 +420,18 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage 
             src={cardMaDoi} 
             alt="Card Ma Doi"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaDoi1(true)}
           />
           <button 
             onClick={handleCloseCardMaDoi}
-            className="absolute top-[20%] right-[9.5%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[10.5vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaDoi1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaDoi(!isFlippedMaDoi)}
             >
               <div className={`flip-card ${isFlippedMaDoi ? 'flipped' : ''} w-full h-full`}>
@@ -461,17 +461,17 @@ const GianGuaOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage 
             src={cardMaLe} 
             alt="Card Ma Le"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaLe1(true)}
           />
           <button 
             onClick={handleCloseCardMaLe}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaLe1 && (
-            <div className="absolute right-[17%] top-[4%] w-[100%] h-[100%] cursor-pointer">
+            <div className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] cursor-pointer flip-container">
               <LazyImage 
                 src={infoMaLe} 
                 alt="Info Ma Le"

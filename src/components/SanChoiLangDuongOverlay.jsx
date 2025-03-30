@@ -67,7 +67,7 @@ const SanChoiLangDuongOverlay = ({ onClose, isMuted, onToggleMute }) => {
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
+      className="fixed inset-0 z-[9999] bg-black bg-opacity-50 h-screen w-screen"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -77,12 +77,12 @@ const SanChoiLangDuongOverlay = ({ onClose, isMuted, onToggleMute }) => {
       <LazyImage 
         src={sanChoiLangDuongBg} 
         alt="San Choi Lang Duong Background" 
-        className="fixed inset-0 w-full h-[100%] object-fit"
+        className="fixed inset-0 w-full h-full object-fit"
       />
       
       {/* Hotspot for Cau Co card */}
       <div 
-        className="absolute top-[51%] left-[4%] w-60 h-60 hover:cursor-pointer"
+        className="absolute z-[10000] top-[51vh] left-[4vw] w-[17vw] h-[25vh] hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           setShowCardCauCo(true);
@@ -95,18 +95,18 @@ const SanChoiLangDuongOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage 
             src={cardCauCo} 
             alt="Card Cau Co"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoCauCo1(true)}
           />
           <button 
             onClick={handleCloseCardCauCo}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoCauCo1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedCauCo(!isFlippedCauCo)}
             >
               <div className={`flip-card ${isFlippedCauCo ? 'flipped' : ''} w-full h-full`}>

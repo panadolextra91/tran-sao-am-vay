@@ -46,7 +46,7 @@ const GanhHatTrenSongOverlay = ({ onClose }) => {
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
+      className="fixed inset-0 z-[9999] h-screen w-screen bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -56,7 +56,7 @@ const GanhHatTrenSongOverlay = ({ onClose }) => {
       <LazyImage 
         src={ganhHatTrenSongBg} 
         alt="Ganh Hat Tren Song Background"
-        className="fixed inset-0 w-full h-[100%] object-cover"
+        className="fixed inset-0 w-full h-full object-fit"
       />
     </div>
   );

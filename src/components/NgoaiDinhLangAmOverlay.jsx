@@ -148,7 +148,7 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
+      className="fixed inset-0 z-[9999] h-screen w-screen bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -158,7 +158,7 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
       <LazyImage 
         src={ngoaiDinhLangAmBg} 
         alt="Ngoai Dinh Lang Am Background"
-        className="fixed inset-0 w-full h-[100%] object-cover"
+        className="fixed inset-0 w-full h-full object-fit"
       />
       
       {/* Vào trong Button */}
@@ -187,7 +187,7 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
       {/* Hotspots for cards */}
       {/* Ma Lai hotspot */}
       <div 
-        className="absolute top-[23%] left-[16%] rounded-full w-35 h-60 hover:cursor-pointer [transform:perspective(500px)_rotateZ(30deg) z-[10000]]"
+        className="absolute z-[10000] top-[26vh] left-[15vw] rounded-full w-[8.75vw] h-[25vh] hover:cursor-pointer [transform:perspective(500px)_rotateZ(30deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaRapXac && !showCardMaDoi1 && !showCardMaDoi2 && !showCardMaTocDai && !showCardLeQuy) {
@@ -198,7 +198,7 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
 
       {/* Ma Rap Xac hotspot */}
       <div 
-        className="absolute top-[68%] left-[20%] rounded-full w-70 h-80 hover:cursor-pointer [transform:perspective(500px)_rotateZ(30deg)] z-[10000]"
+        className="absolute z-[10000] top-[67vh] left-[23vw] rounded-4xl w-[15vw] h-[30vh] hover:cursor-pointer transform:perspective(500px)_rotateZ(30deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaLai && !showCardMaDoi1 && !showCardMaDoi2 && !showCardMaTocDai && !showCardLeQuy) {
@@ -209,7 +209,7 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
 
       {/* Ma Doi hotspots */}
       <div 
-        className="absolute top-[50%] left-[46%] w-30 h-35 rounded-full hover:cursor-pointer z-[10000]"
+        className="absolute z-[10000] top-[50vh] left-[46vw] w-[8vw] h-[16vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaLai && !showCardMaRapXac && !showCardMaDoi2 && !showCardMaTocDai && !showCardLeQuy) {
@@ -218,7 +218,7 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
         }}
       />
       <div 
-        className="absolute top-[59.5%] left-[71%] rounded-md w-36 h-24 hover:cursor-pointer z-[10000]"
+        className="absolute z-[10000] top-[59.5vh] left-[71vw] rounded-md w-[10vw] h-[10vh] hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaLai && !showCardMaRapXac && !showCardMaDoi1 && !showCardMaTocDai && !showCardLeQuy) {
@@ -229,7 +229,7 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
 
       {/* Ma Toc Dai hotspot */}
       <div 
-        className="absolute top-[63%] left-[61%] w-27 h-75 hover:cursor-pointer z-[10000]"
+        className="absolute z-[10000] top-[63vh] left-[61.5vw] w-[7.5vw] h-[36vh] hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaLai && !showCardMaRapXac && !showCardMaDoi1 && !showCardMaDoi2 && !showCardLeQuy) {
@@ -238,7 +238,7 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
         }}
       />
       <div 
-        className="absolute top-[85%] left-[63%] w-75 h-27 hover:cursor-pointer z-[10000]"
+        className="absolute z-[10000] top-[85vh] left-[63vw] w-[18.75vw] h-[13vh] hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaLai && !showCardMaRapXac && !showCardMaDoi1 && !showCardMaDoi2 && !showCardLeQuy) {
@@ -249,7 +249,7 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
 
       {/* Le Quy hotspot */}
       <div 
-        className="absolute top-[37%] left-[56%] w-30 h-35 hover:cursor-pointer z-[10000]"
+        className="absolute z-[10000] top-[37vh] left-[55vw] w-[7.5vw] h-[15vh] hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardMaLai && !showCardMaRapXac && !showCardMaDoi1 && !showCardMaDoi2 && !showCardMaTocDai) {
@@ -280,18 +280,18 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
           <LazyImage 
             src={cardMaLai} 
             alt="Card Ma Lai"
-            className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaLai1(true)}
           />
           <button 
             onClick={handleCloseCardMaLai}
-            className="absolute z-[11100] top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaLai1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer z-[11000]"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaLai(!isFlippedMaLai)}
             >
               <div className={`flip-card ${isFlippedMaLai ? 'flipped' : ''} w-full h-full`}>
@@ -321,18 +321,18 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
           <LazyImage 
             src={cardMaRapXac} 
             alt="Card Ma Rap Xac"
-            className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaRapXac1(true)}
           />
           <button 
             onClick={handleCloseCardMaRapXac}
-            className="absolute z-[11100] top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaRapXac1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer z-[11000]"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaRapXac(!isFlippedMaRapXac)}
             >
               <div className={`flip-card ${isFlippedMaRapXac ? 'flipped' : ''} w-full h-full`}>
@@ -362,18 +362,18 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
           <LazyImage 
             src={cardMaDoi} 
             alt="Card Ma Doi"
-            className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaDoi1(true)}
           />
           <button 
             onClick={handleCloseCardMaDoi}
-            className="absolute z-[11100] top-[20%] right-[9.5%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[10.5vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaDoi1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer z-[11000]"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaDoi(!isFlippedMaDoi)}
             >
               <div className={`flip-card ${isFlippedMaDoi ? 'flipped' : ''} w-full h-full`}>
@@ -403,18 +403,18 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
           <LazyImage 
             src={cardMaTocDai} 
             alt="Card Ma Toc Dai"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90 z-[11000]"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaTocDai1(true)}
           />
           <button 
             onClick={handleCloseCardMaTocDai}
-            className="absolute top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110 z-[11100]"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaTocDai1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer z-[11000]"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaTocDai(!isFlippedMaTocDai)}
             >
               <div className={`flip-card ${isFlippedMaTocDai ? 'flipped' : ''} w-full h-full`}>
@@ -444,18 +444,18 @@ const NgoaiDinhLangAmOverlay = ({ onClose, isMuted, onToggleMute, onShowInside, 
           <LazyImage 
             src={cardLeQuy} 
             alt="Card Le Quy"
-            className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoLeQuy1(true)}
           />
           <button 
             onClick={handleCloseCardLeQuy}
-            className="absolute z-[11100] top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoLeQuy1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer z-[11000]"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedLeQuy(!isFlippedLeQuy)}
             >
               <div className={`flip-card ${isFlippedLeQuy ? 'flipped' : ''} w-full h-full`}>

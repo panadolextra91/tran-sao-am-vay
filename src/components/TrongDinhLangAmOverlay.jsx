@@ -182,7 +182,7 @@ useEffect(() => {
       {/* Hotspots for cards */}
       {/* Ho Tinh hotspot */}
       <div 
-        className="absolute z-[10000] top-[29vh] left-[49vw] w-[6vw] h-[17.5vh] rounded-full hover:cursor-pointer bg-[#FF6B6B] opacity-50"
+        className="absolute z-[10000] top-[29vh] left-[49vw] w-[6vw] h-[17.5vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardThienLinhCai && !showCardOngHoMay && !showCardMaDoi) {
@@ -193,7 +193,7 @@ useEffect(() => {
 
       {/* Thien Linh Cai hotspot */}
       <div 
-        className="absolute z-[10000] top-[43.5vh] left-[68vw] rounded-full w-[3vw] h-[4.5vh] hover:cursor-pointer bg-[#4ECDC4] opacity-50"
+        className="absolute z-[10000] top-[43.5vh] left-[68vw] rounded-full w-[3vw] h-[4.5vh] hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardOngHoMay && !showCardMaDoi) {
@@ -204,7 +204,7 @@ useEffect(() => {
 
       {/* Ong Ho May hotspot */}
       <div 
-        className="absolute z-[10000] top-[38vh] left-[76vw] w-[6vw] h-[26vh] hover:cursor-pointer bg-[#45B7D1] opacity-50 [transform:perspective(500px)_rotateZ(13deg)]"
+        className="absolute z-[10000] top-[38vh] left-[76vw] w-[6vw] h-[26vh] hover:cursor-pointer [transform:perspective(500px)_rotateZ(13deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardThienLinhCai && !showCardMaDoi) {
@@ -215,7 +215,7 @@ useEffect(() => {
 
       {/* Ma Doi hotspot */}
       <div 
-        className="absolute z-[10000] top-[48vh] left-[52vw] w-[18vw] h-[20vh] hover:cursor-pointer bg-[#D4A5A5] opacity-50 [transform:perspective(500px)_rotateZ(31deg)]"
+        className="absolute z-[10000] top-[48vh] left-[52vw] w-[18vw] h-[20vh] hover:cursor-pointer [transform:perspective(500px)_rotateZ(31deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardThienLinhCai && !showCardOngHoMay) {
@@ -226,7 +226,7 @@ useEffect(() => {
 
       {/* Le Quy hotspot */}
       <div 
-        className="absolute z-[10000] top-[25vh] left-[70vw] w-[7vw] h-[10vh] hover:cursor-pointer [transform:perspective(500px)_rotateZ(23deg)] opacity-50 bg-[#B76E79]"
+        className="absolute z-[10000] top-[25vh] left-[70vw] w-[7vw] h-[10vh] hover:cursor-pointer [transform:perspective(500px)_rotateZ(23deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardThienLinhCai && !showCardOngHoMay && !showCardMaDoi) {
@@ -283,18 +283,18 @@ useEffect(() => {
           <LazyImage 
             src={cardThienLinhCai} 
             alt="Card Thien Linh Cai"
-            className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoThienLinhCai1(true)}
           />
           <button 
             onClick={handleCloseCardThienLinhCai}
-            className="absolute z-[11100] top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoThienLinhCai1 && (
             <div 
-              className="absolute z-[11000] right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedThienLinhCai(!isFlippedThienLinhCai)}
             >
               <div className={`flip-card ${isFlippedThienLinhCai ? 'flipped' : ''} w-full h-full`}>
@@ -319,53 +319,52 @@ useEffect(() => {
       )}
 
       {/* Ong Ho May Card */}
-{showCardOngHoMay && (
-  <>
-    <LazyImage 
-      src={cardOngHoMay} 
-      alt="Card Ong Ho May"
-      className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
-      onClick={() => setShowInfoOngHoMay1(true)}
-    />
-    <button 
-      onClick={handleCloseCardOngHoMay}
-      className="absolute z-[11100] top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
-    >
-      <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
-    </button>
-    {showInfoOngHoMay1 && (
-      <div 
-        className="absolute z-[11000] right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
-        onClick={() => setFlipStateOngHoMay((prev) => (prev + 1) % 3)}
-      >
-        <div className="flip-card" data-state={flipStateOngHoMay}>
-          <div className="flip-card-face flip-card-face-1">
-            <LazyImage 
-              src={infoOngHoMay1} 
-              alt="Info Ong Ho May 1"
-              className="w-full h-full object-fit" 
-            />
-          </div>
-          <div className="flip-card-face flip-card-face-2">
-            <LazyImage 
-              src={infoOngHoMay2} 
-              alt="Info Ong Ho May 2"
-              className="w-full h-full object-fit" 
-            />
-          </div>
-          <div className="flip-card-face flip-card-face-3">
-            <LazyImage 
-              src={infoOngHoMay3} 
-              alt="Info Ong Ho May 3"
-              className="w-full h-full object-fit" 
-            />
-          </div>
-        </div>
-      </div>
-    )}
-  </>
-)}
-
+      {showCardOngHoMay && (
+        <>
+          <LazyImage 
+            src={cardOngHoMay} 
+            alt="Card Ong Ho May"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
+            onClick={() => setShowInfoOngHoMay1(true)}
+          />
+          <button 
+            onClick={handleCloseCardOngHoMay}
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
+          >
+            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
+          </button>
+          {showInfoOngHoMay1 && (
+            <div 
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
+              onClick={() => setFlipStateOngHoMay((prev) => (prev + 1) % 3)}
+            >
+              <div className="flip-card" data-state={flipStateOngHoMay}>
+                <div className="flip-card-face flip-card-face-1">
+                  <LazyImage 
+                    src={infoOngHoMay1} 
+                    alt="Info Ong Ho May 1"
+                    className="w-full h-full object-fit" 
+                  />
+                </div>
+                <div className="flip-card-face flip-card-face-2">
+                  <LazyImage 
+                    src={infoOngHoMay2} 
+                    alt="Info Ong Ho May 2"
+                    className="w-full h-full object-fit" 
+                  />
+                </div>
+                <div className="flip-card-face flip-card-face-3">
+                  <LazyImage 
+                    src={infoOngHoMay3} 
+                    alt="Info Ong Ho May 3"
+                    className="w-full h-full object-fit" 
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      )}
 
       {/* Ma Doi Card */}
       {showCardMaDoi && (
@@ -373,18 +372,18 @@ useEffect(() => {
           <LazyImage 
             src={cardMaDoi} 
             alt="Card Ma Doi"
-            className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaDoi1(true)}
           />
           <button 
             onClick={handleCloseCardMaDoi}
-            className="absolute z-[11100] top-[20%] right-[9.5%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaDoi1 && (
             <div 
-              className="absolute z-[11000] right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaDoi(!isFlippedMaDoi)}
             >
               <div className={`flip-card ${isFlippedMaDoi ? 'flipped' : ''} w-full h-full`}>
@@ -414,18 +413,18 @@ useEffect(() => {
           <LazyImage 
             src={cardLeQuy} 
             alt="Card Le Quy"
-            className="absolute z-[11000] w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoLeQuy1(true)}
           />
           <button 
             onClick={handleCloseCardLeQuy}
-            className="absolute z-[11100] top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[11vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoLeQuy1 && (
             <div 
-              className="absolute z-[11000] right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedLeQuy(!isFlippedLeQuy)}
             >
               <div className={`flip-card ${isFlippedLeQuy ? 'flipped' : ''} w-full h-full`}>

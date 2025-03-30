@@ -59,7 +59,7 @@ useEffect(() => {
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
+      className="fixed inset-0 z-[9999] bg-black bg-opacity-50 h-screen w-screen"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -70,7 +70,7 @@ useEffect(() => {
       <LazyImage 
         src={trongNhaDiaChuLangDuongBg} 
         alt="Trong Nha Dia Chu Lang Duong Background"
-        className="fixed inset-0 w-full h-[100%] object-cover"
+        className="fixed inset-0 w-full h-full object-fit"
       />
 
       {/* Ra ngoai Button */}

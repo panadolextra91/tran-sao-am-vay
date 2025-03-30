@@ -68,7 +68,7 @@ const CauKhiOverlay = ({ onClose, isMuted, onToggleMute }) => {
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
+      className="fixed inset-0 z-[9999] h-screen w-screen bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -84,21 +84,21 @@ const CauKhiOverlay = ({ onClose, isMuted, onToggleMute }) => {
       
       {/* Hotspots for Ma Da card */}
       <div 
-        className="absolute top-[25%] left-[92%] w-30 h-44 hover:cursor-pointer"
+        className="absolute z-[10000] top-[25vh] left-[92vw] w-[10vw] h-[17.5vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           setShowCardMaDa(true);
         }}
       />
       <div 
-        className="absolute top-[42%] left-[74%] w-30 h-10 hover:cursor-pointer"
+        className="absolute z-[10000] top-[42vh] left-[74vw] w-[8vw] h-[4.5vh] rounded-full hover:cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           setShowCardMaDa(true);
         }}
       />
       <div 
-        className="absolute top-[76%] left-[10%] w-60 h-10 hover:cursor-pointer [transform:perspective(500px)_rotateZ(-25deg)]"
+        className="absolute z-[10000] top-[76vh] left-[10vw] w-[18vw] h-[6vh] rounded-full hover:cursor-pointer [transform:perspective(500px)_rotateZ(-25deg)]"
         onClick={(e) => {
           e.stopPropagation();
           setShowCardMaDa(true);
@@ -111,18 +111,18 @@ const CauKhiOverlay = ({ onClose, isMuted, onToggleMute }) => {
           <LazyImage 
             src={cardMaDa} 
             alt="Card Ma Da"
-            className="absolute w-[90%] left-[31%] h-full object-contain cursor-pointer !opacity-90"
+            className="absolute z-[11000] w-[80vw] top-[11vh] left-[36vw] h-[80vh] object-fit cursor-pointer !opacity-90"
             onClick={() => setShowInfoMaDa1(true)}
           />
           <button 
             onClick={handleCloseCardMaDa}
-            className="absolute top-[20.5%] right-[9%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[21.5vh] right-[10vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
           {showInfoMaDa1 && (
             <div 
-              className="absolute right-[17%] top-[4%] w-[100%] h-[100%] flip-container cursor-pointer"
+              className="absolute z-[11000] right-[17vw] top-[4vh] w-[45vw] h-[80vh] flip-container cursor-pointer"
               onClick={() => setIsFlippedMaDa(!isFlippedMaDa)}
             >
               <div className={`flip-card ${isFlippedMaDa ? 'flipped' : ''} w-full h-full`}>
