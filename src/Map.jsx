@@ -667,7 +667,15 @@ const MapPage = () => {
         {showSanChoiLangAm && (
           <SanChoiLangAmOverlay 
             onClose={handleCloseSanChoiLangAm}
-            
+            showCardSanChoiLangAm={showCardSanChoiLangAm}
+            setShowInfoSanChoiLangAm1={setShowInfoSanChoiLangAm1}
+            showInfoSanChoiLangAm1={showInfoSanChoiLangAm1}
+            //setShowInfoNamCheo1={setShowInfoNamCheo1}
+            isFlippedSanChoiLangAm={isFlippedSanChoiLangAm}
+            setIsFlippedSanChoiLangAm={setIsFlippedSanChoiLangAm}
+            handleCloseCard={handleCloseCardSanChoiLangAm}
+            handleCloseInfo={handleCloseCardSanChoiLangAm}
+            setShowCardSanChoiLangAm={setShowCardSanChoiLangAm} 
             isMuted={isMuted}
             onToggleMute={toggleMute}
             
@@ -680,11 +688,19 @@ const MapPage = () => {
           </div>}>
             {showNamCheo && (
               <GanhHatMaOverlay 
-                onClose={handleCloseGanhHatMa}
-                
-                isMuted={isMuted}
-                onToggleMute={toggleMute}
-                
+              onClose={handleCloseGanhHatMa}
+              isMuted={isMuted}
+              onToggleMute={toggleMute}
+              showCardNamCheo={showCardNamCheo}
+              setShowCardNamCheo={setShowCardNamCheo}
+              showInfoNamCheo1={showInfoNamCheo1}
+              setShowInfoNamCheo1={setShowInfoNamCheo1}
+              isFlipped={isFlipped}
+              setIsFlipped={setIsFlipped}
+              onCloseCard={handleCloseCard}
+              handleCloseCard={handleCloseCard}
+              handleCloseInfo={handleCloseCard}
+              //setShowCardNamCheo={setShowCardNamCheo}
               />
             )}
           </Suspense>
