@@ -158,7 +158,7 @@ useEffect(() => {
 
       {/* Ra ngoai Button */}
       <>
-  <ul className="ra-ngoai-button absolute top-[70%] left-[30%] z-[10000]">
+  <ul className="ra-ngoai-button absolute top-[70vh] left-[30vw] z-[10000]">
     <li onClick={handleRaNgoaiButton}>&#x2799;</li>
   </ul>
   <style jsx>{`
@@ -182,7 +182,7 @@ useEffect(() => {
       {/* Hotspots for cards */}
       {/* Ho Tinh hotspot */}
       <div 
-        className="absolute z-[10000] top-[29%] left-[49%] w-20 h-42 rounded-full hover:cursor-pointer"
+        className="absolute z-[10000] top-[29vh] left-[49vw] w-[6vw] h-[17.5vh] rounded-full hover:cursor-pointer bg-[#FF6B6B] opacity-50"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardThienLinhCai && !showCardOngHoMay && !showCardMaDoi) {
@@ -193,7 +193,7 @@ useEffect(() => {
 
       {/* Thien Linh Cai hotspot */}
       <div 
-        className="absolute z-[10000] top-[43.5%] left-[70%] rounded-full w-9 h-9 hover:cursor-pointer"
+        className="absolute z-[10000] top-[43.5vh] left-[70vw] rounded-full w-[3vw] h-[4.5vh] hover:cursor-pointer bg-[#4ECDC4] opacity-50"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardOngHoMay && !showCardMaDoi) {
@@ -204,7 +204,7 @@ useEffect(() => {
 
       {/* Ong Ho May hotspot */}
       <div 
-        className="absolute z-[10000] top-[38%] left-[78%] w-20 h-60 hover:cursor-pointer [transform:perspective(500px)_rotateZ(13deg)]"
+        className="absolute z-[10000] top-[38vh] left-[78vw] w-[6vw] h-[26vh] hover:cursor-pointer bg-[#45B7D1] opacity-50 [transform:perspective(500px)_rotateZ(13deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardThienLinhCai && !showCardMaDoi) {
@@ -215,7 +215,7 @@ useEffect(() => {
 
       {/* Ma Doi hotspot */}
       <div 
-        className="absolute z-[10000] top-[48%] left-[53%] w-70 h-45 hover:cursor-pointer [transform:perspective(500px)_rotateZ(31deg)]"
+        className="absolute z-[10000] top-[48vh] left-[52vw] w-[20vw] h-[22.5vh] hover:cursor-pointer bg-[#D4A5A5] opacity-50 [transform:perspective(500px)_rotateZ(31deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardThienLinhCai && !showCardOngHoMay) {
@@ -226,7 +226,7 @@ useEffect(() => {
 
       {/* Le Quy hotspot */}
       <div 
-        className="absolute z-[10000] top-[25%] left-[74%] w-20 h-20 hover:cursor-pointer [transform:perspective(500px)_rotateZ(23deg)]"
+        className="absolute z-[10000] top-[25%] left-[74%] w-20 h-20 hover:cursor-pointer [transform:perspective(500px)_rotateZ(23deg)] opacity-50 bg-[#B76E79]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardThienLinhCai && !showCardOngHoMay && !showCardMaDoi) {
@@ -247,7 +247,7 @@ useEffect(() => {
           />
           <button 
             onClick={handleCloseCardHoTinh}
-            className="absolute z-[11100] top-[20%] right-[10%] w-15 h-15 flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[19.5vh] right-[8.5vw] w-[7.5vw] h-[7.5vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
             <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
           </button>
