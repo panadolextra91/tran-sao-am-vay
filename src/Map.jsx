@@ -480,13 +480,13 @@ const MapPage = () => {
 
           {/* Hotspots with optimized event handlers */}
           <div 
-            className="absolute top-[30%] left-[3%] w-28 h-15 hover:cursor-pointer"
+            className="absolute top-[30vh] left-[3vw] w-[7vw] h-[7.5vh] hover:cursor-pointer bg-[#FF6B6B] opacity-50"
             onMouseEnter={() => setShowText1(true)}
             onMouseLeave={() => setShowText1(false)}
             onClick={() => setShowGanhHatTrenSong(true)}
           />
           {showText1 && (
-            <div className="absolute top-[23%] left-[1%] w-50 text-center leading-[1] animate-fade-in-no-delay" 
+            <div className="absolute top-[22vh] left-[1.5vw] w-[10vw] text-center leading-[1] animate-fade-in-no-delay" 
               style={{ 
                 fontFamily: 'LostType, sans-serif', 
                 color: 'var(--custom-red-2)', 
@@ -503,157 +503,158 @@ const MapPage = () => {
 
           {/* Other hotspots with optimized event handlers */}
           <div 
-            className="absolute top-[39%] left-[5%] rounded-full w-54 h-25 hover:cursor-pointer"
+            className="absolute top-[39vh] left-[5vw] rounded-full w-[15vw] h-[12.5vh] hover:cursor-pointer bg-[#4ECDC4] opacity-50"
             onMouseEnter={() => setShowText2(true)}
             onMouseLeave={() => setShowText2(false)}
             onClick={() => setShowCayDaThan(true)}
           ></div>
           {showText2 && (
-            <div className="absolute top-[52%] left-[5%] w-40 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+            <div className="absolute top-[52vh] left-[5vw] w-[10vw] text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
               Cây da thần
             </div>
           )}
 
           <div 
-            className="absolute top-[33.5%] left-[25%] w-50 h-32 hover:cursor-pointer"
+            className="absolute top-[33.5vh] left-[25vw] w-[14vw] h-[15vh] hover:cursor-pointer bg-[#45B7D1] opacity-50"
             onMouseEnter={() => setShowText3(true)}
             onMouseLeave={() => setShowText3(false)}
             onClick={() => setShowChoDuong(true)}
           ></div>
           {showText3 && (
-            <div className="absolute top-[48%] left-[25%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+            <div className="absolute top-[48vh] left-[25vw] w-[14vw] text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
               chợ dương
             </div>
           )}
 
           <div 
-            className="absolute top-[28%] left-[43%] w-25 h-55 rounded-full hover:cursor-pointer"
+            className="absolute top-[28vh] left-[43vw] w-[6vw] h-[27.5vh] rounded-full hover:cursor-pointer bg-[#96CEB4] opacity-50"
             onMouseEnter={() => setShowText4(true)}
             onMouseLeave={() => setShowText4(false)}
             onClick={() => setShowCauKhi(true)}
           ></div>
           <div 
-            className="absolute top-[43%] left-[43%] w-55 h-15 rounded-full hover:cursor-pointer"
+            className="absolute top-[43vh] left-[43vw] w-[15vw] h-[7.5vh] rounded-full hover:cursor-pointer bg-[#96CEB4] opacity-50"
             onMouseEnter={() => setShowText4(true)}
             onMouseLeave={() => setShowText4(false)}
             onClick={() => setShowCauKhi(true)}
           ></div>
           {showText4 && (
-            <div className="absolute top-[54%] left-[44.5%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+            <div className="absolute top-[54vh] left-[44.5vw] w-[12vw] text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
               cầu khỉ
             </div>
           )}
 
           <div 
-            className="absolute top-[52.5%] left-[15%] w-53 h-20 hover:cursor-pointer"
+            className="absolute top-[52.5vh] left-[15vw] w-[15vw] h-[10vh] hover:cursor-pointer bg-[#D4A5A5] opacity-50"
             onMouseEnter={() => setShowText5(true)}
             onMouseLeave={() => setShowText5(false)}
             onClick={() => setShowNgoaiDinhLangDuong(true)}
           ></div>
           {showText5 && (
-            <div className="absolute top-[62%] left-[15.5%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+            <div className="absolute top-[62.5vh] left-[15.5vw] w-[13vw] text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
               đình làng dương
             </div>
           )}
 
           <div 
-            className="absolute top-[63.5%] left-[54.5%] w-56 h-28 hover:cursor-pointer"
+            className="absolute top-[63.5vh] left-[54.5vw] w-[15vw] h-[14vh] hover:cursor-pointer bg-[#9B59B6] opacity-50"
             onMouseEnter={() => setShowText6(true)}
             onMouseLeave={() => setShowText6(false)}
             onClick={handleNhaDaiDienChuLangAmClick}
           ></div>
           {showText6 && (
-            <div className="absolute top-[77.5%] left-[54.25%] w-60 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+            <div className="absolute top-[77.5vh] left-[54.25vw] w-[15.5vw] text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
               nhà đại điền chủ
             </div>
           )}
 
+          {/* NhaDaiDienChuLangDuong */}
           <div 
-            className="absolute top-[65%] left-[30%] w-57 h-28 hover:cursor-pointer"
+            className="absolute top-[65vh] left-[30vw] w-[15vw] h-[14vh] hover:cursor-pointer bg-[#E67E22] opacity-50"
             onMouseEnter={() => setShowText7(true)}
             onMouseLeave={() => setShowText7(false)}
             onClick={handleNhaDaiDienChuLangDuongClick}          
-              ></div>
+          ></div>
           {showText7 && (
-            <div className="absolute top-[78%] left-[29.75%] w-60 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
-              nhà đại điền chủ dương  
+            <div className="absolute top-[78.5vh] left-[29.75vw] w-[15.5vw] text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+              nhà đại điền chủ  
             </div>
           )}
 
           <div 
-            className="absolute top-[29%] left-[90.5%] w-29 h-10 rounded-full hover:cursor-pointer"
+            className="absolute top-[29vh] left-[90.5vw] w-[8vw] h-[5vh] rounded-full hover:cursor-pointer bg-[#F1C40F] opacity-50"
             onMouseEnter={() => setShowText8(true)}
             onMouseLeave={() => setShowText8(false)}
             onClick={() => setShowNamCheo(true)}
           ></div>
           {showText8 && (
-            <div className="absolute top-[21%] left-[88.5%] w-40 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+            <div className="absolute top-[21vh] left-[89.5vw] w-[10vw] text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
               gánh hát ma
             </div>
           )}
 
           <div 
-            className="absolute top-[18%] left-[32%] w-40 h-27 hover:cursor-pointer"
+            className="absolute top-[18vh] left-[32vw] w-[11vw] h-[13.5vh] hover:cursor-pointer bg-[#1ABC9C] opacity-50"
             onMouseEnter={() => setShowText9(true)}
             onMouseLeave={() => setShowText9(false)}
             onClick={() => setShowSanChoiLangDuong(true)}
           ></div>
           <div 
-            className="absolute top-[17%] left-[36%] w-40 h-12 hover:cursor-pointer"
+            className="absolute top-[17vh] left-[36vw] w-[11vw] h-[6vh] hover:cursor-pointer bg-[#1ABC9C] opacity-50"
             onMouseEnter={() => setShowText9(true)}
             onMouseLeave={() => setShowText9(false)}
             onClick={() => setShowSanChoiLangDuong(true)}
           ></div>
           {showText9 && (
-            <div className="absolute top-[17%] left-[22%] w-40 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+            <div className="absolute top-[17vh] left-[22vw] w-[10vw] text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
               sân chơi làng dương
             </div>
           )}
 
           <div 
-            className="absolute top-[18%] left-[55%] w-45 h-27 hover:cursor-pointer"
+            className="absolute top-[18vh] left-[55vw] w-[12vw] h-[13.5vh] hover:cursor-pointer bg-[#3498DB] opacity-50"
             onMouseEnter={() => setShowText10(true)}
             onMouseLeave={() => setShowText10(false)}
             onClick={() => setShowSanChoiLangAm(true)}
           ></div>
           {showText10 && (
-            <div className="absolute top-[17%] left-[66.5%] w-40 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+            <div className="absolute top-[17vh] left-[63vw] w-[20vw] text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
               sân chơi<br /> làng<br/> âm
             </div>
           )}
 
           <div 
-            className="absolute rounded-full top-[37%] left-[81%] w-53 h-25 hover:cursor-pointer"
+            className="absolute rounded-full top-[37vh] left-[81vw] w-[15vw] h-[12.5vh] hover:cursor-pointer bg-[#2ECC71] opacity-50"
             onMouseEnter={() => setShowText11(true)}
             onMouseLeave={() => setShowText11(false)}
             onClick={() => setShowGianGua(true)}
           ></div>
           {showText11 && (
-            <div className="absolute top-[49%] left-[81.5%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+            <div className="absolute top-[49vh] left-[81.5vw] w-[15vw] text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
               giàn gừa
             </div>
           )}
 
           <div 
-            className="absolute top-[34%] left-[62%] w-55 h-33 rounded-full hover:cursor-pointer"
+            className="absolute top-[34vh] left-[62vw] w-[15.5vw] h-[16.5vh] rounded-full hover:cursor-pointer bg-[#E74C3C] opacity-50"
             onMouseEnter={() => setShowText12(true)}
             onMouseLeave={() => setShowText12(false)}
             onClick={() => setShowChoAm(true)}
           ></div>
           {showText12 && (
-            <div className="absolute top-[49.5%] left-[63%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+            <div className="absolute top-[50vh] left-[63vw] w-[14vw] text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
               chợ âm
             </div>
           )}
 
           <div 
-            className="absolute top-[57%] left-[71%] w-62 h-25 rounded-full hover:cursor-pointer"
+            className="absolute top-[57vh] left-[71vw] w-[17vw] h-[12.5vh] rounded-full hover:cursor-pointer bg-[#8E44AD] opacity-50"
             onMouseEnter={() => setShowText13(true)}
             onMouseLeave={() => setShowText13(false)}
             onClick={() => setShowNgoaiDinhLangAm(true)}
           ></div>
           {showText13 && (
-            <div className="absolute top-[69%] left-[72.5%] w-50 text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
+            <div className="absolute top-[69vh] left-[72.5vw] w-[14vw] text-center leading-[1] animate-fade-in-no-delay" style={{ fontFamily: 'LostType, sans-serif', color: 'var(--custom-red-2)', textShadow: 'var(--custom-yellow-2) 4px 4px 7px', fontSize: '30px' }}>
               đình làng âm
             </div>
           )}
