@@ -1,5 +1,5 @@
 # TRẦN SAO ÂM VẬY
-[Tiếng Anh](README.vi.md)
+[Tiếng Anh](README.en.md)
 
 Dự án web tương tác "Trần Sao Âm Vậy" lấy cảm hứng từ hình ảnh và nội dung đăng tải trên fanpage **Ma Quỷ Dân Gian Ký**, nhằm mang đến cho người dùng trải nghiệm mới lạ và độc đáo về các câu chuyện dân gian, huyền bí Việt Nam.
 
