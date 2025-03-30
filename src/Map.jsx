@@ -486,7 +486,7 @@ const MapPage = () => {
             onClick={() => setShowGanhHatTrenSong(true)}
           />
           {showText1 && (
-            <div className="absolute top-[22vh] left-[1.5vw] w-[10vw] text-center leading-[1] animate-fade-in-no-delay" 
+            <div className="absolute top-[22vh] left-[1.5vw] w-[15vw] text-center leading-[1] animate-fade-in-no-delay" 
               style={{ 
                 fontFamily: 'LostType, sans-serif', 
                 color: 'var(--custom-red-2)', 
