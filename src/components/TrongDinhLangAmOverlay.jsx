@@ -143,7 +143,7 @@ useEffect(() => {
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-50"
+      className="fixed inset-0 z-[9999] h-screen w-screen bg-black bg-opacity-50"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -153,7 +153,7 @@ useEffect(() => {
       <LazyImage 
         src={trongDinhLangAmBg} 
         alt="Trong Dinh Lang Am Background"
-        className="fixed inset-0 w-full h-[100%] object-cover"
+        className="fixed inset-0 w-full h-full object-fit"
       />
 
       {/* Ra ngoai Button */}
@@ -193,7 +193,7 @@ useEffect(() => {
 
       {/* Thien Linh Cai hotspot */}
       <div 
-        className="absolute z-[10000] top-[43.5vh] left-[70vw] rounded-full w-[3vw] h-[4.5vh] hover:cursor-pointer bg-[#4ECDC4] opacity-50"
+        className="absolute z-[10000] top-[43.5vh] left-[68vw] rounded-full w-[3vw] h-[4.5vh] hover:cursor-pointer bg-[#4ECDC4] opacity-50"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardOngHoMay && !showCardMaDoi) {
@@ -204,7 +204,7 @@ useEffect(() => {
 
       {/* Ong Ho May hotspot */}
       <div 
-        className="absolute z-[10000] top-[38vh] left-[78vw] w-[6vw] h-[26vh] hover:cursor-pointer bg-[#45B7D1] opacity-50 [transform:perspective(500px)_rotateZ(13deg)]"
+        className="absolute z-[10000] top-[38vh] left-[76vw] w-[6vw] h-[26vh] hover:cursor-pointer bg-[#45B7D1] opacity-50 [transform:perspective(500px)_rotateZ(13deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardThienLinhCai && !showCardMaDoi) {
@@ -215,7 +215,7 @@ useEffect(() => {
 
       {/* Ma Doi hotspot */}
       <div 
-        className="absolute z-[10000] top-[48vh] left-[52vw] w-[20vw] h-[22.5vh] hover:cursor-pointer bg-[#D4A5A5] opacity-50 [transform:perspective(500px)_rotateZ(31deg)]"
+        className="absolute z-[10000] top-[48vh] left-[52vw] w-[18vw] h-[20vh] hover:cursor-pointer bg-[#D4A5A5] opacity-50 [transform:perspective(500px)_rotateZ(31deg)]"
         onClick={(e) => {
           e.stopPropagation();
           if (!showCardHoTinh && !showCardThienLinhCai && !showCardOngHoMay) {
@@ -247,9 +247,9 @@ useEffect(() => {
           />
           <button 
             onClick={handleCloseCardHoTinh}
-            className="absolute z-[11100] top-[19.5vh] right-[8.5vw] w-[7.5vw] h-[7.5vh] flex items-center justify-center cursor-pointer hover:scale-110"
+            className="absolute z-[11100] top-[20vh] right-[10vw] w-[4.5vw] h-[6vh] flex items-center justify-center cursor-pointer hover:scale-110"
           >
-            <img src={closeButton} alt="Close" className="w-full h-full object-contain" />
+            <img src={closeButton} alt="Close" className="w-full h-full object-fit" />
           </button>
           {showInfoHoTinh1 && (
             <div 
