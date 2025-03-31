@@ -73,7 +73,7 @@ const Intro = () => {
     switched ? 'left-[50px] top-[150px] animate-slideLeftToRight' : 'right-[50px] top-[200px] animate-slideRightToLeft'
   }`}
   style={{
-    backgroundColor: switched ? 'rgba(0,0,0,0.3)' : 'rgba(228, 238, 202, 0.6)',
+    backgroundColor: switched ? 'rgba(0,0,0,0.3)' : 'rgba(228, 238, 202, 0.8)',
   }}
 >
   { (switched ? switchedText : originalText)
@@ -101,7 +101,7 @@ const Intro = () => {
           <img 
             src={switched ? amImage : duongImage} 
             alt="Switch" 
-            className="w-10 h-10 cursor-pointer hover:scale-110 transform transition" 
+            className="w-20 h-20 cursor-pointer hover:scale-110 transform transition" 
           />
         </button>
       </div>
