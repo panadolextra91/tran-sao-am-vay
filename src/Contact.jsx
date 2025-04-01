@@ -1,6 +1,6 @@
 import React from 'react';
 import TopBarWhite from './components/TopBarWhite';
-import lienHe from './assets/images/lien_he.jpg';
+import lienHe from './assets/images/lien_he_new.png';
 import yellow from './assets/images/yellow.png';
 
 const Contact = () => {
